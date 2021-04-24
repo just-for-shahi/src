@@ -1,0 +1,53 @@
+/* filter css */
+.filter-wrapper{
+  .filter-sort{
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    ul{
+      display: inline-block;
+      justify-content: center;
+      @extend .bg-light;
+      box-shadow: $box-shadow-lg2;
+      border-radius: remy(25px);
+      margin: 0;
+      li{
+        float:left;
+        @extend .color-dark;
+        font-weight: 400;
+        line-height: remy(50px);
+        padding: 0 remy(25px);
+        cursor: pointer;
+        transition: $transition-base;
+        border-radius: remy(25px);
+        &:hover, &.active{
+          @extend .bg-primary;
+          @extend .color-light;
+        }
+      }
+    }
+  }
+  .filter-sort2{
+    ul{
+      padding-bottom: remy(20px);
+      margin-bottom: remy(50px);
+      border-bottom: 1px solid $border-color;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      li{
+        margin-right: remy(35px);
+        @extend .color-dark;
+        font-weight: 500;
+        cursor: pointer;
+        transition: $transition-base;
+        &:hover, &.active{
+          @extend .color-secondary;
+        }
+        &:last-child{
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}

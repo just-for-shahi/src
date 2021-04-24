@@ -1,0 +1,105 @@
+/*
+Avatar
+*/
+.avatar{
+  position: relative;
+  display: table-cell !important;
+  vertical-align: middle;
+  line-height: 1;
+  border-radius: 500px;
+  white-space: nowrap;
+  font-weight: bold;
+  img{
+    border-radius: 500px;
+    width: 100%;
+  }
+  i{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width:  10px;
+    height: 10px;
+    margin: 1px;
+    border-width:  2px;
+    border-style:  solid;
+    border-radius: 100%;
+    background-color: #fff;
+    &.no-border{
+      width:  8px;
+      height: 8px;
+      margin: 2px;
+      border-color: rgba(0,0,0,0.1);
+    }
+    &.avatar-center{
+      top:  50%;
+      margin: 0;
+      margin-top: -4px;
+      + img{
+        margin: 0 14px 0 24px;
+        width: auto;
+      }
+    }
+    &.avatar-top{
+      left: 0;
+      top: 0;
+    }
+    &.avatar-right{
+      left: auto;
+      top: 0;
+      right: 0;
+    }
+    &.avatar-bottom{
+      left: auto;
+      top: auto;
+      bottom: 0;
+      right: 0;
+    }
+    &.avatar-left{
+      left: auto;
+      top: auto;
+      bottom: 0;
+    }
+    &.on{
+      background-color: $success;
+    }
+    &.off{
+      background-color: $light;
+    }
+    &.away{
+      background-color: $warning;
+    }
+    &.busy{
+      background-color: $danger;
+    }
+  }
+  &.w-32{
+    i{
+      margin: 0px;
+    }
+  }
+  &.w-48{
+    i{
+      margin: 2px;
+    }
+  }
+  &.w-56{
+    i{
+      margin: 3px;
+    }
+  }
+  &.w-64{
+    i{
+      margin: 4px;
+    }
+  }
+  &.w-96{
+    i{
+      margin: 9px;
+    }
+  }
+  &.w-128{
+    i{
+      margin: 14px;
+    }
+  }
+}

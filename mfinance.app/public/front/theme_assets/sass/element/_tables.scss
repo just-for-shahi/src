@@ -1,0 +1,61 @@
+/* table css */
+.table-styles{
+  background: #f4f4f4;
+}
+
+.table-secondary--darken{
+  @extend .bg-secondary;
+  tr, th{
+    @extend .color-light;
+  }
+}
+.table{
+  margin-bottom: 0;
+  th, td{
+    padding: remy(20px) 2rem;
+    vertical-align: middle;
+  }
+  th{
+    font-weight: 500;
+  }
+  thead{
+    th{
+      border: 0 none;
+    }
+  }
+  tbody{
+    @extend .bg-light;
+    th{
+      @extend .color-dark;
+    }
+  }
+  &.table-one{
+    border: 1px solid $border-color;
+  }
+  &.table-two{
+    thead{
+      th{
+        font-size: 1.2rem;
+        @extend .color-dark;
+      }
+    }
+    tbody{
+      tr:first-child{
+        th, td{
+          border-top: 0 none;
+        }
+      }
+      tr:last-child{
+        th, td{
+          border-bottom: 1px solid $border-color;
+        }
+      }
+      th{
+        padding: 1.66rem 1.66rem 1.66rem 0;
+      }
+    }
+  }
+  .table-gray{
+    background: #f5f5f7;
+  }
+}

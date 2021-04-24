@@ -1,0 +1,39 @@
+/* splitted bannder css */
+.splitted-banner{
+  padding: remy(150px) 0;
+  position: relative;
+  overflow: hidden;
+  .split-bg{
+    position: absolute;
+    width: 53%;
+    height: remy(700px);
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    @extend .bg-secondary;
+    z-index: 1;
+    height: 100%;
+    &:before{
+      position: absolute;
+      content: '';
+      height: 150%;
+      width: remy(400px);
+      right: remy(-430px);
+      top: 50%;
+      transform: translateY(-50%);
+      box-shadow: remy(-100px) 0 0 $secondary;
+      border-radius: 50%;
+    }
+  }
+  h1{
+    @extend .color-light;
+  }
+  .btns{
+    a{
+      margin-right: remy(30px);
+      &:last-child{
+        margin-right: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,328 @@
+/* icon box styles */
+/* icon-box1 */
+.icon-box{
+  span{
+    font-size: remy(40px);
+    margin-bottom: remy(20px);
+    display: inline-block;
+    line-height: 1;
+  }
+  h6{
+    margin-bottom: remy(17px);
+  }
+  p{
+    margin: 0;
+  }
+}
+
+/* icon box 1 */
+.icon-box-one, .icon-box-two{
+  margin-bottom: remy(50px);
+}
+.icon-box-two{
+  h5{
+    font-weight: 500;
+  }
+}
+
+/* icon-box3 */
+.icon-box-three{
+  margin-bottom: 2rem;
+  @extend .bg-light;
+  border-radius: $border-radius-lg;
+  box-shadow: $box-shadow-sm;
+  padding: 3rem 2rem;
+  position: relative;
+  &:before{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 3px;
+    @extend .bg-primary;
+    left: 0;
+    bottom: 0;
+    margin:0;
+    visibility: hidden;
+    transition: 0.5s ease;
+    border-radius: 0 0 6px 6px;
+    transform: scale(0);
+  }
+  &:hover{
+    &:before{
+      transform: scale(1);
+      visibility: visible;
+    }
+  }
+  h6{
+    margin-bottom: remy(17px);
+  }
+  p{
+    margin-bottom: 0;
+  }
+}
+.icon-rounded-lg{
+  display: inline-flex;
+  width: remy(80px);
+  height: remy(80px);
+  @extend .bg-primary;
+  font-size: remy(36px);
+  justify-content: center;
+  align-items: center;
+  @extend .color-light;
+  border-radius: 50%;
+  margin-bottom: 2rem;
+}
+
+/* icon box 4 */
+.icon-box-four{
+  margin-bottom: remy(50px);
+  .box-icon{
+    margin-right: 2rem;
+  }
+  .box-content{
+    h6{
+      margin: 0 0 remy(17px) 0;
+      @extend .color-dark;
+    }
+    p{
+      margin: 0;
+    }
+  }
+  &:hover{
+    .icon-rounded-sm{
+      @extend .bg-secondary;
+    }
+  }
+}
+.icon-rounded-sm, .icon-square-sm{
+  display: inline-flex;
+  width: remy(60px);
+  height: remy(60px);
+  @extend .bg-primary;
+  font-size: 2rem;
+  justify-content: center;
+  align-items: center;
+  @extend .color-light;
+  transition: $transition-base;
+}
+.icon-rounded-sm{
+  border-radius: 50%;
+  margin-bottom: remy(20px);
+}
+.icon-square-sm{
+  border-radius: 4px;
+}
+
+/* Icon Box 5 */
+.icon-box-five{
+  padding: 2.66rem;
+  transition: $transition-base;
+  .icon-rounded-sm{
+    @extend .bg-secondary;
+  }
+  h6{
+    transition: $transition-base;
+    margin-bottom: remy(17px);
+    @extend .color-dark;
+  }
+  p{
+    margin-bottom: 2.33rem;
+  }
+  &:hover{
+    @extend .bg-light;
+    box-shadow: $box-shadow-lg2;
+    .icon-rounded-sm{
+      @extend .bg-primary;
+    }
+    h5{
+      @extend .color-primary;
+    }
+    .btn{
+      &:hover{
+        @extend .bg-primary;
+        border-color: $primary;
+      }
+    }
+  }
+}
+
+/* icon box 6 */
+.icon-box-four{
+  h6{
+    @extend .color-dark;
+  }
+  .icon-square-sm{
+    margin-bottom: 2.33rem;
+  }
+  &:hover{
+    .icon-square-sm{
+      @extend .bg-secondary;
+    }
+  }
+}
+
+/* icon-box 8 */
+.icon-box-eight{
+  margin-bottom: remy(50px);
+  h6{
+    margin: 0 0 remy(17px) 0;
+    @extend .color-dark;
+  }
+  .icon-square-sm{
+    background: none;
+    border: 1px solid $secondary;
+    @extend .color-secondary;
+    margin-bottom: 2.33rem;
+  }
+  p{
+    margin-bottom: 0;
+  }
+  &:hover{
+    .icon-square-sm{
+      @extend .bg-secondary;
+      border-color: $secondary;
+      @extend .color-light;
+    }
+  }
+}
+
+/* icon-box 9 */
+.icon-box-nine{
+  margin-bottom: 2rem;
+  @extend .bg-light;
+  border-radius: $border-radius-lg;
+  box-shadow: $box-shadow-sm;
+  padding: 2rem 1.5rem;
+  .icon-rounded-sm{
+    background: none;
+    border: 1px solid rgba($secondary, 0.2);
+    @extend .color-secondary;
+  }
+  h6{
+    margin: 0;
+  }
+  p{
+    margin: remy(15px) 0 0 0;
+  }
+  &:hover{
+    .icon-rounded-sm{
+      @extend .bg-secondary;
+      border-color: $secondary;
+      @extend .color-light;
+    }
+  }
+}
+
+/* icon box 10 */
+.icon-box-img{
+  border: 1px solid $border-color;
+  padding: remy(45px) remy(30px);
+  transition: $transition-base;
+  margin-bottom: remy(30px);
+  .svg{
+    width: remy(80px);
+    margin-bottom: 1.33rem;
+  }
+  h6{
+    margin-bottom: remy(17px);
+  }
+  p{
+    margin-bottom: 0;
+  }
+  h6, p{
+    transition: $transition-base;
+  }
+  &:hover{
+    box-shadow: $box-shadow-sm;
+  }
+}
+
+/* icon box 11 */
+.icon-box-img2{
+  margin-bottom: 5.33rem;
+  .box-icon{
+    margin-right: 2rem;
+    .svg{
+      width: remy(70px);
+    }
+  }
+  .box-content{
+    h6{
+      margin: 0 0 remy(17px) 0;
+    }
+    p{
+      margin: 0;
+    }
+  }
+}
+
+/* icon-box 12 */
+.icon-box-rtl{
+  margin-bottom: remy(60px);
+  .box-icon{
+    margin-left: 2rem;
+  }
+  h5{
+    margin-bottom: remy(17px);
+  }
+  &:hover{
+    .icon-square-sm{
+      @extend .bg-secondary;
+    }
+  }
+}
+
+/* icon box - 13 */
+.icon-box-13{
+  margin-bottom: remy(30px);
+  padding: remy(50px);
+  border: 1px solid $border-color;
+  & > span{
+    font-size: remy(48px);
+  }
+}
+
+/* icon box - 14 */
+.icon-box-fourteen{
+  margin-bottom: remy(30px);
+  .icon-rounded{
+    font-size: remy(36px);
+    width: remy(70px);
+    height: remy(70px);
+    border-radius: remy(24px);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: remy(30px);
+    transition: $transition-base;
+  }
+  &:hover{
+    .icon-rounded{
+      background: $primary !important;
+    }
+  }
+}
+
+/* icon-box-fifteen */
+.icon-box-15{
+  border: 1px solid $border-color;
+  padding: remy(50px) remy(28px);
+  background: #fff;
+  transition: $transition-base;
+  margin-bottom: remy(30px);
+  img{
+    margin-bottom: remy(40px);
+  }
+  h6{
+    @extend .color-dark;
+    margin-bottom: remy(20px);
+  }
+  &:hover{
+    border-color: transparent;
+    box-shadow: 0 10px 30px rgba($box-shadow-color, .15);
+    margin-top: -5px;
+    margin-bottom: 5px;
+  }
+}
+

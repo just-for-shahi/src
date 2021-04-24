@@ -1,0 +1,10 @@
+// custom shadow
+.shadow-lg-2{
+  box-shadow: $box-shadow-lg2 !important;
+}
+.shadow_lg--bgwhite{
+  box-shadow: 0 5px 30px transparentize(#29293b, 0.9);
+}
+.shadow_lg2--bgwhite{
+  box-shadow: 0 10px 30px transparentize(#29293b, 0.9);
+}

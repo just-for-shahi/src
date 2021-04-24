@@ -1,0 +1,106 @@
+.wizard.wizard-1 .wizard-nav .wizard-steps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wizard.wizard-1 .wizard-nav .wizard-steps .wizard-step {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.wizard.wizard-1 .wizard-nav .wizard-steps .wizard-step .wizard-label {
+  margin-left: 3.5rem;
+  margin-right: 3.5rem;
+}
+.wizard.wizard-1 .wizard-nav .wizard-steps .wizard-step .wizard-label .wizard-icon {
+  color: #B5B5C3;
+  font-size: 3.75rem;
+}
+.wizard.wizard-1 .wizard-nav .wizard-steps .wizard-step .wizard-label .wizard-icon svg g [fill] {
+  transition: fill 0.3s ease;
+  fill: #B5B5C3;
+}
+.wizard.wizard-1 .wizard-nav .wizard-steps .wizard-step .wizard-label .wizard-icon svg:hover g [fill] {
+  transition: fill 0.3s ease;
+}
+.wizard.wizard-1 .wizard-nav .wizard-steps .wizard-step .wizard-label .wizard-title {
+  color: #7E8299;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-top: 0.75rem;
+}
+.wizard.wizard-1 .wizard-nav .wizard-steps .wizard-step .wizard-arrow {
+  color: #7E8299;
+  font-size: 1.25rem;
+}
+.wizard.wizard-1 .wizard-nav .wizard-steps .wizard-step .wizard-arrow.last {
+  display: none;
+}
+.wizard.wizard-1 .wizard-nav .wizard-steps .wizard-step[data-wizard-state=done] .wizard-label .wizard-icon, .wizard.wizard-1 .wizard-nav .wizard-steps .wizard-step[data-wizard-state=current] .wizard-label .wizard-icon {
+  color: #3699FF;
+}
+.wizard.wizard-1 .wizard-nav .wizard-steps .wizard-step[data-wizard-state=done] .wizard-label .wizard-icon svg g [fill], .wizard.wizard-1 .wizard-nav .wizard-steps .wizard-step[data-wizard-state=current] .wizard-label .wizard-icon svg g [fill] {
+  transition: fill 0.3s ease;
+  fill: #3699FF;
+}
+.wizard.wizard-1 .wizard-nav .wizard-steps .wizard-step[data-wizard-state=done] .wizard-label .wizard-icon svg:hover g [fill], .wizard.wizard-1 .wizard-nav .wizard-steps .wizard-step[data-wizard-state=current] .wizard-label .wizard-icon svg:hover g [fill] {
+  transition: fill 0.3s ease;
+}
+.wizard.wizard-1 .wizard-nav .wizard-steps .wizard-step[data-wizard-state=done] .wizard-label .wizard-title, .wizard.wizard-1 .wizard-nav .wizard-steps .wizard-step[data-wizard-state=current] .wizard-label .wizard-title {
+  color: #3699FF;
+}
+.wizard.wizard-1 .wizard-nav .wizard-steps .wizard-step[data-wizard-state=done] .wizard-arrow, .wizard.wizard-1 .wizard-nav .wizard-steps .wizard-step[data-wizard-state=current] .wizard-arrow {
+  color: #3699FF;
+}
+.wizard.wizard-1 .wizard-nav .wizard-steps .wizard-step[data-wizard-state=done] .wizard-arrow svg g [fill], .wizard.wizard-1 .wizard-nav .wizard-steps .wizard-step[data-wizard-state=current] .wizard-arrow svg g [fill] {
+  transition: fill 0.3s ease;
+  fill: #3699FF;
+}
+.wizard.wizard-1 .wizard-nav .wizard-steps .wizard-step[data-wizard-state=done] .wizard-arrow svg:hover g [fill], .wizard.wizard-1 .wizard-nav .wizard-steps .wizard-step[data-wizard-state=current] .wizard-arrow svg:hover g [fill] {
+  transition: fill 0.3s ease;
+}
+
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .wizard.wizard-1 .wizard-nav .wizard-steps .wizard-step .wizard-label {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+  .wizard.wizard-1 .wizard-nav .wizard-steps .wizard-step .wizard-label .wizard-icon {
+    font-size: 3.75rem;
+  }
+  .wizard.wizard-1 .wizard-nav .wizard-steps .wizard-step .wizard-label .wizard-title {
+    margin-top: 0.75rem;
+  }
+  .wizard.wizard-1 .wizard-nav .wizard-steps .wizard-step .wizard-arrow {
+    font-size: 1.1rem;
+  }
+}
+@media (max-width: 767.98px) {
+  .wizard.wizard-1 .wizard-nav .wizard-steps {
+    flex-direction: column;
+  }
+  .wizard.wizard-1 .wizard-nav .wizard-steps .wizard-step {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  .wizard.wizard-1 .wizard-nav .wizard-steps .wizard-step .wizard-label {
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .wizard.wizard-1 .wizard-nav .wizard-steps .wizard-step .wizard-label .wizard-icon {
+    font-size: 1.5rem;
+    margin-right: 1.25rem;
+  }
+  .wizard.wizard-1 .wizard-nav .wizard-steps .wizard-step .wizard-arrow {
+    font-size: 1rem;
+  }
+  .wizard.wizard-1 .wizard-nav .wizard-steps .wizard-step .wizard-arrow.last {
+    display: block;
+  }
+}

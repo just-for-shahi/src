@@ -1,0 +1,33 @@
+/* gallery styles */
+
+//gallery image view
+.gallery-image-view{
+  .portfolio-carousel-single{
+    margin-bottom: remy(10px);
+    img{
+      width: auto;
+    }
+  }
+  .carousel-thumbs{
+    ul{
+      margin: 0;
+      li{
+        margin: 0 remy(5px);
+      }
+    }
+  }
+  .image-view-carousel{
+    .carousel-single figure{
+      img{
+        width: 100%;
+      }
+    }
+  }
+}
+
+//gallery fullwidth
+.gallery-fullwidth{
+  .portfolio-carousel-single{
+    width: 25%;
+  }
+}

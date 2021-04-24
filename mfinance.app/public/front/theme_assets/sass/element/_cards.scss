@@ -1,0 +1,915 @@
+//card
+.card{
+  border-radius: remy(4px);
+  overflow: hidden;
+  figure{
+    margin: 0;
+  }
+  .card-body{
+    .card-title{
+      margin-bottom: 25px;
+    }
+    h6{
+      margin-bottom: 0;
+      line-height: remy(28px);
+      a{
+        @extend .color-dark;
+        &:hover{
+          @extend .color-secondary;
+        }
+      }
+    }
+    h4 a{
+      &:hover{
+        @extend .color-primary;
+      }
+    }
+  }
+  .card-footer{
+    padding: remy(25px) remy(30px);
+    ul{
+      margin: 0;
+    }
+  }
+  &.card-shadow{
+    box-shadow: $box-shadow;
+  }
+  &.card--dark{
+    background: #fff;
+    .card-header{
+      background: inherit;
+      padding: remy(23px) remy(30px) remy(30px);
+      h5{
+        margin: 0;
+      }
+    }
+  }
+  &.card--sidebar{
+    .card-header{
+      padding: remy(30px);
+      h4{
+        margin:0;
+      }
+    }
+    .card-body{
+      padding: remy(30px) remy(30px) remy(50px);
+    }
+  }
+}
+
+//card-one
+.card-one{
+  margin-bottom: remy(30px);
+  figure{
+    position: relative;
+    figcaption{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top:0;
+      background: transparentize($secondary, .2);
+      transition: $transition-base;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      visibility:hidden;
+      a{
+        display: inline-flex;
+        align-items: center;
+        justify-content:center;
+        width: remy(50px);
+        height: remy(50px);
+        background: #fff;
+        border-radius: 50%;
+        font-size: remy(18px);
+        transition: $transition-base;
+        transform: scale(1.5);
+        &:hover{
+          @extend .bg-primary;
+          color: #fff;
+        }
+      }
+    }
+  }
+  .card-subtitle{
+    margin: 0 0 remy(10px) 0;
+    line-height: 1;
+  }
+  &:hover{
+    figure{
+      figcaption{
+        opacity: 1;
+        visibility: visible;
+        a{
+          transform: scale(1);
+        }
+      }
+    }
+  }
+}
+
+//card-two
+.card-two{
+  .card-footer{
+    ul{
+      display: flex;
+      flex-wrap: wrap;
+      li{
+        color: $light-gray;
+        padding-right: remy(15px);
+        margin-right: remy(15px);
+        position: relative;
+        &:before{
+          position: absolute;
+          content: '|';
+          right: 0;
+          top: 0;
+          color: #e4e8ed;
+        }
+        &:last-child{
+          margin-right: 0;
+          &:before{
+            content: none;
+          }
+        }
+        a{
+          color: $light-gray;
+        }
+
+      }
+    }
+  }
+}
+
+// card-three
+.card-three, .card-video, .card-text{
+  margin-bottom: remy(30px) !important;
+  .card-subtitle{
+    margin: 0 0 remy(10px) 0;
+  }
+  .card-text{
+    margin-top: remy(15px);
+  }
+}
+
+// card-video
+.card-video{
+  figure{
+    position: relative;
+    figcaption{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top:0;
+      background: transparentize($dark, .8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      a{
+        display: inline-flex;
+        width: remy(45px);
+        height: remy(45px);
+        @extend .bg-light;
+        @extend .color-secondary;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        justify-content: center;
+        align-items: center;
+        .svg{
+          width: remy(13px);
+          fill: $secondary;
+          transition: $transition-base;
+        }
+        &:hover{
+          @extend .bg-secondary;
+          .svg{
+            fill: $light;
+          }
+        }
+      }
+    }
+  }
+}
+
+// card-text
+.card-text{
+  .card-body{
+    h5{
+      margin: 0 0 2rem 0;
+    }
+  }
+  &:last-child{
+    margin-bottom: 0 !important;
+  }
+}
+
+// card-four
+.card-four{
+  margin-bottom: remy(30px);
+  .card-body{
+    .card-subtitle{
+      margin-bottom: 4px;
+    }
+    h5{
+      margin-bottom: 1.33rem;
+      a{
+        @extend .color-dark;
+      }
+      &:hover{
+        a{
+          @extend .color-secondary;
+        }
+      }
+    }
+    .card-text{
+      margin-bottom: 1.6rem;
+    }
+  }
+}
+
+// card-product
+.card-product{
+  margin-bottom: remy(30px);
+  position: relative;
+  figure{
+    position:relative;
+    overflow: hidden;
+    figcaption{
+      position: absolute;
+      width: 100%;
+      left: 0;
+      bottom: -76px;
+      @extend .bg-primary;
+      transition: $transition-base;
+      opacity: 0;
+      ul{
+        margin: 0;
+        padding: 0.8rem 0;
+        li:last-child{
+          margin-left: 0.66rem;
+        }
+        a.btn--rounded{
+          border-color: rgba($light, 0.3);
+          @extend .color-light;
+        }
+        .like-btn{
+          position: relative;
+          i{
+            z-index: 2;
+          }
+          &:hover{
+            @extend .color-primary;
+            background: #fff;
+          }
+        }
+      }
+    }
+  }
+  .card-body{
+    text-align: center;
+    padding: remy(25px) remy(30px);
+    h6{
+      margin-bottom: 5px;
+      a{
+        @extend .color-dark;
+        transition: $transition-base;
+        &:hover{
+          @extend .color-secondary;
+        }
+      }
+    }
+    .prices{
+      margin-top: remy(10px);
+      .product-price{
+        font-size: 1.33rem;
+        font-weight: 600;
+        line-height: remy(18px);
+        display: inline-block;
+      }
+      .old-price{
+        font-weight: 500;
+        display: inline-block;
+        margin-right: 7px;
+        color: $light-gray;
+        text-decoration: line-through;
+      }
+    }
+  }
+  &:hover{
+    figure{
+      figcaption{
+        opacity: 1;
+        bottom: 0;
+      }
+    }
+  }
+
+  .badge{
+    position: absolute;
+    left: 0.66rem;
+    top: 0.66rem;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+}
+
+//card-six
+.card-six{
+  .card-body{
+    h5{
+      margin-bottom: remy(20px);
+      a{
+        @extend .color-dark;
+        transition: $transition-base;
+        &:hover{
+          @extend .color-secondary;
+        }
+      }
+    }
+  }
+}
+
+//card-seven
+.card--seven{
+  .card-body{
+    padding-bottom: remy(30px);
+    h6{
+      margin-bottom: remy(15px);
+      a{
+        transition: $transition-base;
+      }
+    }
+    p{
+      margin-bottom: 0;
+    }
+    .btn{
+      margin-top: remy(25px);
+    }
+  }
+  &:hover{
+    .card-body{
+      h5 a{
+        @extend .color-secondary;
+      }
+    }
+  }
+}
+
+//card-eight
+.card--eight{
+  .card-body{
+    padding-bottom: remy(30px);
+    h5{
+      margin-bottom: remy(15px);
+      a{
+        transition: $transition-base;
+        @extend .color-dark;
+        &:hover{
+          @extend .color-secondary;
+        }
+      }
+    }
+    p{
+      margin-bottom: 0;
+    }
+    .btn{
+      margin-top: remy(25px);
+    }
+  }
+}
+
+//card ten
+.card--ten{
+  margin-bottom: remy(70px);
+  figure{
+    margin-bottom: 0;
+  }
+  .card-body{
+    h6 a{
+      @extend .color-dark;
+    }
+  }
+}
+
+//card eleven
+.card--eleven{
+  position: relative;
+  border: 0 none;
+  overflow: hidden;
+  figure{
+    img{
+      border-radius: remy(5px);
+    }
+  }
+  .card-body{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100px;
+    background: rgba($primary, .7);
+    visibility: visible;
+    opacity: 1;
+    transition: $transition-base;
+    padding: remy(20px) remy(30px);
+    transition: $transition-base;
+    .card-contents{
+      .content-top{
+        display: flex;
+        text-align: left;
+        align-items: center;
+        span{
+          font-size: remy(36px);
+          @extend .color-light;
+          margin-right: remy(15px);
+        }
+        h6{
+          margin-bottom: 0;
+        }
+      }
+      .content-bottom{
+        max-height: 0;
+        transition: 0.5s ease;
+        overflow: hidden;
+        p{
+          margin-top: remy(15px);
+        }
+      }
+    }
+    h6{
+      @extend .color-light;
+      margin-bottom: 0;
+    }
+    p{
+      color:rgba($light, .9);
+      margin-bottom: remy(30px);
+    }
+  }
+  &:hover{
+    .card-body{
+      min-height: 100%;
+      .card-contents{
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        padding:0 remy(40px);
+        .content-top{
+          display: block;
+          text-align: center;
+          span{
+            display: none;
+          }
+          h5{
+            margin-bottom: remy(30px);
+          }
+        }
+        .content-bottom{
+          max-height: 300px;
+        }
+      }
+    }
+  }
+}
+
+//card twelve
+.card-twelve{
+  border: 0 none;
+  border-radius: 3px;
+  box-shadow: $box-shadow-lg2;
+  .card-body{
+    padding-bottom: remy(30px);
+    .step{
+      display: block;
+      font-size: remy(36px);
+      font-weight: 500;
+      @extend .color-secondary;
+      line-height: 1;
+    }
+    h6{
+      margin: remy(15px) 0;
+      @extend .color-dark;
+    }
+    p{
+      margin-bottom: remy(24px);
+    }
+  }
+}
+
+//card fourteen
+.card--fourteen{
+  position: relative;
+  border: 0 none;
+  &:hover{
+    .card-body{
+      visibility:visible;
+      opacity: 1;
+      bottom: 0;
+    }
+  }
+  figure{
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .card-body{
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    background: rgba($info, .9);
+    visibility: hidden;
+    opacity: 0;
+    transition: $transition-base;
+    padding: remy(15px) remy(30px);
+    transition: $transition-base;
+    border-radius: 0 0 4px 4px;
+    .card-contents{
+      .content-top{
+        h6{
+          margin-bottom: 0;
+          a{
+            color: #fff;
+          }
+        }
+        span{
+          color: rgba($light, 0.8);
+          margin-bottom: remy(5px);
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+// testimonial card
+.card--testimonial{
+  padding: remy(30px);
+  position: relative;
+  z-index: 1;
+  &:before{
+    position: absolute;
+    content: "\f075";
+    right: remy(30px);
+    top: remy(30px);
+    color: rgba($primary, 0.1);
+    font-size: remy(80px);
+    font-family: "Line Awesome Free";
+    line-height: 1;
+    z-index: -1;
+    font-weight: 900;
+  }
+  .author{
+    align-items: center;
+    .author-spec{
+      margin-left: remy(15px);
+      h6{
+        margin-bottom: remy(8px);
+      }
+    }
+  }
+  .content{
+    margin-top: remy(20px);
+    p{
+      margin: 0;
+    }
+  }
+}
+
+// testimonial card - 2
+.card--testimonial2{
+  margin-bottom: remy(30px);
+  border: 1px solid #f3f3f3 !important;
+  .card-body h6{
+    padding-top: 18px;
+    @extend .color-dark;
+  }
+  .ratings{
+    margin: remy(5px) 0 remy(15px) 0;
+    display: flex;
+    justify-content: center;
+    span{
+      margin: 0 1px 0 0;
+      &:last-child{
+        margin--right: 0;
+      }
+    }
+  }
+  .author-spec{
+    margin-top: remy(20px);
+    margin-bottom: 0;
+    strong{
+      font-weight: 500;
+      @extend .color-dark;
+    }
+  }
+}
+
+// Team cards
+.team-carousel-one{
+  .nav-square{
+    visibility: hidden;
+    opacity: 0;
+    transition: $transition-base;
+  }
+  &:hover{
+    .nav-square{
+      visibility:visible;
+      opacity:1;
+    }
+  }
+}
+.card--team1{
+  border: 1px solid #f3f3f3 !important;
+  .card-body{
+    padding: remy(30px);
+    h6{
+      margin: remy(20px) 0 remy(10px) 0;
+    }
+    .team-designation{
+      padding: 0 remy(15px);
+      line-height: remy(30px);
+      display: inline-block;
+      background: rgba($secondary, 0.1);
+      border-radius: 3px;
+      @extend .color-secondary;
+    }
+    .team-social{
+      margin: remy(25px) 0 0 0;
+      li{
+        margin-right: remy(10px);
+        &:last-child{
+          margin-right: 0;
+        }
+        a{
+          color: rgba($light-gray, 0.7);
+          font-size: remy(14px);
+          width: remy(34px);
+          height: remy(34px);
+          border-radius: remy(300px);
+          background: rgba($section-bg, 0.5);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          &:hover{
+            color: #fff;
+            @extend .bg-secondary;
+          }
+        }
+      }
+    }
+  }
+}
+
+// team card 2
+.card--team2{
+  border-radius: 0;
+  border: 0 none;
+  figure{
+    position: relative;
+    overflow: hidden;
+    margin-bottom: remy(10px);
+    figcaption{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      @extend .bg-primary;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0.9);
+      transition: 0.4s ease;
+      .team-social{
+        margin: 0 0 remy(40px) 0;
+        li{
+          margin-right: remy(20px);
+          &:last-child{
+            margin-right: 0;
+          }
+          a{
+            @extend .color-light;
+            font-size: remy(16px);
+          }
+        }
+      }
+      .btn-outline-light{
+        @extend .color-light;
+      }
+    }
+  }
+  .card-body{
+    padding: remy(15px);
+    text-align: center;
+    h6{
+      @extend .color-light;
+      margin-bottom: remy(5px);
+    }
+    span{
+      color: rgba($light, 0.7);
+    }
+  }
+  &:hover{
+    figure figcaption{
+      opacity: 1;
+      visibility: visible;
+      -webkit-transform: scale(1);
+      -moz-transform: scale(1);
+      -ms-transform: scale(1);
+      -o-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+}
+
+//team card 3
+.card--team3{
+  border: 0 none;
+  box-shadow: $box-shadow;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: remy(30px);
+  .card__thumbnail{
+    img{
+      width: 100%;
+    }
+  }
+  .card-body{
+    padding: remy(24px) remy(30px);
+    >p{
+      margin-bottom: 25px;
+    }
+    h6{
+      margin-bottom: remy(5px);
+      @extend .color-dark;
+    }
+    .subtitle{
+      display: block;
+      margin-bottom: remy(15px);
+      font-size: remy(14px);
+      color: $light-gray;
+    }
+  }
+}
+
+//team card 4
+.card.card--team4{
+  margin-bottom: remy(30px);
+  flex-direction: row;
+  align-items: center;
+  .team-image{
+    flex: none;
+  }
+  .team-info{
+    h6{
+      margin-bottom: 5px;
+      a{
+        transition: $transition-base;
+      }
+    }
+  }
+  p{
+    margin: 0;
+  }
+  &:hover{
+    .team-info h5 a{
+      @extend .color-primary;
+    }
+  }
+}
+
+//post card
+.post--card{
+  transition: $transition-base;
+    box-shadow: $box-shadow;
+  .card-body{
+    h6{
+      margin: 0 0 remy(10px) 0;
+      a{
+        @extend .color-dark;
+        transition: $transition-base;
+        &:hover{
+          @extend .color-primary;
+        }
+      }
+    }
+    .post-meta{
+      margin-bottom: remy(15px);
+      li{
+        color: $light-gray;
+        margin-right: remy(15px);
+        &:last-child{
+          margin-right: 0;
+        }
+        a{
+          @extend .color-secondary;
+          &:hover{
+            @extend .color-primary;
+          }
+        }
+      }
+    }
+    p{
+      margin-bottom: 0;
+
+    }
+  }
+}
+
+.post--card2{
+  figure{
+    padding: remy(20px) remy(20px) 0;
+    position: relative;
+    figcaption{
+      position: absolute;
+      left: remy(40px);
+      bottom: remy(20px);
+      a{
+        width: remy(40px);
+        height: remy(40px);
+        border-radius: 50%;
+        @extend .bg-danger;
+        @extend .color-light;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+  .card-body{
+    h5{
+      margin-bottom: remy(10px);
+    }
+    .post-meta{
+      padding-bottom: remy(20px);
+      margin-bottom: remy(20px);
+      border-bottom: 1px solid $border-color;
+      flex-wrap: wrap;
+      li a{
+        @extend .color-dark;
+        transition: $transition-base;
+        &:hover{
+          @extend .color-primary;
+        }
+      }
+    }
+  }
+  &.post--card3{
+    figure{
+      padding: 0;
+      figcaption{
+        left: remy(20px);
+      }
+    }
+    .card-body{
+      h6{
+        margin-bottom: remy(10px);
+        line-height: remy(28px);
+      }
+      .post-meta{
+        padding-bottom: remy(18px);
+        margin-bottom: remy(12px);
+      }
+    }
+  }
+}
+
+//card rounded
+.card--rounded{
+  border-radius: remy(8px);
+}
+
+//cards
+.card-style-two .card-two,
+.card-style-seven .card--seven,
+.card-style-nine .card--nine,
+.card-style-eleven .card--eleven,
+.card-style-twelve .card-twelve,
+.card-style-fourteen .card--fourteen,
+.card-style-eight .card--eight,
+.post--card1 .post--card,
+.card--team1, .card--team2{
+  margin-bottom: remy(30px);
+}
+
+
+.post--card4{
+  box-shadow: $box-shadow-lg2;
+  border: 0 none;
+  margin-bottom: remy(30px);
+  &:hover{
+    border: 0 none;
+  }
+  .card-body .post-meta{
+    margin-bottom: 0;
+  }
+}

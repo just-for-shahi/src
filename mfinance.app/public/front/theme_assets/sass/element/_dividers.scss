@@ -1,0 +1,103 @@
+/* section title css */
+.divider{
+  h1, h2{
+    margin-bottom: remy(5px);
+  }
+  .divider-split{
+    display: inline-block;
+    width: 5.66rem;
+    height: remy(5px);
+    position: relative;
+    &:before{
+      position: absolute;
+      content: '';
+      width: 4rem;
+      height: 100%;
+      left: 0;
+      top: 0;
+      @extend .bg-primary;
+      border-radius: remy(50px);
+    }
+    &:after{
+      position: absolute;
+      content: '';
+      width: 1rem;
+      height: 100%;
+      right: 0;
+      top: 0;
+      @extend .bg-primary;
+      border-radius: remy(50px);
+    }
+  }
+  .divider-straight{
+    display: inline-block;
+    width: 4.66rem;
+    height: remy(5px);
+    @extend .bg-primary;
+    border-radius: 50px;
+  }
+  .divider-line{
+    display: block;
+    height: 1px;
+    background: $border-color;
+  }
+  p{
+    margin: 1rem 0 0 0;
+    font-size: 18px;
+  }
+
+  &.text-center{
+    p{
+      max-width: remy(600px);
+    }
+  }
+  &.divider-light{
+    margin-bottom: remy(47px);
+    .divider-split{
+      &:before{
+        @extend .bg-light;
+      }
+      &:after{
+        @extend .bg-light;
+      }
+    }
+  }
+  &.divider-simple{
+    h3{
+      margin-bottom: remy(15px);
+    }
+    h2{
+      margin-bottom: remy(20px);
+    }
+  }
+}
+.section-title-simple{
+  width: remy(600px);
+  margin: 0 auto;
+  text-align: center;
+  h1{
+    margin-bottom: 20px;
+  }
+}
+
+.subtext{
+  font-size: remy(20px);
+  font-weight: 600;
+  @extend .color-secondary;
+  display: block;
+  margin-bottom: remy(5px);
+}
+
+.section-title-primary{
+  text-align: center;
+  margin-bottom: remy(45px);
+  h3{
+    @extend .color-dark;
+    margin: 0 0 remy(15px);
+    line-height: remy(44px);
+  }
+  p{
+    @extend .color-dark;
+    margin:0;
+  }
+}

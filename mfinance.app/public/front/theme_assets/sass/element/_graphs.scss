@@ -1,0 +1,40 @@
+/* chart styles */
+.line-chart_wrap{
+  h6{
+    font-weight: 600;
+    @extend .color-dark;
+    margin-bottom: remy(40px);
+  }
+}
+.legend{
+  ul{
+    margin-top: remy(20px);
+    margin-bottom: 0;
+    li{
+      display: inline-block;
+      margin-right: remy(20px);
+      &:last-child{
+        margin-right: 0;
+      }
+      span{
+        width: remy(12px);
+        height: remy(12px);
+        display: inline-block;
+        border-radius: 2px;
+        margin-right: remy(7px);
+      }
+    }
+  }
+  &.legend-list{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    ul li{
+      display: block;
+    }
+  }
+}
+.pie-chart{
+  position: relative;
+}

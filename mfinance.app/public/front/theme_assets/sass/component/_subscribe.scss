@@ -1,0 +1,152 @@
+/* subscribe css */
+.subscribe-wrapper{
+  padding: remy(95px) 0;
+  h2{
+    @extend .color-light;
+    margin: 0 0 remy(15px) 0;
+  }
+  p{
+    font-size: remy(17px);
+    color: rgba($light, .7);
+    margin-bottom: remy(35px);
+  }
+  .subscribe-form{
+    button{
+      margin-left: remy(30px);
+    }
+  }
+}
+
+.subscribe--two{
+  position: relative;
+  background:linear-gradient(140deg, rgba(65,58,164,1) 0%, rgba(65,58,164,1) 25%, rgba(6,181,144,1) 100%);
+  padding-bottom: remy(150px);
+  overflow: hidden;
+  &:before{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: remy(76px);
+    left: 0;
+    bottom: 0;
+    background: url("img/sb2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+.subscribe-three{
+  box-shadow: $box-shadow-lg;
+  padding: remy(60px) 0;
+  position: relative;
+  z-index: 1;
+  h4{
+    margin: 0;
+  }
+  .subscribe-form--inline{
+    input{
+      background: #F4F4F4;
+    }
+    button{
+      margin-left: remy(30px);
+    }
+  }
+}
+
+.subscribe-four{
+  padding: remy(130px) 0;
+  h3{
+    margin: 0 0 remy(8px) 0;
+    @extend .color-light;
+  }
+  p{
+    margin: 0;
+    color: rgba($light, 0.7);
+    font-size: remy(18px);
+  }
+  form{
+    .input-group-subscribe button{
+      @extend .bg-primary;
+    }
+  }
+}
+
+.subscribe--five{
+  h2{
+    color: #fff;
+    margin-bottom: remy(15px);
+  }
+  p{
+    color: #fff;
+    font-size: remy(17px);
+    margin-bottom: remy(36px);
+  }
+  .subscribe-form-two{
+    .form-control{
+      padding-top: remy(5px);
+      padding-bottom: remy(5px);
+      height: remy(60px);
+    }
+    .btn{
+      line-height: remy(40px);
+      right: remy(5px);
+    }
+  }
+}
+
+.subscribe-six{
+  @extend .subscribe-three;
+}
+
+.subscribe-seven{
+  padding: remy(115px) 0;
+  background: url("img/map-bg.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.subscribe-form-two{
+  & > div{
+    position: relative;
+  }
+  .form-control{
+    height: remy(70px);
+    box-shadow: 0 10px 30px rgba($box-shadow-color, .15);
+    border: 0 none;
+    border-radius: remy(3px);
+    padding-right: remy(185px);
+    padding-left:remy(30px);
+  }
+  .btn{
+    position: absolute;
+    right:remy(15px);
+    top:50%;
+    transform: translateY(-50%);
+    box-shadow: none;
+  }
+}
+.subscribe-contents{
+  h2{
+    line-height: remy(48px);
+    @extend .color-dark;
+    font-size: remy(24px);
+    span{
+      @extend .color-secondary;
+      font-size: remy(36px);
+    }
+  }
+  img{
+    margin-top: remy(70px);
+  }
+}
+
+/* subscribe eight */
+.subscribe-eight{
+  padding: remy(95px) 0 remy(110px);
+}
+
+
+
+
+
+

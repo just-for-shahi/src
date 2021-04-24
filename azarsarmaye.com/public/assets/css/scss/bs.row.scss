@@ -1,0 +1,100 @@
+/*
+Row 
+*/
+.col-0{
+  clear:left;
+}
+
+.row.no-gutter{
+  margin-left: 0;
+  margin-right: 0;
+  [class*="col-"]{
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.row{
+  margin-left:  -12px;
+  margin-right: -12px;
+  [class*="col-"]{
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+.row-lg{
+  margin-left: -20px;
+  margin-right: -20px;
+  [class*="col-"]{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.row-md{
+  margin-left: -16px;
+  margin-right: -16px;
+  [class*="col-"]{
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+.row-sm{
+  margin-left: -8px;
+  margin-right: -8px;
+  [class*="col-"]{
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
+.row-xs{
+  margin-left: -4px;
+  margin-right: -4px;
+  [class*="col-"]{
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .col-lg-2-4{
+    width: 20.000%;
+    float: left;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .row{
+    margin-left: -8px;
+    margin-right: -8px;
+    [class*="col-"]{
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+  }
+  .row-2 [class*="col"]{
+    width: 50%;
+    float: left;
+  }
+  .row-2 .col-0{
+    clear: none;
+  }
+  .row-2 li:nth-child(odd) { 
+    clear: left;
+    margin-left: 0;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .row{
+    margin-left: -4px;
+    margin-right: -4px;
+    [class*="col-"]{
+      padding-left: 4px;
+      padding-right: 4px;
+    }
+  }
+}

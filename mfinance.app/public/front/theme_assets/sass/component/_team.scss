@@ -1,0 +1,47 @@
+/* team css */
+// team four
+.team-four{
+  transition: $transition-base;
+  box-shadow: $box-shadow;
+  .subtitle{
+    margin-bottom: remy(20px);
+    display:inline-block;
+    font-size: remy(14px);
+  }
+  img{
+    border-radius: remy(4px) remy(4px) 0 0;
+    transition: $transition-base;
+  }
+  .content{
+    padding: remy(27px) remy(30px) remy(30px);
+    border-radius:0 0 remy(4px) remy(4px);
+    transition: $transition-base;
+    @extend .bg-light;
+    h6{
+      margin-bottom: remy(10px);
+      font-size: remy(16px);
+    }
+  }
+}
+
+//team five
+.team-five{
+  .content{
+    margin-top: remy(25px);
+    h6{
+      margin-bottom: remy(10px);
+      a{
+        @extend .color-secondary;
+        &:hover{
+          @extend .color-primary;
+        }
+      }
+    }
+    span{
+      display: block;
+      &.color-primary{
+        font-weight: 500;
+      }
+    }
+  }
+}

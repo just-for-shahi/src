@@ -1,0 +1,95 @@
+/*
+Page
+*/
+.page-content{
+  position: relative;
+  z-index: 10;
+}
+
+.page-bg{
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: 0;
+  height: 50vh;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 0;
+  &:before{
+    content: '';
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: inherit;
+    background-position: inherit;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0.1;
+  }
+  &:after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height: 50%;
+    width: 100%;
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0), $white);
+    background-repeat: repeat-x;
+  }
+  .light &{
+    &:after{
+      background-image: linear-gradient(to bottom, rgba(255,255,255,0), $light);
+    }
+  }
+  .grey &{
+    &:before{
+      opacity: 0.15;
+    }
+    &:after{
+      background-image: linear-gradient(to bottom, rgba(0,0,0,0), $grey);
+    }
+  }
+  .dark &{
+    &:before{
+      opacity: 0.15;
+    }
+    &:after{
+      background-image: linear-gradient(to bottom, rgba(0,0,0,0), $dark);
+    }
+  }
+  .black &{
+    &:before{
+      opacity: 0.15;
+    }
+    &:after{
+      background-image: linear-gradient(to bottom, rgba(0,0,0,0), $black);
+    }
+  }
+}
+
+.cover{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: inherit;
+  background-position: 50% 50%;
+  position: relative;
+  &:after{
+    position: absolute;
+    z-index: 0;
+    content: '';
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background-color: inherit;
+    opacity: 0.65;
+  }
+  &.cover-gd:after{
+    background-image: linear-gradient(to right, $info, $primary);
+  }
+  > *{
+    position: relative;
+    z-index: 1;
+  }
+}

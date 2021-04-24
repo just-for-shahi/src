@@ -1,0 +1,144 @@
+//widget styles
+.widget-wrapper{
+  .widget-default{
+    border-radius: remy(4px);
+    border: 1px solid $border-color;
+    margin-bottom: remy(30px);
+  }
+  .widget-header{
+    .widget-title{
+      margin: 0;
+      border-bottom: 1px solid $border-color;
+      padding: remy(20px) remy(30px) remy(20px) remy(30px);
+    }
+  }
+  .widget-content{
+    padding: remy(30px) remy(30px) remy(30px);
+  }
+  .widget-shadow{
+    @extend .bg-light;
+    box-shadow: $box-shadow-sm;
+    border-radius: remy(6px);
+  }
+}
+
+//signup widget
+.signup-widget{
+  .form-group{
+    margin-bottom: remy(20px);
+    &:last-child{
+      margin-bottom:0;
+    }
+  }
+}
+
+//Search widget
+.search-widget{
+  margin-bottom: remy(30px);
+  .input-group{
+    position: relative;
+    input{
+      width: 100%;
+      border-radius: remy(25px);
+      background: #f5f4f7;
+      border: 0 none;
+      height: remy(50px);
+      padding: 0 remy(60px) 0 remy(25px);
+      &:focus{
+        outline: 0;
+      }
+    }
+    button{
+      padding: 0 remy(20px);
+      border-radius: remy(25px);
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: remy(50px);
+      background: none;
+      border: 0;
+      cursor: pointer;
+    }
+  }
+}
+
+//category widget
+.category-widget{
+  ul{
+    margin-top: -6px;
+    li a{
+      @extend .color-dark;
+      transition: $transition-base;
+      &:hover{
+        @extend .color-primary;
+      }
+    }
+  }
+}
+
+//posts widget
+.sidebar-post{
+  .post-single{
+    margin-bottom: remy(25px);
+    &:last-child{
+      margin-bottom: 0;
+    }
+    img{
+      border-radius: 3px;
+    }
+    P{
+      margin:0 0 0 remy(15px);
+      span{
+        display: block;
+        line-height: remy(22px);
+        a{
+          @extend .color-info;
+        }
+      }
+    }
+    .post-title{
+      margin-top: remy(10px);
+      display: block;
+      font-weight: 500;
+      @extend .color-dark;
+    }
+  }
+}
+
+//Tags widget
+.tags-widget{
+  ul{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: -10px;
+    li{
+      margin-right: remy(10px);
+      margin-bottom: remy(10px);
+      &:last-child{
+        margin-right: 0;
+      }
+      a{
+        line-height: remy(26px);
+        display: block;
+        border: 1px solid $border-color;
+        border-radius: 3px;
+        padding: 2px remy(10px);
+        transition: $transition-base;
+        color: $body-color;
+        font-size: remy(13px);
+        &:hover{
+          @extend .color-light;
+          @extend .bg-primary;
+          border-color: $primary;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+

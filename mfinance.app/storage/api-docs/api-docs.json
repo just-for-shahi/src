@@ -1,0 +1,64 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "MFinance Swagger UI",
+        "description": "Swagger OpenApi v1",
+        "contact": {
+            "email": "sajadweb7@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://mfinance.app//api/v1",
+            "description": "MFinance host server"
+        },
+        {
+            "url": "http://127.0.0.1:8000/api/v1",
+            "description": "Localhost host server"
+        }
+    ],
+    "paths": {
+        "/health": {
+            "get": {
+                "operationId": "App\\Http\\Controllers\\Controller::health",
+                "responses": {
+                    "200": {
+                        "description": "Display a listing of projects."
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "headers": {
+            "x-page": {
+                "description": "current page",
+                "schema": {
+                    "type": "integer"
+                }
+            },
+            "x-count": {
+                "description": "total items in each page",
+                "schema": {
+                    "type": "integer"
+                }
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "name": "Authorization",
+                "in": "header",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}

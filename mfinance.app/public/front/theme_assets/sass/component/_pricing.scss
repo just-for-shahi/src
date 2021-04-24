@@ -1,0 +1,131 @@
+// pricing scss
+
+.pricing{
+  text-align: center;
+  padding: 30px;
+  margin-bottom: remy(30px);
+  .pricing__title{
+    h4{
+      @extend .color-primary;
+      line-height: 2rem;
+      margin-bottom: 0;
+      font-weight: 600;
+    }
+    span{
+      color: $light-gray;
+      line-height: 1.8rem;
+      display: inline-block;
+    }
+  }
+  .pricing__price{
+    @extend .bg-secondary;
+    p{
+      font-size: 3.33rem;
+      font-weight: 600;
+      @extend .color-light;
+      margin-bottom: 0;
+      line-height: remy(74px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      sup{
+        font-size: 1.63rem;
+      }
+      small{
+        font-size: 1rem;
+        position: relative;
+        top: remy(8px);
+      }
+    }
+  }
+
+  &.pricing--1{
+    border-radius: 6px;
+    padding: 36px 30px 40px;
+    @extend .bg-light;
+    .pricing__title{
+      margin-bottom: remy(30px);
+      h4{
+        font-size: 1.60rem;
+      }
+    }
+    .pricing__price{
+      max-width: 231px;
+      margin: 0 auto;
+      p{
+        margin: 0;
+      }
+    }
+    .pricing__features{
+      padding: 2rem 0;
+      ul{
+        margin: 0;
+        li{
+          margin-bottom: remy(15px);
+          &:last-child{
+            margin-bottom:0;
+          }
+        }
+      }
+    }
+  }
+
+  &.pricing--2{
+    @extend .bg-light;
+    padding: 0;
+    .pricing__features_list{
+      text-align: left;
+      padding: 5.86rem 3.33rem 3.33rem;
+      P{
+        margin: 0;
+      }
+      ul.list{
+        margin-top: 63px;
+        li{
+          &:first-child{
+            border-top: 1px solid $border-color;
+          }
+          line-height: 3.20rem;
+          font-weight: 500;
+          @extend .color-dark;
+          border-bottom: 1px solid $border-color;
+        }
+      }
+    }
+    .pricing__wrapper{
+      flex: 2;
+      flex-wrap: wrap;
+      .pricing_option{
+        padding: 3.20rem 2rem 3.33rem;
+        flex-basis: 0;
+        flex-grow: 1;
+        transition: $transition-base;
+        .pricing__title{
+          margin-bottom: 22px;
+        }
+        ul.favail{
+          margin-bottom: 2.66rem;
+          li{
+            line-height: 3.20rem;
+            border-bottom: 1px solid $border-color;
+            &:first-child{
+              border-top: 1px solid $border-color;
+            }
+            i{
+              font-size: 18px;
+              &.la-close{
+                @extend .color-danger;
+              }
+            }
+          }
+        }
+        &:hover{
+          box-shadow: $box-shadow-bg-white;
+        }
+      }
+      .pricing__price{
+        margin-bottom: 2.66rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+/* progress bar css */
+.progress-wrapper{
+  margin-bottom: 2rem;
+  &:last-child{
+    margin-bottom: 0;
+  }
+  .labels{
+    margin-bottom: 0.66rem;
+    span{
+      @extend .color-dark;
+      &:last-child{
+        font-weight: 600;
+      }
+    }
+  }
+  .progress{
+    box-shadow: none;
+    .progress-bar{
+      border-radius: 0.25rem;
+    }
+  }
+}
+.progress-dark{
+  padding: 2.33rem 2.66rem;
+  @extend .bg-dark;
+  .labels span{
+    @extend .color-light;
+  }
+  .progress{
+    background: #414144;
+  }
+  .progress-wrapper .labels span{
+    color: #fff;
+  }
+}

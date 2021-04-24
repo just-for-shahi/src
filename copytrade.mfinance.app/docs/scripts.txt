@@ -1,0 +1,207 @@
+UPDATE accounts 
+INNER JOIN broker_servers ON broker_servers.id=accounts.`broker_server_id`
+SET broker_server_name=broker_servers.`name`
+WHERE accounts.broker_server_id=broker_servers.id
+
+INSERT INTO new_copier.`broker_servers` (`name`, srv_file)
+SELECT copier.broker_servers.`name`, FROM_BASE64(copier.broker_servers.srv_file)
+FROM copier.`broker_servers`
+LEFT JOIN new_copier.`broker_servers`
+ON new_copier.`broker_servers`.`name`=copier.`broker_servers`.`name`
+WHERE new_copier.`broker_servers`.id IS NULL
+
+INSERT INTO new_copier.`accounts` (account_number, `password`, broker_server_name, user_id, manager_id, api_server_id, copier_type, creator_id, created_at, updated_at, broker_server_id)
+SELECT copier.`accounts`.`account_number`, copier.`accounts`.`password`, copier.`broker_servers`.`name`, 4, 4, 72, 1, 4, NOW(), NOW(), copier.`accounts`.`broker_server_id`
+FROM copier.`accounts`
+INNER JOIN copier.`broker_servers`
+ON copier.`accounts`.`broker_server_id`=copier.`broker_servers`.`id`
+
+UPDATE accounts
+INNER JOIN api_servers ON api_servers.id=accounts.`api_server_id`
+SET api_server_ip=api_servers.`ip`
+WHERE accounts.api_server_id=api_servers.id
+
+
+ALTER TABLE `new_copier`.`accounts`
+  ADD COLUMN `broker_server_name` VARCHAR (255) NULL AFTER `build_equity`,
+  ADD COLUMN `api_server_ip` VARCHAR (100) NULL AFTER `broker_server_name`;
+
+ALTER TABLE `new_copier`.`accounts_stat`
+  ADD COLUMN `total_months` INT (11) NULL AFTER `updated_at`;
+
+ALTER TABLE `new_copier`.`accounts`
+  CHANGE `api_server_id` `api_server_id` INT (11) NULL,
+  CHANGE `broker_server_id` `broker_server_id` INT (11) NULL;
+
+ALTER TABLE `new_copier`.`api_servers`
+  ADD COLUMN `manager_id` INT NULL AFTER `max_accounts`;
+
+ALTER TABLE `new_copier`.`admin_role_menu`
+  ADD PRIMARY KEY (`role_id`, `menu_id`),
+  DROP INDEX `admin_role_menu_role_id_menu_id_index`;
+
+ALTER TABLE `new_copier`.`admin_role_permissions`
+  ADD PRIMARY KEY (`role_id`, `permission_id`),
+  DROP INDEX `admin_role_permissions_role_id_permission_id_index`;
+
+ALTER TABLE `new_copier`.`admin_role_users`
+  ADD PRIMARY KEY (`role_id`, `user_id`),
+  DROP INDEX `admin_role_users_role_id_user_id_index`;
+
+ALTER TABLE `new_copier`.`broker_servers`
+  ADD COLUMN `api_or_manager` TINYINT (4) DEFAULT 0 NULL AFTER `is_updated_or_new`,
+  ADD COLUMN `pairs_file_id` INT (11) NULL AFTER `api_or_manager`;
+
+
+ALTER TABLE `new_copier`.`broker_symbols`
+  ADD COLUMN `enabled` TINYINT (4) DEFAULT 1 NULL AFTER `spread`;
+
+ALTER TABLE `new_copier`.`copier_subscription_dest_accounts`
+  CHANGE `min_balance` `min_balance` DOUBLE (20, 2) DEFAULT 1.00 NULL,
+  CHANGE `live_time` `live_time` INT (11) DEFAULT 600 NULL,
+  CHANGE `enabled` `enabled` TINYINT (4) DEFAULT 1 NULL;
+
+ALTER TABLE `new_copier`.`files`
+  CHANGE `type` `type` ENUM (
+    'Srv',
+    'Tpl',
+    'Lib',
+    'File',
+    'Ex4',
+    'Exe',
+    'Pairs'
+  ) CHARSET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+
+ALTER TABLE `new_copier`.`copier_subscriptions`
+  ADD COLUMN `copier_subscription_group_id` INT (11) NULL AFTER `pairs_matching`;
+
+ALTER TABLE `new_copier`.`files`
+  ADD COLUMN `manager_id` INT NULL AFTER `type`;
+
+ALTER TABLE `new_copier`.`files`
+  CHANGE `manager_id` `manager_id` INT (11) UNSIGNED NULL;
+
+
+CREATE TABLE `new_copier`.`user_subscription_settings` (
+  `id` INT (11) NOT NULL AUTO_INCREMENT,
+  `user_id` INT (11) UNSIGNED NOT NULL,
+  `max_email_subscriptions` INT (11) DEFAULT 0,
+  `max_copier_subscriptions` INT (11) DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE = INNODB CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
+
+ALTER TABLE `copier`.`telegram_subscriptions`
+  ADD COLUMN `template_signal_new` TEXT NULL AFTER `channel_id`,
+  ADD COLUMN `template_signal_updated` TEXT NULL AFTER `template_signal_new`,
+  ADD COLUMN `template_signal_closed` TEXT NULL AFTER `template_signal_updated`;
+
+
+ALTER TABLE `copier`.`email_subscriptions`
+  ADD COLUMN `template_signal_new` TEXT NULL AFTER `updated_at`,
+  ADD COLUMN `template_signal_updated` TEXT NULL AFTER `template_signal_new`,
+  ADD COLUMN `template_signal_closed` TEXT NULL AFTER `template_signal_updated`;
+
+ALTER TABLE `new_copier`.`user_subscription_settings`
+  ADD UNIQUE INDEX (`user_id`);
+
+INSERT INTO admin_role_permissions (role_id, permission_id)
+SELECT id, 47 FROM admin_roles
+WHERE NOT EXISTS(SELECT role_id FROM admin_role_permissions WHERE (permission_id=47 AND role_id=id) AND role_id<>1 )
+
+ALTER TABLE `copier`.`accounts`
+  CHANGE `old_api_server_ip` `old_api_server_ip` VARCHAR (100) CHARSET utf8 COLLATE utf8_general_ci NULL;
+
+  ALTER TABLE `new_copier`.`api_servers`
+  ADD COLUMN `host_name` VARCHAR (255) NULL AFTER `manager_id`;
+
+  ALTER TABLE `copier`.`accounts`
+  ADD COLUMN `processing` TINYINT (4) DEFAULT 0 NULL AFTER `build_equity`;
+
+ALTER TABLE `new_copier`.`api_servers`
+  ADD COLUMN `max_processing_accounts` INT (11) DEFAULT 1 NULL AFTER `host_name`;
+
+  ALTER TABLE `new_copier`.`broker_servers`
+  DROP COLUMN `sort_order`,
+  DROP COLUMN `pairs`,
+  DROP COLUMN `set_file`,
+  DROP COLUMN `group_title`,
+  DROP COLUMN `pairs_file_id`,
+  ADD COLUMN `suffix` VARCHAR (10) NULL AFTER `api_or_manager`;
+
+CREATE TABLE `new_copier`.`accounts_removed` (
+  `id` INT (11) NOT NULL AUTO_INCREMENT,
+  `account_number` INT (11) NOT NULL,
+  `password` VARCHAR (100) NOT NULL,
+  `broker_server_name` VARCHAR (255) NOT NULL,
+  `manager_id` INT (10) UNSIGNED NOT NULL,
+  `creator_id` INT (10) UNSIGNED NOT NULL,
+  `created_at` DATETIME,
+  `updated_at` DATETIME,
+  `trade_allowed` TINYINT (4),
+  `symbol_trade_allowed` TINYINT (4),
+  `last_error` VARCHAR (1000),
+  `is_live` TINYINT (4),
+  `copier_type` TINYINT (4),
+  PRIMARY KEY (`id`)
+) ENGINE = INNODB CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
+
+ALTER TABLE `new_copier`.`accounts_removed`
+  ADD COLUMN `api_server_ip` VARCHAR (200) NULL AFTER `copier_type`;
+
+
+ALTER TABLE `new_copier`.`accounts_removed`
+  ADD FOREIGN KEY (`manager_id`) REFERENCES `copier`.`admin_users` (`id`) ON DELETE CASCADE;
+
+ALTER TABLE `new_copier`.`accounts`
+  CHANGE `api_server_ip` `api_server_ip` VARCHAR (100) CHARSET utf8 COLLATE utf8_general_ci NULL;
+
+ALTER TABLE `new_copier`.`accounts_stat`
+  ADD COLUMN `created_at` DATETIME NULL AFTER `ping_ms`
+  ;
+
+ALTER TABLE `new_copier`.`admin_users`
+  ADD COLUMN `activated` TINYINT (1) DEFAULT 0 NULL AFTER `trusted_hosts`,
+  ADD COLUMN `signup_ip_address` VARCHAR (15) NULL AFTER `activated`,
+  ADD COLUMN `signup_confirmation_ip_address` VARCHAR (15) NULL AFTER `signup_ip_address`,
+  ADD COLUMN `signup_sm_ip_address` VARCHAR (15) NULL AFTER `signup_confirmation_ip_address`;
+
+CREATE TABLE `new_copier`.`social_logins` (
+  `id` INT (11) NOT NULL AUTO_INCREMENT,
+  `user_id` INT (11) UNSIGNED NOT NULL,
+  `provider` VARCHAR (50),
+  `social_id` TEXT,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`user_id`) REFERENCES `new_copier`.`admin_users` (`id`) ON DELETE CASCADE
+) ENGINE = INNODB CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
+
+CREATE TABLE `new_copier`.`activations` (
+  `id` INT (11) NOT NULL AUTO_INCREMENT,
+  `user_id` INT (11) UNSIGNED NOT NULL,
+  `token` VARCHAR (255) NOT NULL,
+  `ip_address` VARCHAR (15) NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`user_id`) REFERENCES `new_copier`.`admin_users` (`id`) ON DELETE CASCADE
+) ENGINE = INNODB CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
+
+CREATE TABLE `new_copier`.`profiles` (
+  `id` INT (11) NOT NULL AUTO_INCREMENT,
+  `user_id` INT (11) UNSIGNED NOT NULL,
+  `location` VARCHAR (255),
+  `bio` TEXT,
+  `twitter_username` VARCHAR (255),
+  `github_username` VARCHAR (255),
+  `avatar` VARCHAR (255),
+  `created_at` DATETIME,
+  `updated_at` DATETIME,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`user_id`) REFERENCES `new_copier`.`admin_users` (`id`) ON DELETE CASCADE
+) ENGINE = INNODB CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
+
+ALTER TABLE `new_copier`.`activations`
+  ADD COLUMN `created_at` DATETIME NULL AFTER `ip_address`,
+  ADD COLUMN `updated_at` DATETIME NULL AFTER `created_at`;
+
+ALTER TABLE `new_copier`.`social_logins`
+  ADD COLUMN `created_at` DATETIME NULL AFTER `social_id`,
+  ADD COLUMN `updated_at` DATETIME NULL AFTER `created_at`;
+

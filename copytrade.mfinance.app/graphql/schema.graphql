@@ -1,0 +1,47 @@
+"A datetime string with format `Y-m-d H:i:s`, e.g. `2018-01-01 13:00:00`."
+scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+
+"A date string with format `Y-m-d`, e.g. `2011-05-23`."
+scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  accounts: [Account!]! @hasMany
+}
+
+type Account {
+  id: ID!
+  name: String
+  account_number: Int!
+  user: User!
+}
+
+type UserPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [User!]!
+}
+
+type AccountPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [Account!]!
+}
+
+type PaginatorInfo {
+  count: Int!
+  currentPage: Int!
+  firstItem: Int
+  hasMorePages: Boolean!
+  lastItem: Int
+  lastPage: Int!
+  perPage: Int!
+  total: Int!
+}
+
+type Query {
+  user(id: ID! @eq): User @find
+  account(id: ID! @eq): Account @find
+  users: [User!]! @paginate
+  accounts: [Account!]! @paginate
+}

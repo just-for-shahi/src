@@ -1,0 +1,11 @@
+// this file is the access point for composing all the available mixins
+@import "../../../vendor_assets/css/bootstrap/config.bs";
+
+@import "functions";
+@import "utility-classes";
+@import "colors-classes";
+@import "overlay";
+@import "btn-shadow";
+@import "forms";
+@import "custom-scrollbar";
+@import "gradient";

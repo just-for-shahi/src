@@ -1,0 +1,133 @@
+// menu top bar css
+.top_bar{
+  min-height: remy(50px);
+  .infos{
+    .infos--single{
+      &+.infos--single{
+        margin-left: remy(30px);
+      }
+      span{
+        @extend .color-primary;
+        font-size: 1.8rem;
+        margin-right: 11px;
+        margin-top: 3px
+      }
+      .info{
+        line-height: 1.7rem;
+        p{
+          margin: 0;
+          font-size: 1.1rem;
+          font-weight: 500;
+          @extend .color-dark;
+        }
+        small{
+          font-size: 15px;
+          @extend .color-light-gray;
+        }
+      }
+    }
+  }
+  ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .top_bar--lang{
+    cursor: pointer;
+    .dropdown {
+      .dropdown-menu{
+          min-width: 150px;
+      }
+      .lang_flag{
+        margin: 0 10px;
+      }
+      .dropdown-item{
+        img{
+          margin-right: 12px;
+        }
+      }
+      .lang{
+        color: transparentize($light, .4);
+        text-transform: uppercase;
+      }
+      span.la{
+        color: transparentize($light, .4);
+        font-size: remy(13px);
+      }
+    }
+  }
+  .top_bar--info{
+    li{
+      display: inline-block;
+      color: transparentize($light, .2);
+      span{
+        margin-right: 8px;
+        font-size: 20px;
+        display: inline-block;
+        vertical-align: middle;
+        color: transparentize($light, .4);
+      }
+      p{
+        display: inline-block;
+        margin: 0;
+        vertical-align: middle;
+        color: transparentize($light, .4);
+      }
+
+      &+li{
+        margin-left: remy(30px);
+      }
+    }
+  }
+  .top_bar--social{
+    ul li{
+      display: inline-block;
+      line-height: remy(54px);
+      border-left: 1px solid transparentize($light, .9);
+      &:last-child{
+        border-right: 1px solid transparentize($light, .9);
+      }
+      a{
+        color: transparentize($light, .4);
+        font-size: 15px;
+        padding: 0 20px;
+        &:hover{
+          @extend .color-light;
+        }
+      }
+    }
+  }
+
+  &.top--bar2{
+    .top_bar--info{
+      li{
+        color: rgba($light, 0.3);
+      }
+    }
+    .top_bar--social{
+      ul li{
+        border: 0;
+        a{
+          padding: 0 11px;
+          color: rgba($light, 0.6);
+          &:hover{
+            @extend .color-light;
+          }
+        }
+      }
+    }
+  }
+
+  &.top--bar3,&.top--bar4{
+    padding: remy(20px) 0;
+  }
+  &.top--bar4{
+    .infos{
+      .infos--single{
+        p{
+          @extend .color-dark;
+        }
+      }
+    }
+  }
+}

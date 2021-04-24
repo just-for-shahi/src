@@ -1,0 +1,102 @@
+/* breadcrumb styles */
+// life is a patato
+.breadcrumb{
+  .breadcrumb-item + .breadcrumb-item::before{
+    padding: 0 8px;
+    font-size: remy(12px);
+  }
+  li{
+    font-size: 14px;
+    a{
+      @extend .color-dark;
+      span{
+        margin-right: 5px;
+      }
+      font-weight: 500;
+      &:hover{
+        @extend .color-primary;
+      }
+    }
+    &::before{
+      font-family: 'Line Awesome Free', Poppins, sans-serif;
+      font-weight: 900;
+    }
+  }
+}
+.breadcrumb_area{
+  .page_title{
+    line-height: 4.80rem;
+    font-weight: 600;
+  }
+  &.breadcrumb1{
+    padding: remy(45px) 0;
+    .page_title{
+      margin: 0;
+      text-transform: capitalize;
+      @extend .color-dark;
+    }
+    background: $breadcrumb-area-bg;
+  }
+  &.breadcrumb2{
+    padding-top: 7.1rem;
+    .page_title{
+      @extend .color-light;
+      margin-bottom: 5.60rem;
+      text-align: center;
+      width: remy(750px);
+      line-height: remy(54px);
+    }
+    .breadcrumb{
+      li{
+        color: rgba($light,.5);
+        a{
+          @extend .color-light;
+          &:hover{
+            @extend .color-secondary;
+          }
+        }
+      }
+    }
+  }
+  &.breadcrumb-colored, &.breadcrumb-gradient{
+    .page_title{
+      @extend .color-light;
+    }
+    .breadcrumb li a{
+      @extend .color-light;
+    }
+    .breadcrumb-item.active, .breadcrumb-item + .breadcrumb-item::before{
+      color: rgba(255,255,255,0.5);
+    }
+  }
+}
+.breadcrumb3{
+  padding: remy(94px) 0 remy(157px);
+  .breadcrumb_wrapper{
+    .subtext{
+      font-size: remy(30px);
+    }
+    .page_title{
+      width: remy(500px);
+      margin: 0 auto;
+      @extend .color-light;
+      text-align: center;
+      line-height: remy(54px);
+    }
+    .breadcrumb{
+      margin-top: remy(80px);
+      li{
+        a{
+          @extend .color-light;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+

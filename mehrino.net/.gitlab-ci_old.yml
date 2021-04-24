@@ -1,0 +1,38 @@
+image: alpine:latest
+
+before_script:
+  - echo "(!) Starting process"
+  - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+  - php composer-setup.php
+  - php -r "unlink('composer-setup.php');"
+
+  
+deploy:
+  script:
+  - php composer.phar install --ignore-platform-reqs
+  - docker-compose build
+  - docker-compose up -d
+  - docker-compose exec -T laravel.test cp .env.example .env
+  # - docker-compose exec -T laravel.test php artisan key:generate
+  - docker-compose exec -T laravel.test php artisan migrate --force
+  - docker-compose exec -T laravel.test php artisan l5-swagger:generate 
+  # - docker-compose exec -T laravel.test php artisan passport:install
+  only:
+  - master
+  tags:
+  - deploy
+
+develop_deploy:
+  script:
+  - php composer.phar install --ignore-platform-reqs
+  - docker-compose -f docker-compose.dev.yml build
+  - docker-compose -f docker-compose.dev.yml up -d
+  - docker-compose -f docker-compose.dev.yml exec -T laravel.dev cp .env.example.dev .env
+  # - docker-compose -f docker-compose.dev.yml exec -T laravel.dev php artisan key:generate
+  - docker-compose -f docker-compose.dev.yml exec -T laravel.dev php artisan migrate --force
+  # - docker-compose -f docker-compose.dev.yml exec -T laravel.dev php artisan l5-swagger:generate 
+  # - docker-compose -f docker-compose.dev.yml exec -T laravel.dev php artisan passport:install
+  only:
+  - develop
+  tags:
+  - developdeploy

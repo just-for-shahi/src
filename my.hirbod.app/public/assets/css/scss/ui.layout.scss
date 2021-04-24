@@ -1,0 +1,207 @@
+/*
+Layout
+*/
+html{
+	height: 100%;
+}
+body{
+	height: auto;
+	min-height: 100%;
+	position: relative;
+}
+
+.app{
+  	
+}
+
+.app-aside{
+	opacity: 1;
+	overflow: hidden;
+  	position: fixed !important;
+  	z-index: 1030;
+  	float: left;
+  	height: 100%;
+  	> *{
+  		position: fixed;
+		top: 0;
+		bottom: 0;
+		width: inherit;
+		overflow: hidden;
+  	}
+}
+
+.app-content{
+	box-shadow: none;
+	@include clearfix();
+	padding: 0;
+}
+
+.app-header{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: inherit;
+	z-index: 1020;
+ 	&:not(.hide) ~ .app-body{
+		padding-top: $navbar-height;
+	}
+}
+
+.app-body{
+	left: inherit;
+}
+
+.app-body-inner{
+	padding-top: inherit !important;
+	padding-bottom: inherit !important;
+	position: absolute;
+	top:0;
+	bottom:0;
+	left: inherit;
+	right: 0;
+	overflow: auto;
+}
+
+.app-footer{
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 1010;
+	margin: inherit;
+	&:not(.hide) ~ .app-body{
+		padding-bottom: $footer-height;
+	}
+}
+
+// fixed layout
+.app-fixed{
+	overflow: hidden;
+	.app{
+		height: 100%;
+	}
+	.app-content{
+		position: relative;
+		min-height: 100%;
+	}
+	.app-footer{
+		margin-left: 0;
+	}
+}
+
+@include media-breakpoint-up(lg) {
+	.app-aside {
+		display: block !important;
+		&,
+		.scroll{
+			width: $aside-width;
+		}
+		&.lg{
+			&:not(.folded),
+			&:not(.folded) .scroll{
+				width: $aside-lg-width;
+			}
+			&:not(.hide) ~ .app-content{
+				margin-left: $aside-lg-width;
+				left: $aside-lg-width;
+			}
+		}
+		&.sm{
+			&:not(.folded),
+			&:not(.folded) .scroll{
+				width: $aside-sm-width;
+			}
+			&:not(.hide) ~ .app-content{
+				margin-left: $aside-sm-width;
+				left: $aside-sm-width;
+			}
+		}
+		&.folded{
+			width: $aside-folded-width;
+			&:not(.hide) ~ .app-content{
+				margin-left: $aside-folded-width;
+				left: $aside-folded-width;
+			}
+			&.md{
+				width: $aside-folded-md-width;
+				&:not(.hide) ~ .app-content{
+					margin-left: $aside-folded-md-width;
+					left: $aside-folded-md-width;
+				}
+			}
+		}
+		&:not(.hide) ~ .app-content{
+			margin-left: $aside-width;
+			left: $aside-width;
+		}
+	}
+	.app-header.hidden-lg-up{
+		 ~ .app-body{
+			padding-top: 0;
+		}
+	}
+	.hide-scroll{
+	  width: auto;
+	  margin-right: -17px;
+	  overflow-y: scroll;
+	  -webkit-overflow-scrolling:touch;
+	}
+}
+
+@include media-breakpoint-down(md) {
+	.app-aside {
+		@include transition-transform(opacity .15s linear);
+		width: 100%;
+		position: fixed;
+		z-index: 1050;
+		display: none;
+		background-color: transparent !important;
+		> *{
+			@include transition-transform(0.4s cubic-bezier(0.25, 0.8, 0.25, 1));
+      		@include translate3d(-100%, 0, 0);
+			width: 304px;
+		}
+		&.in{
+			> div{
+				@include translate3d(0, 0, 0);
+			}
+		}
+	}
+}
+
+@include media-breakpoint-up(md) {
+	.app-header.hidden-md-up{
+		 ~ .app-body{
+			padding-top: 0;
+		}
+	}
+}
+
+@include media-breakpoint-up(sm) {
+	.app-header.hidden-sm-up{
+		 ~ .app-body{
+			padding-top: 0;
+		}
+	}
+}
+
+@media print {
+	.app-aside,
+	.app-header,
+	.app-footer,
+	.switcher{
+		display: none;
+	}
+}
+
+/* fix ie9 */
+.ie9{
+	.app-aside{
+		position: static !important;
+		>div{
+			width: inherit;
+			position: absolute;
+		}
+	}
+}

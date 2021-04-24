@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+if [ ! -z "$WWWUSER" ]; then
+    usermod -u $WWWUSER sail
+fi
+
+if [ ! -d /.composer ]; then
+    mkdir /.composer
+fi
+
+chmod -R ugo+rw /.composer
+touch storage/clockwork/index
+chmod 777 storage/clockwork/index
+chown $WWWUSER:$WWWGROUP storage/clockwork/index
+
+if [ $# -gt 0 ];then
+    exec gosu $WWWUSER "$@"
+else
+    /usr/bin/supervisord
+fi

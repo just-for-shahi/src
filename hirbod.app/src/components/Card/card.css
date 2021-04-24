@@ -1,0 +1,62 @@
+.card-height {
+    height: 16rem;
+}
+
+.card-title-height{
+    display: flex;
+    min-height: 3rem;
+    align-items: center;
+}
+
+.titles {
+    color :blueviolet;
+}
+
+.avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 1rem;
+  background-color: blueviolet;
+  color: white;
+  align-items: center;
+  text-align: center;
+  margin-left: 0.5rem;
+}
+
+.btn-price {
+  background-color: rgba(11, 255, 154, 0.11);
+  color: #10d684;
+}
+
+.btn-price-nobgr {
+  color: #10d684;
+}
+
+.rate {
+  color: #fba30c;
+}
+
+.image {
+  min-height: 14rem;
+  max-height: 14rem;
+  overflow: hidden;
+  background-color: silver;
+}
+
+.image2 {
+    min-height: 14rem;
+    max-height: 14rem;
+    overflow: hidden;
+  background-color: silver;
+}
+
+.image-detail {
+    height: 20rem;
+    overflow: hidden;
+    object-fit:cover;
+    background-color: silver;
+}
+
+div img {
+    object-fit: fill;
+}

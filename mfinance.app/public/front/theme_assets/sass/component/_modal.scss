@@ -1,0 +1,41 @@
+// modal css goes here
+.modal{
+  &.search_modal{
+    background: rgba($light, .9);
+    .searc__field{
+      input{
+        background: transparent;
+        border: 2px solid rgba($light, 0.36);
+        color: #fff;
+        padding: 1.2rem 1.55rem;
+        &::placeholder{
+          color: rgba($light, 0.5)
+        }
+      }
+    }
+    .input_with_embed button{
+      font-size: 1.60rem;
+      color: rgba($light, .54);
+      cursor: pointer;
+      transition: 0.3s;
+      &:hover{
+        color: #fff;
+      }
+    }
+    .modal-body{
+      padding: 2.68rem 3.34rem;
+    }
+  }
+  .modal-dialog{
+    &.modal--fullwidth{
+      max-width: 1140px;
+    }
+    .modal-content{
+      &.transparent {
+        @extend .bg-primary;
+        box-shadow: 0 0.5rem 1.33rem rgba($primary, .5);
+        border: 0;
+      }
+    }
+  }
+}

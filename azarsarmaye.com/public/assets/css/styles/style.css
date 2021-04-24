@@ -1,0 +1,50 @@
+.brand-animate {
+    -webkit-animation: rotate 1s infinite linear;
+    animation: rotate 1s infinite linear;
+
+    transform-origin: 24px 24px;
+    -webkit-transform-origin: 24px 24px;
+
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+
+    -webkit-transition: all 0.3s ease-in-out;
+  	transition: all 0.3s ease-in-out;
+
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+}
+
+.pace-running .brand-animate{
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+
+.pace-done .brand-animate{
+    opacity: 0;
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+.login{
+    background: url("../../images/login.jpg") center no-repeat;
+    background-size: cover;
+}

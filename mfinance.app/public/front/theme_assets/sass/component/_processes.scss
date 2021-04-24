@@ -1,0 +1,99 @@
+/* process css */
+
+//process one
+.process-one{
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: remy(-15px);
+  margin-right: remy(-15px);
+  .process-single{
+    width: 25%;
+    margin-bottom: remy(70px);
+    padding: 0 remy(15px);
+    &:nth-child(2n + 1){
+      .icon{
+        &:before{
+          content: url("img/arrow-up.png");
+        }
+      }
+    }
+    .icon{
+      width: remy(140px);
+      height: remy(140px);
+      border-radius: 50%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto remy(30px);
+      &.gray-bg{
+        background: rgba($secondary, 0.1);
+      }
+      &.light-bg{
+        @extend .bg-light;
+      }
+      .icon-la{
+        font-size: remy(48px);
+        @extend .color-secondary;
+      }
+      .step{
+        position: absolute;
+        width: remy(35px);
+        height: remy(35px);
+        border-radius: 50%;
+        @extend .bg-light;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @extend .color-dark;
+        font-weight: 500;
+        left: 0;
+        top: 0;
+        box-shadow: $box-shadow-lg2;
+      }
+      &:before{
+        position: absolute;
+        content: url("img/arrow-down.png");
+        right: -90%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+    h6{
+      margin-bottom: remy(15px);
+    }
+    p{
+      margin: 0;
+    }
+    &:last-child, &:nth-child(4n){
+      margin-right: 0;
+      .icon{
+        &:before{
+          content: none;
+        }
+      }
+    }
+  }
+}
+
+//process three
+.process-three{
+  @extend .bg-light;
+  box-shadow: $box-shadow-lg2;
+  padding: remy(26px) remy(30px) remy(24px);
+  span{
+    display:block;
+    font-size: remy(35px);
+    font-weight: 400;
+    @extend .color-secondary;
+    margin-bottom: remy(18px);
+    line-height: 1;
+  }
+  h6{
+    margin-bottom: remy(18px);
+  }
+
+  p{
+    margin: 0;
+  }
+}

@@ -1,0 +1,104 @@
+.walletCountainer {
+  /* width: 100%; */
+  max-width: 25rem;
+  min-height: 100vh;
+  margin: 0 auto;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.4);
+}
+.app {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: grey;
+}
+
+.divider {
+  width: 90%;
+  margin: 0 auto;
+  border-bottom: 0.1rem solid grey;
+  margin-bottom: 1.5rem;
+}
+
+.form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.items {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.label {
+  font-size: 1rem;
+  /* font-weight: bold; */
+  color: black;
+  margin-bottom: 1rem;
+}
+
+.capcha {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  width: 100%;
+}
+.card:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 15vh;
+  /* background-color: #591fb9; */
+  /* -webkit-filter: saturate(35%);
+  filter: saturate(35%); */
+  background-size: cover;
+  border-radius: 0px 0px 50px 50px;
+}
+
+.card-header {
+  width: 100%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: center;
+  position: relative;
+  top: -50px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+}
+@media (min-width: 601px) {
+  .card-header {
+    max-width: 960px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+  }
+}
+
+

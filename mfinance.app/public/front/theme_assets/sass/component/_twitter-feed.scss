@@ -1,0 +1,75 @@
+/* twitter feed css */
+.twitter-feeds{
+  padding: remy(105px) 0 remy(108px);
+  .feed-single{
+    .feed-header{
+      margin-bottom: remy(40px);
+      span i{
+        font-size: remy(30px);
+        @extend .color-light;
+      }
+      .user{
+        @extend .color-light;
+      }
+      .time{
+        color: rgba($light, 0.5);
+      }
+      p{
+        margin: 0;
+      }
+    }
+    .feed-content{
+      width: remy(730px);
+      margin: 0 auto;
+      p{
+        font-size: remy(18px);
+        line-height: remy(32px);
+        color: rgba($light, 0.7);
+        margin-bottom: remy(20px);
+      }
+      .twit-link{
+        @extend .color-light;
+        &:hover{
+          @extend .color-dark;
+        }
+      }
+      .tags{
+        @extend .color-warning;
+      }
+    }
+  }
+}
+.twitter-feeds--light{
+  .feed-single{
+    .feed-header{
+      .user{
+        @extend .color-primary;
+      }
+      .time{
+        color: rgba($dark, 0.5);
+      }
+      span i{
+        @extend .color-secondary;
+      }
+    }
+    .feed-content{
+      p{
+        color: inherit;
+      }
+      .twit-link{
+        @extend .color-secondary;
+      }
+    }
+  }
+}
+.follow-btn{
+  .btn{
+    text-transform: capitalize;
+    display: inline-flex;
+    align-items: center;
+    i{
+      font-size: remy(18px);
+      margin-right: remy(10px);
+    }
+  }
+}

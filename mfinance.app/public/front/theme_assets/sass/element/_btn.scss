@@ -1,0 +1,248 @@
+@import "../mixins/btn-shadow";
+
+// this file contains theme specific btn styles
+.btn{
+  text-transform: capitalize;
+  font-size: remy(14px);
+  font-weight: 500;
+  &.btn--rounded{
+    border-radius: 200px;
+  }
+  &.btn-sm{
+    font-size: 0.86rem;
+  }
+  &.btn-lg{
+    font-size: 1rem;
+    white-space: normal;
+  }
+  &a{
+    @extend .color-light;
+  }
+  &.btn-light{
+    -webkit-box-shadow: 0 10px 20px transparentize(#29293b, 0.85);
+    -moz-box-shadow: 0 10px 20px transparentize(#29293b, 0.85);
+    box-shadow: 0 10px 20px transparentize(#29293b, 0.85);
+  }
+  &.btn-outline-light{
+    border: 1px solid #e4e8ed;
+    color: #e4e8ed;
+    &:hover{
+      color: #212529;
+      background: #e4e8ed;
+    }
+  }
+  &.btn-arrow{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    i{
+      margin-left: 0.66rem;
+    }
+  }
+  &.btn-icon{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    &.icon-left{
+      i, span{
+        margin-right: 6px;
+      }
+    }
+    &.icon-right{
+      i, span{
+        margin-left: 6px;
+      }
+    }
+  }
+  &.like-btn{
+    width: remy(41px);
+    height: remy(41px);
+    font-size: remy(18px);
+    @extend .color-secondary;
+    border: 1px solid rgba($light, 0.3);
+    border-radius: 50%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba($secondary, 0.1);
+    &:focus{
+      outline: 0;
+    }
+    &:hover{
+      @extend .color-light;
+      @extend .bg-secondary;
+    }
+  }
+  &.filter-btn{
+    font-size: remy(15px);
+    min-width: auto;
+    padding: 0 remy(20px);
+    font-weight: 400;
+    text-transform: capitalize;
+    box-shadow: none;
+    &:focus{
+      outline: 0;
+      box-shadow: none;
+    }
+  }
+  &.btn-gradient{
+    background: linear-gradient(to right, $primary, $secondary);
+    color: #fff;
+    border: none;
+    box-shadow: 0 10px 15px rgba(6, 181, 144, 0.2);
+  }
+  &.btn-icon-only{
+    padding-left: remy(15px);
+    padding-right: remy(15px);
+    font-size: remy(18px);
+  }
+}
+
+//Play btns
+.play-btn-wrapper{
+  display: flex;
+  align-items: center;
+  @extend .color-secondary;
+  font-weight: 500;
+  margin-left: remy(15px);
+  .play-btn{
+    margin-right: remy(20px);
+  }
+}
+.play-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  @extend .color-light;
+  font-size: remy(30px);
+  transition: $transition-base;
+  position: relative;
+  .svg{
+    width:1.2rem;
+    fill: #fff;
+    transition: all 0.3s ease;
+  }
+  &:hover{
+    @extend .color-light;
+    @extend .bg-primary;
+  }
+  &.play-btn--lg{
+    width: remy(70px);
+    height: remy(70px);
+  }
+  &.play-btn--sm{
+    width: remy(50px);
+    height: remy(50px);
+    font-size: remy(23px);
+    .svg{
+      width:1rem;
+    }
+  }
+  &.play-btn-light{
+    @extend .bg-light;
+    @extend .color-dark;
+    &:hover{
+      @extend .bg-secondary;
+      @extend .color-light;
+      .svg{
+        fill: #fff;
+      }
+    }
+    .svg{
+      fill: $secondary;
+    }
+  }
+  &.play-btn--gesture{
+    @extend .color-secondary;
+    font-size: remy(28px);
+    &:before{
+      position: absolute;
+      content: '';
+      width: 130%;
+      height:130%;
+      left: -15%;
+      top: -15%;
+      background: rgba($secondary, 0.15);
+      border-radius: remy(300px);
+    }
+    &:after{
+      position: absolute;
+      content: '';
+      width: 160%;
+      height:160%;
+      left: -30%;
+      top: -30%;
+      background: rgba($secondary, 0.05);
+      border-radius: remy(300px);
+    }
+    &:hover{
+      background: inherit;
+    }
+  }
+  &.play-btn--primary{
+    @extend .bg-primary;
+  }
+  &.play-btn--secondary{
+    @extend .bg-secondary;
+  }
+}
+.action-btns{
+  ul{
+    li{
+      margin-right: 5px;
+      &:last-child{
+        margin-right: 0;
+      }
+      &.share-btn{
+        position: relative;
+        padding-bottom: remy(15px);
+        ul{
+          position: absolute;
+          right: 0;
+          top: remy(60px);
+          display: flex;
+          justify-content: center;
+          padding: remy(15px) remy(30px);
+          @extend .bg-light;
+          border-radius: 3px;
+          visibility: hidden;
+          opacity: 0;
+          transition: $transition-base;
+          box-shadow: 0 0 15px rgba(0,0,0,0.15);
+          &:before{
+            position: absolute;
+            content: '';
+            border-bottom: remy(10px) solid $light;
+            border-right: remy(8px) solid transparent;
+            border-left: remy(8px) solid transparent;
+            right: remy(17px);
+            bottom: 100%;
+          }
+          li{
+            margin-right: remy(15px);
+            &:last-child{
+              margin-right: 0;
+            }
+            a{
+              font-size: remy(15px);
+              @extend .color-secondary;
+              transition: $transition-base;
+              &:hover{
+                @extend .color-primary;
+              }
+            }
+          }
+        }
+        &:hover{
+          ul{
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+      }
+    }
+  }
+}

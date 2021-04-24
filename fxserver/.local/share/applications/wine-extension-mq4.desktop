@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=MetaEditor
+MimeType=application/x-wine-extension-mq4;
+Exec=env WINEPREFIX="/root/.wine" wine start /ProgIDOpen MQL4.File %f
+NoDisplay=true
+StartupNotify=true
+Icon=BB88_MetaEditor.0

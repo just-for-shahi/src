@@ -1,0 +1,18 @@
+@import "../../../vendor_assets/css/bootstrap/config.bs";
+
+@each  $key, $color in ($theme-colors) {
+  .btn-#{$key} {
+    -webkit-box-shadow: 0 10px 20px transparentize($color, 0.8);
+    -moz-box-shadow: 0 10px 20px transparentize($color, 0.8);
+    box-shadow: 0 10px 20px transparentize($color, 0.8);
+  }
+}
+
+//border opacity
+@each  $key, $color in ($theme-colors) {
+  .outline-thick-#{$key} {
+    border: 2px solid rgba($color, 0.2);
+    background: none;
+    color: $color;
+  }
+}

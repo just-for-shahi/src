@@ -1,0 +1,5 @@
+1. add recent activity: user, object (license, campaign, member, accounts), action (activated, joined, created, used), item (license, account)
+2. add quick create dialog
+3. add manager settings: email layout, skin, logo, title, email server settings
+4. dashboard: members, accounts, products+accounts
+5. 

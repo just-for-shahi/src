@@ -1,0 +1,52 @@
+//events style css
+.event-single{
+  margin-bottom: remy(30px);
+  height: remy(200px);
+  align-items: center;
+  box-shadow: $box-shadow-lg;
+  @extend .bg-light;
+  .event-date{
+    width: remy(230px);
+    align-self: stretch;
+    @extend .bg-secondary;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    h1{
+      @extend .color-light;
+      margin-bottom: 0;
+    }
+    .month{
+      font-size: remy(18px);
+      @extend .color-light;
+    }
+    .year{
+      display: block;
+      font-size: remy(30px);
+      font-weight: 600;
+      @extend .color-light;
+    }
+  }
+  .event-info{
+    padding: remy(35px) remy(40px);
+    display: flex;
+    align-items: center;
+    flex: 3;
+    flex-wrap: wrap;
+    h5{
+      margin-bottom: remy(15px);
+      a{
+        @extend .color-dark;
+        transition: $transition-base;
+        &:hover{
+          @extend .color-primary;
+        }
+      }
+    }
+    .view-btn{
+      margin-left: auto;
+    }
+  }
+}

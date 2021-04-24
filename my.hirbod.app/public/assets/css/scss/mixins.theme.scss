@@ -1,0 +1,29 @@
+@mixin theme($bg, $color){
+	.text-theme, 
+	.text-theme-hover a:hover, 
+	.text-theme-hover .active > a{
+	  color: $bg !important;
+	}
+	.nav-active-theme .nav-link.active, 
+	.nav-active-theme .nav > li.active > a,
+	.btn.theme,
+	.btn.b-theme:hover,
+	.btn.b-theme:focus,
+	.pace .pace-progress,
+	.theme{
+	  color: $color !important;
+	  background-color: $bg !important;
+	  .lt{
+		background-color: lighten($bg, $color-percent);
+	  }
+	  .dk{
+		background-color: darken($bg, $color-percent);
+	  }
+	  .lt{
+		background-color: lighten($bg, $color-percent);
+	  }
+	}
+	.b-theme{
+	  border-color: $bg;
+	}
+}

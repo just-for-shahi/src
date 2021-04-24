@@ -1,0 +1,1287 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Hirbod API</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"><style>@import url('https://fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200');.hljs-comment,.hljs-title{color:#8e908c}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#c82829}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f5871f}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#eab700}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#718c00}.css .hljs-hexcolor{color:#3e999f}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#4271ae}.hljs-keyword,.javascript .hljs-function{color:#8959a8}.hljs{display:block;background:white;color:#4d4d4c;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}.right .hljs-comment{color:#969896}.right .css .hljs-class,.right .css .hljs-id,.right .css .hljs-pseudo,.right .hljs-attribute,.right .hljs-regexp,.right .hljs-tag,.right .hljs-variable,.right .html .hljs-doctype,.right .ruby .hljs-constant,.right .xml .hljs-doctype,.right .xml .hljs-pi,.right .xml .hljs-tag .hljs-title{color:#c66}.right .hljs-built_in,.right .hljs-constant,.right .hljs-literal,.right .hljs-number,.right .hljs-params,.right .hljs-pragma,.right .hljs-preprocessor{color:#de935f}.right .css .hljs-rule .hljs-attribute,.right .ruby .hljs-class .hljs-title{color:#f0c674}.right .hljs-header,.right .hljs-inheritance,.right .hljs-name,.right .hljs-string,.right .hljs-value,.right .ruby .hljs-symbol,.right .xml .hljs-cdata{color:#b5bd68}.right .css .hljs-hexcolor,.right .hljs-title{color:#8abeb7}.right .coffeescript .hljs-title,.right .hljs-function,.right .javascript .hljs-title,.right .perl .hljs-sub,.right .python .hljs-decorator,.right .python .hljs-title,.right .ruby .hljs-function .hljs-title,.right .ruby .hljs-title .hljs-keyword{color:#81a2be}.right .hljs-keyword,.right .javascript .hljs-function{color:#b294bb}.right .hljs{display:block;overflow-x:auto;background:#1d1f21;color:#c5c8c6;padding:.5em;-webkit-text-size-adjust:none}.right .coffeescript .javascript,.right .javascript .xml,.right .tex .hljs-formula,.right .xml .css,.right .xml .hljs-cdata,.right .xml .javascript,.right .xml .vbscript{opacity:.5}body{color:black;background:white;font:400 14px / 1.42 'Roboto',Helvetica,sans-serif}header{border-bottom:1px solid #f2f2f2;margin-bottom:12px}h1,h2,h3,h4,h5{color:black;margin:12px 0}h1 .permalink,h2 .permalink,h3 .permalink,h4 .permalink,h5 .permalink{margin-left:0;opacity:0;transition:opacity .25s ease}h1:hover .permalink,h2:hover .permalink,h3:hover .permalink,h4:hover .permalink,h5:hover .permalink{opacity:1}.triple h1 .permalink,.triple h2 .permalink,.triple h3 .permalink,.triple h4 .permalink,.triple h5 .permalink{opacity:.15}.triple h1:hover .permalink,.triple h2:hover .permalink,.triple h3:hover .permalink,.triple h4:hover .permalink,.triple h5:hover .permalink{opacity:.15}h1{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:36px}h2{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:30px}h3{font-size:100%;text-transform:uppercase}h5{font-size:100%;font-weight:normal}p{margin:0 0 10px}p.choices{line-height:1.6}a{color:#428bca;text-decoration:none}li p{margin:0}hr.split{border:0;height:1px;width:100%;padding-left:6px;margin:12px auto;background-image:linear-gradient(to right, rgba(0,0,0,0) 20%, rgba(0,0,0,0.2) 51.4%, rgba(255,255,255,0.2) 51.4%, rgba(255,255,255,0) 80%)}dl dt{float:left;width:130px;clear:left;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700}dl dd{margin-left:150px}blockquote{color:rgba(0,0,0,0.5);font-size:15.5px;padding:10px 20px;margin:12px 0;border-left:5px solid #e8e8e8}blockquote p:last-child{margin-bottom:0}pre{background-color:#f5f5f5;padding:12px;border:1px solid #cfcfcf;border-radius:6px;overflow:auto}pre code{color:black;background-color:transparent;padding:0;border:none}code{color:#444;background-color:#f5f5f5;font:'Inconsolata',monospace;padding:1px 4px;border:1px solid #cfcfcf;border-radius:3px}ul,ol{padding-left:2em}table{border-collapse:collapse;border-spacing:0;margin-bottom:12px}table tr:nth-child(2n){background-color:#fafafa}table th,table td{padding:6px 12px;border:1px solid #e6e6e6}.text-muted{opacity:.5}.note,.warning{padding:.3em 1em;margin:1em 0;border-radius:2px;font-size:90%}.note h1,.warning h1,.note h2,.warning h2,.note h3,.warning h3,.note h4,.warning h4,.note h5,.warning h5,.note h6,.warning h6{font-family:200 36px 'Raleway',Helvetica,sans-serif;font-size:135%;font-weight:500}.note p,.warning p{margin:.5em 0}.note{color:black;background-color:#f0f6fb;border-left:4px solid #428bca}.note h1,.note h2,.note h3,.note h4,.note h5,.note h6{color:#428bca}.warning{color:black;background-color:#fbf1f0;border-left:4px solid #c9302c}.warning h1,.warning h2,.warning h3,.warning h4,.warning h5,.warning h6{color:#c9302c}header{margin-top:24px}nav{position:fixed;top:24px;bottom:0;overflow-y:auto}nav .resource-group{padding:0}nav .resource-group .heading{position:relative}nav .resource-group .heading .chevron{position:absolute;top:12px;right:12px;opacity:.5}nav .resource-group .heading a{display:block;color:black;opacity:.7;border-left:2px solid transparent;margin:0}nav .resource-group .heading a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid black}nav ul{list-style-type:none;padding-left:0}nav ul a{display:block;font-size:13px;color:rgba(0,0,0,0.7);padding:8px 12px;border-top:1px solid #d9d9d9;border-left:2px solid transparent;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}nav ul a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid black}nav ul>li{margin:0}nav ul>li:first-child{margin-top:-12px}nav ul>li:last-child{margin-bottom:-12px}nav ul ul a{padding-left:24px}nav ul ul li{margin:0}nav ul ul li:first-child{margin-top:0}nav ul ul li:last-child{margin-bottom:0}nav>div>div>ul>li:first-child>a{border-top:none}.preload *{transition:none !important}.pull-left{float:left}.pull-right{float:right}.badge{display:inline-block;float:right;min-width:10px;min-height:14px;padding:3px 7px;font-size:12px;color:#000;background-color:#f2f2f2;border-radius:10px;margin:-2px 0}.badge.get{color:#70bbe1;background-color:#d9edf7}.badge.head{color:#70bbe1;background-color:#d9edf7}.badge.options{color:#70bbe1;background-color:#d9edf7}.badge.put{color:#f0db70;background-color:#fcf8e3}.badge.patch{color:#f0db70;background-color:#fcf8e3}.badge.post{color:#93cd7c;background-color:#dff0d8}.badge.delete{color:#ce8383;background-color:#f2dede}.collapse-button{float:right}.collapse-button .close{display:none;color:#428bca;cursor:pointer}.collapse-button .open{color:#428bca;cursor:pointer}.collapse-button.show .close{display:inline}.collapse-button.show .open{display:none}.collapse-content{max-height:0;overflow:hidden;transition:max-height .3s ease-in-out}nav{width:220px}.container{max-width:940px;margin-left:auto;margin-right:auto}.container .row .content{margin-left:244px;width:696px}.container .row:after{content:'';display:block;clear:both}.container-fluid nav{width:22%}.container-fluid .row .content{margin-left:24%}.container-fluid.triple nav{width:16.5%;padding-right:1px}.container-fluid.triple .row .content{position:relative;margin-left:16.5%;padding-left:24px}.middle:before,.middle:after{content:'';display:table}.middle:after{clear:both}.middle{box-sizing:border-box;width:51.5%;padding-right:12px}.right{box-sizing:border-box;float:right;width:48.5%;padding-left:12px}.right a{color:#428bca}.right h1,.right h2,.right h3,.right h4,.right h5,.right p,.right div{color:white}.right pre{background-color:#1d1f21;border:1px solid #1d1f21}.right pre code{color:#c5c8c6}.right .description{margin-top:12px}.triple .resource-heading{font-size:125%}.definition{margin-top:12px;margin-bottom:12px}.definition .method{font-weight:bold}.definition .method.get{color:#2e8ab8}.definition .method.head{color:#2e8ab8}.definition .method.options{color:#2e8ab8}.definition .method.post{color:#56b82e}.definition .method.put{color:#b8a22e}.definition .method.patch{color:#b8a22e}.definition .method.delete{color:#b82e2e}.definition .uri{word-break:break-all;word-wrap:break-word}.definition .hostname{opacity:.5}.example-names{background-color:#eee;padding:12px;border-radius:6px}.example-names .tab-button{cursor:pointer;color:black;border:1px solid #ddd;padding:6px;margin-left:12px}.example-names .tab-button.active{background-color:#d5d5d5}.right .example-names{background-color:#444}.right .example-names .tab-button{color:white;border:1px solid #666;border-radius:6px}.right .example-names .tab-button.active{background-color:#5e5e5e}#nav-background{position:fixed;left:0;top:0;bottom:0;width:16.5%;padding-right:14.4px;background-color:#fbfbfb;border-right:1px solid #f0f0f0;z-index:-1}#right-panel-background{position:absolute;right:-12px;top:-12px;bottom:-12px;width:48.6%;background-color:#333;z-index:-1}@media (max-width:1200px){nav{width:198px}.container{max-width:840px}.container .row .content{margin-left:224px;width:606px}}@media (max-width:992px){nav{width:169.4px}.container{max-width:720px}.container .row .content{margin-left:194px;width:526px}}@media (max-width:768px){nav{display:none}.container{width:95%;max-width:none}.container .row .content,.container-fluid .row .content,.container-fluid.triple .row .content{margin-left:auto;margin-right:auto;width:95%}#nav-background{display:none}#right-panel-background{width:48.6%}}.back-to-top{position:fixed;z-index:1;bottom:0;right:24px;padding:4px 8px;color:rgba(0,0,0,0.5);background-color:#f2f2f2;text-decoration:none !important;border-top:1px solid #d9d9d9;border-left:1px solid #d9d9d9;border-right:1px solid #d9d9d9;border-top-left-radius:3px;border-top-right-radius:3px}.resource-group{padding:12px;margin-bottom:12px;background-color:white;border:1px solid #d9d9d9;border-radius:6px}.resource-group h2.group-heading,.resource-group .heading a{padding:12px;margin:-12px -12px 12px -12px;background-color:#f2f2f2;border-bottom:1px solid #d9d9d9;border-top-left-radius:6px;border-top-right-radius:6px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.triple .content .resource-group{padding:0;border:none}.triple .content .resource-group h2.group-heading,.triple .content .resource-group .heading a{margin:0 0 12px 0;border:1px solid #d9d9d9}nav .resource-group .heading a{padding:12px;margin-bottom:0}nav .resource-group .collapse-content{padding:0}.action{margin-bottom:12px;padding:12px 12px 0 12px;overflow:hidden;border:1px solid transparent;border-radius:6px}.action h4.action-heading{padding:6px 12px;margin:-12px -12px 12px -12px;border-bottom:1px solid transparent;border-top-left-radius:6px;border-top-right-radius:6px;overflow:hidden}.action h4.action-heading .name{float:right;font-weight:normal;padding:6px 0}.action h4.action-heading .method{padding:6px 12px;margin-right:12px;border-radius:3px;display:inline-block}.action h4.action-heading .method.get{color:#fff;background-color:#337ab7}.action h4.action-heading .method.head{color:#fff;background-color:#337ab7}.action h4.action-heading .method.options{color:#fff;background-color:#337ab7}.action h4.action-heading .method.put{color:#fff;background-color:#ed9c28}.action h4.action-heading .method.patch{color:#fff;background-color:#ed9c28}.action h4.action-heading .method.post{color:#fff;background-color:#5cb85c}.action h4.action-heading .method.delete{color:#fff;background-color:#d9534f}.action h4.action-heading code{color:#444;background-color:#f5f5f5;border-color:#cfcfcf;font-weight:normal;word-break:break-all;display:inline-block;margin-top:2px}.action dl.inner{padding-bottom:2px}.action .title{border-bottom:1px solid white;margin:0 -12px -1px -12px;padding:12px}.action.get{border-color:#bce8f1}.action.get h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.head{border-color:#bce8f1}.action.head h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.options{border-color:#bce8f1}.action.options h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.post{border-color:#d6e9c6}.action.post h4.action-heading{color:#5cb85c;background:#dff0d8;border-bottom-color:#d6e9c6}.action.put{border-color:#faebcc}.action.put h4.action-heading{color:#ed9c28;background:#fcf8e3;border-bottom-color:#faebcc}.action.patch{border-color:#faebcc}.action.patch h4.action-heading{color:#ed9c28;background:#fcf8e3;border-bottom-color:#faebcc}.action.delete{border-color:#ebccd1}.action.delete h4.action-heading{color:#d9534f;background:#f2dede;border-bottom-color:#ebccd1}</style></head><body class="preload"><div id="nav-background"></div><div class="container-fluid triple"><div class="row"><nav><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#authentication">Authentication</a></div><div class="collapse-content"><ul><li><a href="#authentication-sign-post"><span class="badge post"><i class="fa fa-plus"></i></span>Sign</a></li><li><a href="#authentication-verify-post"><span class="badge post"><i class="fa fa-plus"></i></span>Verify</a></li><li><a href="#authentication-otp-post"><span class="badge post"><i class="fa fa-plus"></i></span>Otp</a></li><li><a href="#authentication-revoke-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Revoke</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#account">Account</a></div><div class="collapse-content"><ul><li><a href="#account-account-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Account</a></li><li><a href="#account-update-post"><span class="badge post"><i class="fa fa-plus"></i></span>Update</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#general">General</a></div><div class="collapse-content"><ul><li><a href="#general-search-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Search</a></li><li><a href="#general-home-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Home</a></li><li><a href="#general-tags-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Tags</a></li><li><a href="#general-categories-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Categories</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#finance">Finance</a></div><div class="collapse-content"><ul><li><a href="#finance-plus-post"><span class="badge post"><i class="fa fa-plus"></i></span>Plus</a></li><li><a href="#finance-charge-post"><span class="badge post"><i class="fa fa-plus"></i></span>Charge</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#ebook">EBook</a></div><div class="collapse-content"><ul><li><a href="#ebook-list-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>List</a></li><li><a href="#ebook-show-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Show</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#podcast">Podcast</a></div><div class="collapse-content"><ul><li><a href="#podcast-list-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>List</a></li><li><a href="#podcast-show-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Show</a></li><li><a href="#podcast-purchase-post"><span class="badge post"><i class="fa fa-plus"></i></span>Purchase</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#support">Support</a></div><div class="collapse-content"><ul><li><a href="#support-tickets">Tickets</a><ul><li><a href="#support-tickets-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>List</a></li><li><a href="#support-tickets-post"><span class="badge post"><i class="fa fa-plus"></i></span>Store</a></li></ul></li><li><a href="#support-show-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Show</a></li><li><a href="#support-reply-post"><span class="badge post"><i class="fa fa-plus"></i></span>Reply</a></li><li><a href="#support-complaints-post"><span class="badge post"><i class="fa fa-plus"></i></span>Complaint</a></li><li><a href="#support-callrequests-post"><span class="badge post"><i class="fa fa-plus"></i></span>CallRequest</a></li><li><a href="#support-faqs-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>FAQs</a></li></ul></div></div><p style="text-align: center; word-wrap: break-word;"><a href="https://api.hirbod.ac/rest/v1">https://api.hirbod.ac/rest/v1</a></p></nav><div class="content"><div id="right-panel-background"></div><div class="middle"><header><h1 id="top">Hirbod API</h1></header></div><div class="right"><h5>API Endpoint</h5><a href="https://api.hirbod.ac/rest/v1">https://api.hirbod.ac/rest/v1</a></div><div class="middle"><p><a href="https://api.hirbod.ac/docs/">Hirbod API Documentation</a> The official documentation of <strong>Hirbod</strong> API.</p>
+</div><div class="middle"><section id="authentication" class="resource-group"><h2 class="group-heading">Authentication <a href="#authentication" class="permalink">&para;</a></h2><p>The Authentication methods related to sign, verify, otp, captain and revoke methods.</p>
+</section></div><div class="middle"><div id="authentication-sign" class="resource"><h3 class="resource-heading">Sign <a href="#authentication-sign" class="permalink">&para;</a></h3><p>Sign user that update or create user account.</p>
+</div></div><div class="right"><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.hirbod.ac/rest/v1</span>/auth/sign</span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">Sign</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">mobile</span>": <span class="hljs-value"><span class="hljs-string">"9121234567"</span></span>,
+  "<span class="hljs-attribute">country</span>": <span class="hljs-value"><span class="hljs-string">"+98"</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"User Signed."</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div></div><div class="middle"><div id="authentication-sign-post" class="action post"><h4 class="action-heading"><div class="name">Sign</div><a href="#authentication-sign-post" class="method post">POST</a><code class="uri">/auth/sign</code></h4><p>Send mobile number of user to sign.</p>
+</div></div><hr class="split"><div class="middle"><div id="authentication-verify" class="resource"><h3 class="resource-heading">Verify <a href="#authentication-verify" class="permalink">&para;</a></h3><p>Verify user sign request to get credentials and access token.</p>
+</div></div><div class="right"><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.hirbod.ac/rest/v1</span>/auth/verify</span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">Verify</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">mobile</span>": <span class="hljs-value"><span class="hljs-string">"9121234567"</span></span>,
+  "<span class="hljs-attribute">country</span>": <span class="hljs-value"><span class="hljs-string">"+98"</span></span>,
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-string">"1234"</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+     "<span class="hljs-attribute">meta</span>":<span class="hljs-value">{
+           "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+           "<span class="hljs-attribute">message</span>":<span class="hljs-value"><span class="hljs-string">"User Verification Successful."</span>
+       </span>}</span>,
+       "<span class="hljs-attribute">data</span>":<span class="hljs-value">{
+           "<span class="hljs-attribute">token</span>":<span class="hljs-value">[access_token]</span>,
+           "<span class="hljs-attribute">mobile</span>": <span class="hljs-value"><span class="hljs-string">"9121234567"</span></span>,
+           "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"John Doe"</span></span>,
+           "<span class="hljs-attribute">photo</span>": <span class="hljs-value"><span class="hljs-string">"https://s.hirbod.ac/89h54giunge.png"</span></span>,
+           "<span class="hljs-attribute">team</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+           "<span class="hljs-attribute">username</span>": <span class="hljs-value"><span class="hljs-string">"john"</span>
+       </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div></div><div class="middle"><div id="authentication-verify-post" class="action post"><h4 class="action-heading"><div class="name">Verify</div><a href="#authentication-verify-post" class="method post">POST</a><code class="uri">/auth/verify</code></h4><p>Send mobile and verify code to verify account and generate access token.</p>
+</div></div><hr class="split"><div class="middle"><div id="authentication-otp" class="resource"><h3 class="resource-heading">Otp <a href="#authentication-otp" class="permalink">&para;</a></h3><p>Otp send code for account.</p>
+</div></div><div class="right"><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.hirbod.ac/rest/v1</span>/auth/otp</span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">Otp</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">mobile</span>": <span class="hljs-value"><span class="hljs-string">"9121234567"</span></span>,
+  "<span class="hljs-attribute">country</span>": <span class="hljs-value"><span class="hljs-string">"+98"</span></span>,
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"sms"</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"OTP Submitted."</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div></div><div class="middle"><div id="authentication-otp-post" class="action post"><h4 class="action-heading"><div class="name">Otp</div><a href="#authentication-otp-post" class="method post">POST</a><code class="uri">/auth/otp</code></h4><p>Send code for user.</p>
+</div></div><hr class="split"><div class="middle"><div id="authentication-revoke" class="resource"><h3 class="resource-heading">Revoke <a href="#authentication-revoke" class="permalink">&para;</a></h3><p>This method revoke all of granted access tokens in API for user account.</p>
+</div></div><div class="right"><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.hirbod.ac/rest/v1</span>/auth/revoke</span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">example 1</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">Bearer [access_token]</span></code></pre><div style="height: 1px;"></div></div></div><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"All access tokens revoked."</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div></div><div class="middle"><div id="authentication-revoke-get" class="action get"><h4 class="action-heading"><div class="name">Revoke</div><a href="#authentication-revoke-get" class="method get">GET</a><code class="uri">/auth/revoke</code></h4><p>To revoke all of your access token generated in API system.</p>
+</div></div><hr class="split"><div class="middle"><section id="account" class="resource-group"><h2 class="group-heading">Account <a href="#account" class="permalink">&para;</a></h2><p>The Account methods related to profile and update methods.</p>
+</section></div><div class="middle"><div id="account-account" class="resource"><h3 class="resource-heading">Account <a href="#account-account" class="permalink">&para;</a></h3><p>Profile show information account.</p>
+</div></div><div class="right"><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.hirbod.ac/rest/v1</span>/account</span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">example 1</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">Bearer [ACCESS_TOKEN]</span></code></pre><div style="height: 1px;"></div></div></div><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span><span class="tab-button">400</span><span class="tab-button">401</span><span class="tab-button">500</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+    "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+        "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Profile Fetched"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"John Doe"</span></span>,
+        "<span class="hljs-attribute">mobile</span>": <span class="hljs-value"><span class="hljs-string">"555-1212"</span></span>,
+        "<span class="hljs-attribute">username</span>": <span class="hljs-value">John Doe</span>,
+        "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">balance</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">blueTick</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+        "<span class="hljs-attribute">plus</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">avatar</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">email</span>": <span class="hljs-value">john.doe@hotmail.com</span>,
+        "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"1399/01/23 05:39:21.000000"</span></span>,
+        "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"1399/01/23 06:12:48.000000"</span>
+    </span>}
+</span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+    "<span class="hljs-attribute">type</span>":<span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+    "<span class="hljs-attribute">properties</span>":<span class="hljs-value">{
+        "<span class="hljs-attribute">name</span>":<span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>":<span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+            "<span class="hljs-attribute">description</span>":<span class="hljs-value"><span class="hljs-string">"Name of user, We called him/her via it"</span>
+        </span>}</span>,
+        "<span class="hljs-attribute">mobile</span>":<span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>":<span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+            "<span class="hljs-attribute">description</span>":<span class="hljs-value"><span class="hljs-string">"The mobile number of account"</span>
+        </span>}</span>,
+        "<span class="hljs-attribute">username</span>":<span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>":<span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+            "<span class="hljs-attribute">description</span>":<span class="hljs-value"><span class="hljs-string">"Username for short links and services"</span>
+        </span>}</span>,
+        "<span class="hljs-attribute">balance</span>":<span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>":<span class="hljs-value"><span class="hljs-string">"integer"</span></span>,
+            "<span class="hljs-attribute">description</span>":<span class="hljs-value"><span class="hljs-string">"Them current balance of account"</span>
+        </span>}</span>,
+        "<span class="hljs-attribute">blueTick</span>":<span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>":<span class="hljs-value"><span class="hljs-string">"boolean"</span></span>,
+            "<span class="hljs-attribute">description</span>":<span class="hljs-value"><span class="hljs-string">"If true the account verified"</span>
+        </span>}</span>,
+        "<span class="hljs-attribute">plus</span>":<span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>":<span class="hljs-value"><span class="hljs-string">"datetime"</span></span>,
+            "<span class="hljs-attribute">description</span>":<span class="hljs-value"><span class="hljs-string">"The plus subscription end datetime or null of does not have"</span>
+        </span>}</span>,
+        "<span class="hljs-attribute">avatar</span>":<span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>":<span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+            "<span class="hljs-attribute">description</span>":<span class="hljs-value"><span class="hljs-string">"URL of user avatar or null"</span>
+        </span>}</span>,
+        "<span class="hljs-attribute">email</span>":<span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>":<span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+            "<span class="hljs-attribute">description</span>":<span class="hljs-value"><span class="hljs-string">"The email address of account"</span>
+        </span>}</span>,
+        "<span class="hljs-attribute">createdAt</span>":<span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>":<span class="hljs-value"><span class="hljs-string">"datetime"</span></span>,
+            "<span class="hljs-attribute">description</span>":<span class="hljs-value"><span class="hljs-string">"The datetime of account created time"</span>
+        </span>}</span>,
+        "<span class="hljs-attribute">updatedAt</span>":<span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>":<span class="hljs-value"><span class="hljs-string">"datetime"</span></span>,
+            "<span class="hljs-attribute">description</span>":<span class="hljs-value"><span class="hljs-string">"The last update datetime on account"</span>
+        </span>}
+    </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">400</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"BAD_REQUEST"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">401</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"UNAURHORIZED"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">500</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"INTERNAL_ERROR"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div></div><div class="middle"><div id="account-account-get" class="action get"><h4 class="action-heading"><div class="name">Account</div><a href="#account-account-get" class="method get">GET</a><code class="uri">/account</code></h4><p>Profile account.</p>
+</div></div><hr class="split"><div class="middle"><div id="account-update" class="resource"><h3 class="resource-heading">Update <a href="#account-update" class="permalink">&para;</a></h3><p>Update account information.</p>
+</div></div><div class="right"><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.hirbod.ac/rest/v1</span>/account/update</span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">example 1</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">Bearer [access_token]</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"John Doe"</span></span>,
+  "<span class="hljs-attribute">username</span>": <span class="hljs-value"><span class="hljs-string">"John Doe"</span></span>,
+  "<span class="hljs-attribute">email</span>": <span class="hljs-value"><span class="hljs-string">"john.doe@hotmail.com"</span></span>,
+  "<span class="hljs-attribute">avatar</span>": <span class="hljs-value"><span class="hljs-string">"[FILE]"</span>
+</span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+  "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"The name of account"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">username</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"The username of account for short links or other services"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">email</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"The email address of account, if changed must be verified again"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">avatar</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"file"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Send png, jpg, JPEG file under 10 megabytes as file"</span>
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span><span class="tab-button">400</span><span class="tab-button">401</span><span class="tab-button">500</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"User Updated"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">400</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"BAD_REQUEST"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">401</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"UNAURHORIZED"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">500</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"INTERNAL_ERROR"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div></div><div class="middle"><div id="account-update-post" class="action post"><h4 class="action-heading"><div class="name">Update</div><a href="#account-update-post" class="method post">POST</a><code class="uri">/account/update</code></h4><p>Update account information.</p>
+</div></div><hr class="split"><div class="middle"><section id="general" class="resource-group"><h2 class="group-heading">General <a href="#general" class="permalink">&para;</a></h2><p>The general methods related as category, tags and list of home view.</p>
+</section></div><div class="middle"><div id="general-search" class="resource"><h3 class="resource-heading">Search <a href="#general-search" class="permalink">&para;</a></h3><p>Search method return Results of Ebooks,Courses,Podcasts and Events.</p>
+</div></div><div class="right"><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.hirbod.ac/rest/v1</span>/search?q=<span class="hljs-attribute" title="q">test</span></span></div><div class="tabs"><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Search Fetched"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">courses</span>": <span class="hljs-value">[
+      {
+        "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-string">"1313"</span></span>,
+        "<span class="hljs-attribute">user</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+        "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"test"</span></span>,
+        "<span class="hljs-attribute">cover</span>": <span class="hljs-value"><span class="hljs-string">"asdasd"</span></span>,
+        "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">introduction</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">students</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">duration</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+        "<span class="hljs-attribute">level</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-01-22 12:33:49"</span></span>,
+        "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">deleted_at</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+      </span>}
+    ]</span>,
+    "<span class="hljs-attribute">ebooks</span>": <span class="hljs-value">[]</span>,
+    "<span class="hljs-attribute">events</span>": <span class="hljs-value">[]</span>,
+    "<span class="hljs-attribute">podcasts</span>": <span class="hljs-value">[]
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div><div class="middle"><div id="general-search-get" class="action get"><h4 class="action-heading"><div class="name">Search</div><a href="#general-search-get" class="method get">GET</a><code class="uri">/search?q={q}</code></h4><p>Return Results.</p>
+  <div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>q</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>test</span></span><p>The String for search.</p>
+  </dd></dl></div></div></div><hr class="split"><div class="middle"><div id="general-home" class="resource"><h3 class="resource-heading">Home <a href="#general-home" class="permalink">&para;</a></h3><p>Home method return Informations for Home Page.</p>
+</div></div><div class="right"><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.hirbod.ac/rest/v1</span>/home</span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">Home</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div></div></div><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Home fetched."</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Stories"</span></span>,
+      "<span class="hljs-attribute">items</span>": <span class="hljs-value">[]
+    </span>},
+    {
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Slider"</span></span>,
+      "<span class="hljs-attribute">items</span>": <span class="hljs-value">[
+        {
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">651651</span></span>,
+          "<span class="hljs-attribute">cover</span>": <span class="hljs-value"><span class="hljs-string">"https://s.hirbodapp.ir/defaults/0.png"</span>
+        </span>},
+        {
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-number">8</span></span>,
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">232</span></span>,
+          "<span class="hljs-attribute">cover</span>": <span class="hljs-value"><span class="hljs-string">"https://s.hirbodapp.ir/defaults/1.png"</span>
+        </span>}
+      ]
+    </span>},
+    {
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"رویدادهای آموزشی"</span></span>,
+      "<span class="hljs-attribute">items</span>": <span class="hljs-value">[
+        {
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+          "<span class="hljs-attribute">cover</span>": <span class="hljs-value"><span class="hljs-string">"https://s.hirbodapp.ir/usercontent/"</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">25000</span></span>,
+          "<span class="hljs-attribute">location</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+        </span>}
+      ]
+    </span>},
+    {
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"دوره های آموزشی"</span></span>,
+      "<span class="hljs-attribute">items</span>": <span class="hljs-value">[
+        {
+          "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-string">"1313"</span></span>,
+          "<span class="hljs-attribute">user</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"test"</span></span>,
+          "<span class="hljs-attribute">cover</span>": <span class="hljs-value"><span class="hljs-string">"asdasd"</span></span>,
+          "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+          "<span class="hljs-attribute">introduction</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+          "<span class="hljs-attribute">students</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+          "<span class="hljs-attribute">duration</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+          "<span class="hljs-attribute">level</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+          "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+          "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-01-22 12:33:49"</span></span>,
+          "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+          "<span class="hljs-attribute">deleted_at</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+        </span>}
+      ]
+    </span>},
+    {
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-number">4</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"باهم میخوانیم"</span></span>,
+      "<span class="hljs-attribute">items</span>": <span class="hljs-value">[]
+    </span>},
+    {
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-number">5</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"پادکست"</span></span>,
+      "<span class="hljs-attribute">items</span>": <span class="hljs-value">[]
+    </span>},
+    {
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-number">6</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"دسته بندی ها"</span></span>,
+      "<span class="hljs-attribute">items</span>": <span class="hljs-value">[
+        {
+          "<span class="hljs-attribute">parent</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+          "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"هنر"</span></span>,
+          "<span class="hljs-attribute">color</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+          "<span class="hljs-attribute">photo</span>": <span class="hljs-value"><span class="hljs-string">"/categories/default.png"</span></span>,
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+          "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-01-27 12:31:50"</span></span>,
+          "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+          "<span class="hljs-attribute">deleted_at</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+        </span>},
+        {
+          "<span class="hljs-attribute">parent</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+          "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"داستان"</span></span>,
+          "<span class="hljs-attribute">color</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+          "<span class="hljs-attribute">photo</span>": <span class="hljs-value"><span class="hljs-string">"/categories/default.png"</span></span>,
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+          "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-01-27 12:31:50"</span></span>,
+          "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+          "<span class="hljs-attribute">deleted_at</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+        </span>},
+        {
+          "<span class="hljs-attribute">parent</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+          "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"سبک زندگی"</span></span>,
+          "<span class="hljs-attribute">color</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+          "<span class="hljs-attribute">photo</span>": <span class="hljs-value"><span class="hljs-string">"/categories/default.png"</span></span>,
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+          "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-01-27 12:31:50"</span></span>,
+          "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+          "<span class="hljs-attribute">deleted_at</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+        </span>},
+        {
+          "<span class="hljs-attribute">parent</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+          "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"مدیریت و کارآفرینی"</span></span>,
+          "<span class="hljs-attribute">color</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+          "<span class="hljs-attribute">photo</span>": <span class="hljs-value"><span class="hljs-string">"/categories/management.png"</span></span>,
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+          "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-01-27 12:31:50"</span></span>,
+          "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+          "<span class="hljs-attribute">deleted_at</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+        </span>},
+        {
+          "<span class="hljs-attribute">parent</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+          "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"آموزش"</span></span>,
+          "<span class="hljs-attribute">color</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+          "<span class="hljs-attribute">photo</span>": <span class="hljs-value"><span class="hljs-string">"/categories/default.png"</span></span>,
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+          "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-01-27 12:31:50"</span></span>,
+          "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+          "<span class="hljs-attribute">deleted_at</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+        </span>},
+        {
+          "<span class="hljs-attribute">parent</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+          "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"سبک زندگی"</span></span>,
+          "<span class="hljs-attribute">color</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+          "<span class="hljs-attribute">photo</span>": <span class="hljs-value"><span class="hljs-string">"/categories/default.png"</span></span>,
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+          "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-01-27 12:31:50"</span></span>,
+          "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+          "<span class="hljs-attribute">deleted_at</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+        </span>},
+        {
+          "<span class="hljs-attribute">parent</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+          "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"روانشناسی"</span></span>,
+          "<span class="hljs-attribute">color</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+          "<span class="hljs-attribute">photo</span>": <span class="hljs-value"><span class="hljs-string">"/categories/default.png"</span></span>,
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+          "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-01-27 12:31:50"</span></span>,
+          "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+          "<span class="hljs-attribute">deleted_at</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+        </span>},
+        {
+          "<span class="hljs-attribute">parent</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+          "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"سلامت و سبک زندگی"</span></span>,
+          "<span class="hljs-attribute">color</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+          "<span class="hljs-attribute">photo</span>": <span class="hljs-value"><span class="hljs-string">"/categories/health.png"</span></span>,
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+          "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-01-27 12:31:50"</span></span>,
+          "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+          "<span class="hljs-attribute">deleted_at</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+        </span>},
+        {
+          "<span class="hljs-attribute">parent</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+          "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"ادیان و مذاهب"</span></span>,
+          "<span class="hljs-attribute">color</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+          "<span class="hljs-attribute">photo</span>": <span class="hljs-value"><span class="hljs-string">"/categories/default.png"</span></span>,
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+          "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-01-27 12:31:50"</span></span>,
+          "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+          "<span class="hljs-attribute">deleted_at</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+        </span>}
+      ]
+    </span>},
+    {
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-number">7</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"داغ ترین ها"</span></span>,
+      "<span class="hljs-attribute">items</span>": <span class="hljs-value">[]
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div></div><div class="middle"><div id="general-home-get" class="action get"><h4 class="action-heading"><div class="name">Home</div><a href="#general-home-get" class="method get">GET</a><code class="uri">/home</code></h4><p>Return Informations.</p>
+</div></div><hr class="split"><div class="middle"><div id="general-tags" class="resource"><h3 class="resource-heading">Tags <a href="#general-tags" class="permalink">&para;</a></h3><p>Tags method return all tags</p>
+</div></div><div class="right"><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.hirbod.ac/rest/v1</span>/tags</span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">Home</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div></div></div><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+      "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Tags Fetched"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">data</span>": <span class="hljs-value">[
+       {
+           "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">"b95830e2-4393-4a61-973a-fd78f0d2626e"</span></span>,
+           "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"هشتگ"</span></span>,
+           "<span class="hljs-attribute">color</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+           "<span class="hljs-attribute">photo</span>": <span class="hljs-value"><span class="hljs-string">"https://s.hirbod.ac/duftn9845y7t3v.png"</span></span>,
+           "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"2020-01-27 12:31:50"</span></span>,
+           "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+         },
+         {
+             "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">"b95830e2-4393-4a61-973a-fd78f0d2626e"</span></span>,
+             "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"هشتگ"</span></span>,
+             "<span class="hljs-attribute">color</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+             "<span class="hljs-attribute">photo</span>": <span class="hljs-value"><span class="hljs-string">"https://s.hirbod.ac/duftn9845y7t3v.png"</span></span>,
+             "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"2020-01-27 12:31:50"</span></span>,
+             "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+           },
+    ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div></div><div class="middle"><div id="general-tags-get" class="action get"><h4 class="action-heading"><div class="name">Tags</div><a href="#general-tags-get" class="method get">GET</a><code class="uri">/tags</code></h4><p>Return tags.</p>
+</div></div><hr class="split"><div class="middle"><div id="general-categories" class="resource"><h3 class="resource-heading">Categories <a href="#general-categories" class="permalink">&para;</a></h3><p>Categories method return all categories</p>
+</div></div><div class="right"><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.hirbod.ac/rest/v1</span>/categories</span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">Categories</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div></div></div><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+      "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Categories Fetched"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">data</span>": <span class="hljs-value">[
+      {
+
+        "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">"7ba21957-48ac-4587-b099-c7443aa5a7e8"</span></span>,
+        "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"فرهنگی هنری"</span></span>,
+        "<span class="hljs-attribute">color</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">photo</span>": <span class="hljs-value"><span class="hljs-string">"https://s.hirbod.ac/duftn9845y7t3v.png"</span></span>,
+        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
+        "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"2020-01-27 12:31:50"</span></span>,
+        "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+      },
+      {
+
+        "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">"0f78d055-d218-49a9-b3e1-973c03889397"</span></span>,
+        "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"دین و عرفان"</span></span>,
+        "<span class="hljs-attribute">color</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">photo</span>": <span class="hljs-value"><span class="hljs-string">"https://s.hirbod.ac/categories/default.png"</span></span>,
+        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+        "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"2020-01-27 12:31:50"</span></span>,
+        "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+      }
+    ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div></div><div class="middle"><div id="general-categories-get" class="action get"><h4 class="action-heading"><div class="name">Categories</div><a href="#general-categories-get" class="method get">GET</a><code class="uri">/categories</code></h4><p>Return categories.</p>
+</div></div><hr class="split"><div class="middle"><section id="finance" class="resource-group"><h2 class="group-heading">Finance <a href="#finance" class="permalink">&para;</a></h2><p>The Finance methods related to transactions, plus plan and charge wallet methods.</p>
+</section></div><div class="middle"><div id="finance-plus" class="resource"><h3 class="resource-heading">Plus <a href="#finance-plus" class="permalink">&para;</a></h3><p>This method for purchase plus in-app subscription.</p>
+  <ul>
+    <li><code>0</code> for one month (Every month is 30 days)</li>
+    <li><code>1</code> for three months</li>
+    <li><code>2</code> for six months</li>
+    <li><code>3</code> for one year</li>
+  </ul></div></div><div class="right"><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.hirbod.ac/rest/v1</span>/finance/plus</span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">example 1</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">Bearer [access_token]</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">period</span>": <span class="hljs-value"><span class="hljs-number">0</span>
+</span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+  "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">period</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"integer"</span>
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span><span class="tab-button">400</span><span class="tab-button">401</span><span class="tab-button">500</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Payment Started."</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">pay</span>": <span class="hljs-value"><span class="hljs-string">"https://pay.ir/pg/9835hgfk0394"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">400</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"BAD_REQUEST"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">401</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"UNAURHORIZED"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">500</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"INTERNAL_ERROR"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div></div><div class="middle"><div id="finance-plus-post" class="action post"><h4 class="action-heading"><div class="name">Plus</div><a href="#finance-plus-post" class="method post">POST</a><code class="uri">/finance/plus</code></h4><p>Send subscription period and get payment url.</p>
+</div></div><hr class="split"><div class="middle"><div id="finance-charge" class="resource"><h3 class="resource-heading">Charge <a href="#finance-charge" class="permalink">&para;</a></h3><p>Charge method for charge your Hirbod wallet .</p>
+</div></div><div class="right"><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.hirbod.ac/rest/v1</span>/finance/charge</span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">example 1</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">Bearer [access_token]</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-number">25000</span>
+</span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+  "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">amount</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"integer"</span>
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span><span class="tab-button">400</span><span class="tab-button">401</span><span class="tab-button">500</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Payment Started."</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">pay</span>": <span class="hljs-value"><span class="hljs-string">"https://pay.ir/pg/9835hgubg3"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">400</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"BAD_REQUEST"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">401</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"UNAURHORIZED"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">500</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"INTERNAL_ERROR"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div></div><div class="middle"><div id="finance-charge-post" class="action post"><h4 class="action-heading"><div class="name">Charge</div><a href="#finance-charge-post" class="method post">POST</a><code class="uri">/finance/charge</code></h4><p>Charge To recharge account you can call this method on API.</p>
+</div></div><hr class="split"><div class="middle"><section id="ebook" class="resource-group"><h2 class="group-heading">EBook <a href="#ebook" class="permalink">&para;</a></h2><p>The EBook methods related to writer, publisher and related methods.</p>
+</section></div><div class="middle"><div id="ebook-list" class="resource"><h3 class="resource-heading">List <a href="#ebook-list" class="permalink">&para;</a></h3><p>List method return EBooks has been published in Hirbod.</p>
+</div></div><div class="right"><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.hirbod.ac/rest/v1</span>/ebooks</span></div><div class="tabs"><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span><span class="tab-button">400</span><span class="tab-button">401</span><span class="tab-button">500</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+        "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+               "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+               "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Ebook Stored."</span>
+           </span>}</span>,
+           "<span class="hljs-attribute">data</span>":<span class="hljs-value">[
+                {
+                    "<span class="hljs-attribute">uuid</span>":<span class="hljs-value"><span class="hljs-string">"56c2c3b0-665a-4451-9867-ebae6d378d4b"</span></span>,
+                    "<span class="hljs-attribute">title</span>":<span class="hljs-value"><span class="hljs-string">"Just for fun"</span></span>,
+                    "<span class="hljs-attribute">cover</span>":<span class="hljs-value"><span class="hljs-string">"https://s.hirbod.ac/iugh98457gh945.png"</span></span>,
+                    "<span class="hljs-attribute">introduction</span>":<span class="hljs-value"><span class="hljs-string">"introduction"</span></span>,
+                    "<span class="hljs-attribute">description</span>":<span class="hljs-value"><span class="hljs-string">"description"</span></span>,
+                    "<span class="hljs-attribute">readers</span>":<span class="hljs-value"><span class="hljs-number">132</span></span>,
+                    "<span class="hljs-attribute">pages</span>":<span class="hljs-value"><span class="hljs-number">32</span></span>,
+                    "<span class="hljs-attribute">sample</span>":<span class="hljs-value"><span class="hljs-string">"https://s.hirbod.ac/f3875ghp93gh4g.pdf"</span></span>,
+                    "<span class="hljs-attribute">isbn</span>":<span class="hljs-value"><span class="hljs-string">"555-222-111"</span></span>,
+                    "<span class="hljs-attribute">level</span>":<span class="hljs-value"><span class="hljs-number">1</span></span>,
+                    "<span class="hljs-attribute">price</span>":<span class="hljs-value"><span class="hljs-number">26000</span></span>,
+                    "<span class="hljs-attribute">sampleToken</span>":<span class="hljs-value"><span class="hljs-string">"32r3f45g"</span></span>,
+                    "<span class="hljs-attribute">publishers</span>":<span class="hljs-value">[
+                        {
+                            "<span class="hljs-attribute">uuid</span>":<span class="hljs-value"><span class="hljs-string">"56c2c3b0-665a-4451-9867-ebae6d378d4b"</span></span>,
+                            "<span class="hljs-attribute">name</span>":<span class="hljs-value"><span class="hljs-string">"Negah-e Novin"</span></span>,
+                            "<span class="hljs-attribute">createdAt</span>":<span class="hljs-value"><span class="hljs-string">"1399/05/31 23:16:04.000000"</span></span>,
+                            "<span class="hljs-attribute">updatedAt</span>":<span class="hljs-value"><span class="hljs-string">"1399/05/31 23:16:04.000000"</span></span>,
+                        }
+                    ]</span>,
+                    "<span class="hljs-attribute">writers</span>":<span class="hljs-value">[
+                        {
+                            "<span class="hljs-attribute">uuid</span>":<span class="hljs-value"><span class="hljs-string">"56c2c3b0-665a-4451-9867-ebae6d378d4b"</span></span>,
+                            "<span class="hljs-attribute">name</span>":<span class="hljs-value"><span class="hljs-string">"Dr Ali Shabani"</span></span>,
+                            "<span class="hljs-attribute">createdAt</span>":<span class="hljs-value"><span class="hljs-string">"1399/05/31 23:16:04.000000"</span></span>,
+                            "<span class="hljs-attribute">updatedAt</span>":<span class="hljs-value"><span class="hljs-string">"1399/05/31 23:16:04.000000"</span></span>,
+                        }
+                    ]</span>,
+                    "<span class="hljs-attribute">categories</span>":<span class="hljs-value">[
+                        {
+                            "<span class="hljs-attribute">uuid</span>":<span class="hljs-value"><span class="hljs-string">"56c2c3b0-665a-4451-9867-ebae6d378d4b"</span></span>,
+                            "<span class="hljs-attribute">name</span>":<span class="hljs-value"><span class="hljs-string">"Life"</span></span>,
+                            "<span class="hljs-attribute">color</span>":<span class="hljs-value"><span class="hljs-string">"cd2122"</span></span>,
+                            "<span class="hljs-attribute">photo</span>":<span class="hljs-value"><span class="hljs-string">"https://s.hirbod.ac/9nv8bucb9v3yt8t43.png"</span></span>,
+                            "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"1399/05/31 23:16:04.000000"</span></span>,
+                            "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"1399/05/31 23:16:04.000000"</span>
+                        </span>}
+                    ]</span>,
+                    "<span class="hljs-attribute">tags</span>":<span class="hljs-value">[
+                        {
+                            "<span class="hljs-attribute">uuid</span>":<span class="hljs-value"><span class="hljs-string">"56c2c3b0-665a-4451-9867-ebae6d378d4b"</span></span>,
+                            "<span class="hljs-attribute">name</span>":<span class="hljs-value"><span class="hljs-string">"Love"</span></span>,
+                            "<span class="hljs-attribute">color</span>":<span class="hljs-value"><span class="hljs-string">"cd2122"</span></span>,
+                            "<span class="hljs-attribute">photo</span>":<span class="hljs-value"><span class="hljs-string">"https://s.hirbod.ac/iu47ghu8ov374gvo2.png"</span></span>,
+                            "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"1399/05/31 23:16:04.000000"</span></span>,
+                            "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"1399/05/31 23:16:04.000000"</span>
+                        </span>}
+                    ]</span>,
+                    "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"1399/05/31 23:16:04.000000"</span></span>,
+                    "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"1399/05/31 23:16:04.000000"</span>
+                </span>}
+           ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">400</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"BAD_REQUEST"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">401</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"UNAURHORIZED"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">500</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"INTERNAL_ERROR"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div><div class="middle"><div id="ebook-list-get" class="action get"><h4 class="action-heading"><div class="name">List</div><a href="#ebook-list-get" class="method get">GET</a><code class="uri">/ebooks</code></h4><p>To fetch list of  EBooks details you can call this method on API.</p>
+</div></div><hr class="split"><div class="middle"><div id="ebook-show" class="resource"><h3 class="resource-heading">Show <a href="#ebook-show" class="permalink">&para;</a></h3><p>Show method return ebook .</p>
+</div></div><div class="right"><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.hirbod.ac/rest/v1</span>/ebooks/<span class="hljs-attribute" title="uuid">67d4e9b0-55a3-4422-9f8c-2cd2f84dbf43</span>/show</span></div><div class="tabs"><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span><span class="tab-button">400</span><span class="tab-button">401</span><span class="tab-button">500</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+        "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+               "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+               "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Ebook Fetched."</span>
+           </span>}</span>,
+           "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+                       "<span class="hljs-attribute">uuid</span>":<span class="hljs-value"><span class="hljs-string">"56c2c3b0-665a-4451-9867-ebae6d378d4b"</span></span>,
+                       "<span class="hljs-attribute">title</span>":<span class="hljs-value"><span class="hljs-string">"Just for fun"</span></span>,
+                       "<span class="hljs-attribute">cover</span>":<span class="hljs-value"><span class="hljs-string">"https://s.hirbod.ac/iugh98457gh945.png"</span></span>,
+                       "<span class="hljs-attribute">introduction</span>":<span class="hljs-value"><span class="hljs-string">"introduction"</span></span>,
+                       "<span class="hljs-attribute">description</span>":<span class="hljs-value"><span class="hljs-string">"description"</span></span>,
+                       "<span class="hljs-attribute">readers</span>":<span class="hljs-value"><span class="hljs-number">132</span></span>,
+                       "<span class="hljs-attribute">pages</span>":<span class="hljs-value"><span class="hljs-number">32</span></span>,
+                       "<span class="hljs-attribute">sample</span>":<span class="hljs-value"><span class="hljs-string">"https://s.hirbod.ac/f3875ghp93gh4g.pdf"</span></span>,
+                       "<span class="hljs-attribute">isbn</span>":<span class="hljs-value"><span class="hljs-string">"555-222-111"</span></span>,
+                       "<span class="hljs-attribute">level</span>":<span class="hljs-value"><span class="hljs-number">1</span></span>,
+                       "<span class="hljs-attribute">price</span>":<span class="hljs-value"><span class="hljs-number">26000</span></span>,
+                       "<span class="hljs-attribute">sampleToken</span>":<span class="hljs-value"><span class="hljs-string">"32r3f45g"</span></span>,
+                       "<span class="hljs-attribute">publishers</span>":<span class="hljs-value">[
+                           {
+                               "<span class="hljs-attribute">uuid</span>":<span class="hljs-value"><span class="hljs-string">"56c2c3b0-665a-4451-9867-ebae6d378d4b"</span></span>,
+                               "<span class="hljs-attribute">name</span>":<span class="hljs-value"><span class="hljs-string">"Negah-e Novin"</span></span>,
+                               "<span class="hljs-attribute">createdAt</span>":<span class="hljs-value"><span class="hljs-string">"1399/05/31 23:16:04.000000"</span></span>,
+                               "<span class="hljs-attribute">updatedAt</span>":<span class="hljs-value"><span class="hljs-string">"1399/05/31 23:16:04.000000"</span></span>,
+                           }
+                       ]</span>,
+                       "<span class="hljs-attribute">writers</span>":<span class="hljs-value">[
+                           {
+                               "<span class="hljs-attribute">uuid</span>":<span class="hljs-value"><span class="hljs-string">"56c2c3b0-665a-4451-9867-ebae6d378d4b"</span></span>,
+                               "<span class="hljs-attribute">name</span>":<span class="hljs-value"><span class="hljs-string">"Dr Ali Shabani"</span></span>,
+                               "<span class="hljs-attribute">createdAt</span>":<span class="hljs-value"><span class="hljs-string">"1399/05/31 23:16:04.000000"</span></span>,
+                               "<span class="hljs-attribute">updatedAt</span>":<span class="hljs-value"><span class="hljs-string">"1399/05/31 23:16:04.000000"</span></span>,
+                           }
+                       ]</span>,
+                       "<span class="hljs-attribute">categories</span>":<span class="hljs-value">[
+                           {
+                               "<span class="hljs-attribute">uuid</span>":<span class="hljs-value"><span class="hljs-string">"56c2c3b0-665a-4451-9867-ebae6d378d4b"</span></span>,
+                               "<span class="hljs-attribute">name</span>":<span class="hljs-value"><span class="hljs-string">"Life"</span></span>,
+                               "<span class="hljs-attribute">color</span>":<span class="hljs-value"><span class="hljs-string">"cd2122"</span></span>,
+                               "<span class="hljs-attribute">photo</span>":<span class="hljs-value"><span class="hljs-string">"https://s.hirbod.ac/9nv8bucb9v3yt8t43.png"</span></span>,
+                               "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"1399/05/31 23:16:04.000000"</span></span>,
+                               "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"1399/05/31 23:16:04.000000"</span>
+                           </span>}
+                       ]</span>,
+                       "<span class="hljs-attribute">tags</span>":<span class="hljs-value">[
+                           {
+                               "<span class="hljs-attribute">uuid</span>":<span class="hljs-value"><span class="hljs-string">"56c2c3b0-665a-4451-9867-ebae6d378d4b"</span></span>,
+                               "<span class="hljs-attribute">name</span>":<span class="hljs-value"><span class="hljs-string">"Love"</span></span>,
+                               "<span class="hljs-attribute">color</span>":<span class="hljs-value"><span class="hljs-string">"cd2122"</span></span>,
+                               "<span class="hljs-attribute">photo</span>":<span class="hljs-value"><span class="hljs-string">"https://s.hirbod.ac/iu47ghu8ov374gvo2.png"</span></span>,
+                               "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"1399/05/31 23:16:04.000000"</span></span>,
+                               "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"1399/05/31 23:16:04.000000"</span>
+                           </span>}
+                       ]</span>,
+                       "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"1399/05/31 23:16:04.000000"</span></span>,
+                       "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"1399/05/31 23:16:04.000000"</span>
+                   </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">400</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"BAD_REQUEST"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">401</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"UNAURHORIZED"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">500</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"INTERNAL_ERROR"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div><div class="middle"><div id="ebook-show-get" class="action get"><h4 class="action-heading"><div class="name">Show</div><a href="#ebook-show-get" class="method get">GET</a><code class="uri">/ebooks/{uuid}/show</code></h4><p>To Show EBook details you can call this method on API.</p>
+  <div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>uuid</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>67d4e9b0-55a3-4422-9f8c-2cd2f84dbf43</span></span><p>The UUID of EBook.</p>
+  </dd></dl></div></div></div><hr class="split"><div class="middle"><section id="podcast" class="resource-group"><h2 class="group-heading">Podcast <a href="#podcast" class="permalink">&para;</a></h2><p>The podcast methods related to podcasts, episodes and related methods.</p>
+</section></div><div class="middle"><div id="podcast-list" class="resource"><h3 class="resource-heading">List <a href="#podcast-list" class="permalink">&para;</a></h3><p>Show list of podcasts.</p>
+</div></div><div class="right"><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.hirbod.ac/rest/v1</span>/podcasts</span></div><div class="tabs"><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span><span class="tab-button">400</span><span class="tab-button">401</span><span class="tab-button">500</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Podcasts Fetched."</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">"4e56585c-ea05-4146-9c41-9af8c1aab1a4"</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Tehran Trafik"</span></span>,
+      "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">2300</span></span>,
+      "<span class="hljs-attribute">logo</span>": <span class="hljs-value"><span class="hljs-string">"https://s.hirbod.ac/podcasts/f3FEW45rgte.jpg"</span></span>,
+      "<span class="hljs-attribute">cover</span>": <span class="hljs-value"><span class="hljs-string">"https://s.hirbod.ac/podcats/6fvFREGu6754.jpg"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Official Tehran Trafic podcast on Hirbod+"</span></span>,
+      "<span class="hljs-attribute">tags</span>": <span class="hljs-value">[
+        {
+          "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">"ff6e4c60-57ca-4689-baf7-897472dc278a"</span></span>,
+          "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Tehran"</span></span>,
+          "<span class="hljs-attribute">color</span>": <span class="hljs-value"><span class="hljs-string">"cd2122"</span></span>,
+          "<span class="hljs-attribute">photo</span>": <span class="hljs-value"><span class="hljs-string">"https://s.hirbod.ac/tags/re2gh4Gr653wgwr.png"</span></span>,
+          "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"1399/01/20 20:12:49.0000"</span></span>,
+          "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"1399/02/01 12:34:10.0003"</span>
+        </span>}
+      ]</span>,
+      "<span class="hljs-attribute">categories</span>": <span class="hljs-value">[
+        {
+          "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">"8267f1fe-3f53-45d2-a4bb-221474d36d7c"</span></span>,
+          "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Tehran"</span></span>,
+          "<span class="hljs-attribute">color</span>": <span class="hljs-value"><span class="hljs-string">"cd2122"</span></span>,
+          "<span class="hljs-attribute">photo</span>": <span class="hljs-value"><span class="hljs-string">"https://s.hirbod.ac/tags/re2gh4Gr653wgwr.png"</span></span>,
+          "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"1399/01/20 20:12:49.0000"</span></span>,
+          "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"1399/02/01 12:34:10.0003"</span>
+        </span>}
+      ]</span>,
+      "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"1399/02/03 08:11:42.0000"</span></span>,
+      "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"1399/02/04 09:10:11.0020"</span>
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">400</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"BAD_REQUEST"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">401</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"UNAURHORIZED"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">500</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"INTERNAL_ERROR"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div><div class="middle"><div id="podcast-list-get" class="action get"><h4 class="action-heading"><div class="name">List</div><a href="#podcast-list-get" class="method get">GET</a><code class="uri">/podcasts</code></h4><p>Show list of podcasts.</p>
+</div></div><hr class="split"><div class="middle"><div id="podcast-show" class="resource"><h3 class="resource-heading">Show <a href="#podcast-show" class="permalink">&para;</a></h3><p>Show method return event .</p>
+</div></div><div class="right"><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.hirbod.ac/rest/v1</span>/podcasts/<span class="hljs-attribute" title="UUID">414bdc49-2673-4ddb-978c-b5209a5bf198</span>/show</span></div><div class="tabs"><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span><span class="tab-button">400</span><span class="tab-button">401</span><span class="tab-button">500</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+        "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+               "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+               "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Podcast Fetched."</span>
+            </span>}</span>,
+            "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+               "<span class="hljs-attribute">uuid</span>":<span class="hljs-value"><span class="hljs-string">"414bdc49-2673-4ddb-978c-b5209a5bf198"</span></span>,
+               "<span class="hljs-attribute">title</span>":<span class="hljs-value"><span class="hljs-string">"Tehran Terafik"</span></span>,
+               "<span class="hljs-attribute">price</span>":<span class="hljs-value"><span class="hljs-number">0</span></span>,
+               "<span class="hljs-attribute">logo</span>":<span class="hljs-value"><span class="hljs-string">"https://s.hirbod.ac/podcasts/f45gFWE3.png"</span></span>,
+               "<span class="hljs-attribute">cover</span>":<span class="hljs-value"><span class="hljs-string">"https://s.hirbod.ac/podcasts/8SDVrff3.png"</span></span>,
+               "<span class="hljs-attribute">description</span>":<span class="hljs-value"><span class="hljs-string">"The leadership of Tehran podcasts"</span></span>,
+               "<span class="hljs-attribute">website</span>":<span class="hljs-value"><span class="hljs-string">"https://tehranterafic.music"</span></span>,
+               "<span class="hljs-attribute">username</span>":<span class="hljs-value"><span class="hljs-string">"tehranterafic"</span></span>,
+               "<span class="hljs-attribute">episods</span>":<span class="hljs-value">[
+                    {
+                        "<span class="hljs-attribute">uuid</span>":<span class="hljs-value"><span class="hljs-string">"f6e71e6f-49e6-4382-8d67-9085b20a506f"</span></span>,
+                        "<span class="hljs-attribute">title</span>":<span class="hljs-value"><span class="hljs-string">"CoronaVirus"</span></span>,
+                        "<span class="hljs-attribute">plays</span>":<span class="hljs-value"><span class="hljs-number">123232</span></span>,
+                        "<span class="hljs-attribute">description</span>":<span class="hljs-value"><span class="hljs-string">"The related to CoronaVirus epidemy"</span></span>,
+                        "<span class="hljs-attribute">icon</span>":<span class="hljs-value"><span class="hljs-string">"https://s.hirbod.ac/podcasts/re32564DS.png"</span></span>,
+                        "<span class="hljs-attribute">file</span>":<span class="hljs-value"><span class="hljs-string">"https://s.hirbod.ac/podcasts/hjyt5432f.mp3"</span></span>,
+                        "<span class="hljs-attribute">plus</span>":<span class="hljs-value"><span class="hljs-literal">true</span></span>,
+                        "<span class="hljs-attribute">createdAt</span>":<span class="hljs-value"><span class="hljs-string">"1399/01/04 12:54:58.0000"</span></span>,
+                        "<span class="hljs-attribute">updatedAt</span>":<span class="hljs-value"><span class="hljs-literal">null</span></span>,
+                    }
+               ]
+               <span class="hljs-string">"status"</span>:<span class="hljs-number">0</span></span>,
+               "<span class="hljs-attribute">createdAt</span>":<span class="hljs-value"><span class="hljs-string">"1399/01/04 12:54:21.0002"</span></span>,
+               "<span class="hljs-attribute">updatedAt</span>":<span class="hljs-value"><span class="hljs-literal">null</span>
+            </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">400</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"BAD_REQUEST"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">401</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"UNAURHORIZED"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">500</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"INTERNAL_ERROR"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div><div class="middle"><div id="podcast-show-get" class="action get"><h4 class="action-heading"><div class="name">Show</div><a href="#podcast-show-get" class="method get">GET</a><code class="uri">/podcasts/{UUID}/show</code></h4><p>To play podcast and get details you can call this method on API.</p>
+  <div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>UUID</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>414bdc49-2673-4ddb-978c-b5209a5bf198</span></span><p>The UUID of podcast.</p>
+  </dd></dl></div></div></div><hr class="split"><div class="middle"><div id="podcast-purchase" class="resource"><h3 class="resource-heading">Purchase <a href="#podcast-purchase" class="permalink">&para;</a></h3><p>Purchase method for podcasts.</p>
+</div></div><div class="right"><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.hirbod.ac/rest/v1</span>/podcasts/<span class="hljs-attribute" title="UUID">bb1960b6-7934-4763-834a-4ef8aa34fbf0</span>/purchase</span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">example 1</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">Bearer [access_token]</span></code></pre><div style="height: 1px;"></div></div></div><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span><span class="tab-button">400</span><span class="tab-button">401</span><span class="tab-button">500</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Payment Started."</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">"https://azarpay.net/pg/B4pJAe"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">400</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"BAD_REQUEST"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">401</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"UNAURHORIZED"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">500</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"INTERNAL_ERROR"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div></div><div class="middle"><div id="podcast-purchase-post" class="action post"><h4 class="action-heading"><div class="name">Purchase</div><a href="#podcast-purchase-post" class="method post">POST</a><code class="uri">/podcasts/{UUID}/purchase</code></h4><p>Purchase To pay special podcast you can call this method on API.</p>
+  <div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>UUID</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>bb1960b6-7934-4763-834a-4ef8aa34fbf0</span></span><p>The UUID of podcast.</p>
+  </dd></dl></div></div></div><hr class="split"><div class="middle"><section id="support" class="resource-group"><h2 class="group-heading">Support <a href="#support" class="permalink">&para;</a></h2><p>The Support module contains Tickets, Call Requests, Complaints and FAQs.</p>
+</section></div><div class="middle"><div id="support-tickets" class="resource"><h3 class="resource-heading">Tickets <a href="#support-tickets" class="permalink">&para;</a></h3><p>Tickets method return list of tickets.</p>
+</div></div><div class="right"><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.hirbod.ac/rest/v1</span>/support/tickets</span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">List</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">Bearer [access_token]</span></code></pre><div style="height: 1px;"></div></div></div><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Tickets fetched."</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">"67d4e9b0-55a3-4422-9f8c-2cd2f84dbf43"</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"title"</span></span>,
+      "<span class="hljs-attribute">priority</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"message"</span></span>,
+      "<span class="hljs-attribute">department</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+      "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"1399/02/20 12:52:55.000000"</span></span>,
+      "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+      "<span class="hljs-attribute">replies</span>": <span class="hljs-value">[
+        {
+          "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">"c3444850-7c31-414b-bbcc-60b300448f83"</span></span>,
+          "<span class="hljs-attribute">reply</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+          "<span class="hljs-attribute">user</span>": <span class="hljs-value"><span class="hljs-string">"78569684-8916-4d9d-9d0c-a8443fc7da8c"</span></span>,
+          "<span class="hljs-attribute">avatar</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+          "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"This is reply"</span></span>,
+          "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"1399/01/23 06:47:24.000000"</span>
+        </span>}
+      ]
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div></div><div class="middle"><div id="support-tickets-get" class="action get"><h4 class="action-heading"><div class="name">List</div><a href="#support-tickets-get" class="method get">GET</a><code class="uri">/support/tickets</code></h4><p>Return list tickets.</p>
+</div></div><hr class="split"><div class="right"><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.hirbod.ac/rest/v1</span>/support/tickets</span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">Store</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">Bearer [access_token]</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"title-message"</span></span>,
+  "<span class="hljs-attribute">priority</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"body-message"</span></span>,
+  "<span class="hljs-attribute">department</span>": <span class="hljs-value"><span class="hljs-number">1</span>
+</span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+  "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">title</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Title of ticket"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">priority</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"integer"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Send priority as 0 for normal, 1 for non significant and 2 for important"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"The message of ticket"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">department</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"integer"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Ticket related department as 0 for general, 1 for finance, 6 for corporations and 7 for manager of business."</span>
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Ticket Store."</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div></div><div class="middle"><div id="support-tickets-post" class="action post"><h4 class="action-heading"><div class="name">Store</div><a href="#support-tickets-post" class="method post">POST</a><code class="uri">/support/tickets</code></h4><p>Return store.</p>
+</div></div><hr class="split"><div class="middle"><div id="support-show" class="resource"><h3 class="resource-heading">Show <a href="#support-show" class="permalink">&para;</a></h3><p>Show method return special ticket .</p>
+</div></div><div class="right"><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.hirbod.ac/rest/v1</span>/support/tickets/<span class="hljs-attribute" title="uuid">67d4e9b0-55a3-4422-9f8c-2cd2f84dbf43</span></span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">example 1</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">Bearer [access_token]</span></code></pre><div style="height: 1px;"></div></div></div><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Ticket Fetched"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">"67d4e9b0-55a3-4422-9f8c-2cd2f84dbf43"</span></span>,
+    "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"TicketTitle"</span></span>,
+    "<span class="hljs-attribute">priority</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"this is ticket msg"</span></span>,
+    "<span class="hljs-attribute">department</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
+    "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"1399/02/20 12:52:55.000000"</span></span>,
+    "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+    "<span class="hljs-attribute">replis</span>": <span class="hljs-value">[
+      {
+        "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">"c3444850-7c31-414b-bbcc-60b300448f83"</span></span>,
+        "<span class="hljs-attribute">reply</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">user</span>": <span class="hljs-value"><span class="hljs-string">"78569684-8916-4d9d-9d0c-a8443fc7da8c"</span></span>,
+        "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"This is reply"</span></span>,
+        "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"1399/01/23 06:47:24.000000"</span>
+      </span>}
+    ]
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div></div><div class="middle"><div id="support-show-get" class="action get"><h4 class="action-heading"><div class="name">Show</div><a href="#support-show-get" class="method get">GET</a><code class="uri">/support/tickets/{uuid}</code></h4><p>To show ticket details you can call this method on API.</p>
+  <div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>uuid</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>67d4e9b0-55a3-4422-9f8c-2cd2f84dbf43</span></span><p>The UUID of ticket.</p>
+  </dd></dl></div></div></div><hr class="split"><div class="middle"><div id="support-reply" class="resource"><h3 class="resource-heading">Reply <a href="#support-reply" class="permalink">&para;</a></h3><p>Reply for a specific ticket .</p>
+</div></div><div class="right"><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.hirbod.ac/rest/v1</span>/support/reply</span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">Store</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">Bearer [access_token]</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+         "<span class="hljs-attribute">ticket</span>": <span class="hljs-value"><span class="hljs-string">"67d4e9b0-55a3-4422-9f8c-2cd2f84dbf43"</span></span>,
+         "<span class="hljs-attribute">message</span>":<span class="hljs-value"><span class="hljs-string">"body-message"</span></span>,
+    }</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+    "<span class="hljs-attribute">type</span>":<span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+    "<span class="hljs-attribute">properties</span>":<span class="hljs-value">{
+        "<span class="hljs-attribute">ticket</span>":<span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>":<span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+            "<span class="hljs-attribute">description</span>":<span class="hljs-value"><span class="hljs-string">"The UUID of ticket"</span>
+        </span>}</span>,
+        "<span class="hljs-attribute">message</span>":<span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>":<span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+            "<span class="hljs-attribute">description</span>":<span class="hljs-value"><span class="hljs-string">"Text of reply"</span>
+        </span>}
+    </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Reply Received"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div></div><div class="middle"><div id="support-reply-post" class="action post"><h4 class="action-heading"><div class="name">Reply</div><a href="#support-reply-post" class="method post">POST</a><code class="uri">/support/reply</code></h4><p>Return result ticket reply.</p>
+</div></div><hr class="split"><div class="middle"><div id="support-complaints" class="resource"><h3 class="resource-heading">Complaints <a href="#support-complaints" class="permalink">&para;</a></h3></div></div><div class="right"><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.hirbod.ac/rest/v1</span>/support/complaints</span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">Store</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"John Doe"</span></span>,
+  "<span class="hljs-attribute">phone</span>": <span class="hljs-value"><span class="hljs-string">"555-1212"</span></span>,
+  "<span class="hljs-attribute">content</span>": <span class="hljs-value"><span class="hljs-string">"I have complaint"</span>
+</span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Complaint Registered."</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span><span class="tab-button">400</span><span class="tab-button">401</span><span class="tab-button">500</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Complaint Registered."</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">400</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"BAD_REQUEST"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">401</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"UNAURHORIZED"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">500</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"INTERNAL_ERROR"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div></div><div class="middle"><div id="support-complaints-post" class="action post"><h4 class="action-heading"><div class="name">Complaint</div><a href="#support-complaints-post" class="method post">POST</a><code class="uri">/support/complaints</code></h4><p>Register new complaint in system.</p>
+</div></div><hr class="split"><div class="middle"><div id="support-callrequests" class="resource"><h3 class="resource-heading">CallRequests <a href="#support-callrequests" class="permalink">&para;</a></h3></div></div><div class="right"><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.hirbod.ac/rest/v1</span>/support/calls</span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">Store</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"John Doe"</span></span>,
+  "<span class="hljs-attribute">phone</span>": <span class="hljs-value"><span class="hljs-string">"555-1212"</span>
+</span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"CallRequest Received."</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span><span class="tab-button">400</span><span class="tab-button">401</span><span class="tab-button">500</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"CallRequest Registered."</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">400</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"BAD_REQUEST"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">401</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"UNAURHORIZED"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">500</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"INTERNAL_ERROR"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div></div><div class="middle"><div id="support-callrequests-post" class="action post"><h4 class="action-heading"><div class="name">CallRequest</div><a href="#support-callrequests-post" class="method post">POST</a><code class="uri">/support/calls</code></h4><p>Register Call Request, In otherwise our support center operators call user.</p>
+</div></div><hr class="split"><div class="middle"><div id="support-faqs" class="resource"><h3 class="resource-heading">FAQs <a href="#support-faqs" class="permalink">&para;</a></h3><p>List method return frequently asked questions.</p>
+</div></div><div class="right"><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.hirbod.ac/rest/v1</span>/support/faqs</span></div><div class="tabs"><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span><span class="tab-button">400</span><span class="tab-button">401</span><span class="tab-button">500</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"FAQs fetched."</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">"d0c31dbf-581d-44d7-af44-5c47061cd2e7"</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"title faq one"</span></span>,
+      "<span class="hljs-attribute">icon</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+      "<span class="hljs-attribute">content</span>": <span class="hljs-value"><span class="hljs-string">"content faq one"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">"45904e83-ac12-4d09-a2ae-2bceab3da143"</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"title faq two"</span></span>,
+      "<span class="hljs-attribute">icon</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+      "<span class="hljs-attribute">content</span>": <span class="hljs-value"><span class="hljs-string">"content faq two"</span>
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+  "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">uuid</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"The UUID of item"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">title</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"The title of FAQ item"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">icon</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"The URL of icon (if it has icon or null)"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">content</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"The full text of question`s answer"</span>
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">400</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"BAD_REQUEST"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">401</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"UNAURHORIZED"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">500</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"INTERNAL_ERROR"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div><div class="middle"><div id="support-faqs-get" class="action get"><h4 class="action-heading"><div class="name">FAQs</div><a href="#support-faqs-get" class="method get">GET</a><code class="uri">/support/faqs</code></h4><p>To show all of list faq you can call this method on API.</p>
+</div></div><hr class="split"><div class="middle"><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 06 Sep 2020</p></div></div></div></div><script>/* eslint-env browser */
+/* eslint quotes: [2, "single"] */
+'use strict';
+
+/*
+  Determine if a string ends with another string.
+*/
+function endsWith(str, suffix) {
+  return str.indexOf(suffix, str.length - suffix.length) !== -1;
+}
+
+/*
+  Get a list of direct child elements by class name.
+*/
+function childrenByClass(element, name) {
+  var filtered = [];
+
+  for (var i = 0; i < element.children.length; i++) {
+    var child = element.children[i];
+    var classNames = child.className.split(' ');
+    if (classNames.indexOf(name) !== -1) {
+      filtered.push(child);
+    }
+  }
+
+  return filtered;
+}
+
+/*
+  Get an array [width, height] of the window.
+*/
+function getWindowDimensions() {
+  var w = window,
+          d = document,
+          e = d.documentElement,
+          g = d.body,
+          x = w.innerWidth || e.clientWidth || g.clientWidth,
+          y = w.innerHeight || e.clientHeight || g.clientHeight;
+
+  return [x, y];
+}
+
+/*
+  Collapse or show a request/response example.
+*/
+function toggleCollapseButton(event) {
+  var button = event.target.parentNode;
+  var content = button.parentNode.nextSibling;
+  var inner = content.children[0];
+
+  if (button.className.indexOf('collapse-button') === -1) {
+    // Clicked without hitting the right element?
+    return;
+  }
+
+  if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+    // Currently showing, so let's hide it
+    button.className = 'collapse-button';
+    content.style.maxHeight = '0px';
+  } else {
+    // Currently hidden, so let's show it
+    button.className = 'collapse-button show';
+    content.style.maxHeight = inner.offsetHeight + 12 + 'px';
+  }
+}
+
+function toggleTabButton(event) {
+  var i, index;
+  var button = event.target;
+
+  // Get index of the current button.
+  var buttons = childrenByClass(button.parentNode, 'tab-button');
+  for (i = 0; i < buttons.length; i++) {
+    if (buttons[i] === button) {
+      index = i;
+      button.className = 'tab-button active';
+    } else {
+      buttons[i].className = 'tab-button';
+    }
+  }
+
+  // Hide other tabs and show this one.
+  var tabs = childrenByClass(button.parentNode.parentNode, 'tab');
+  for (i = 0; i < tabs.length; i++) {
+    if (i === index) {
+      tabs[i].style.display = 'block';
+    } else {
+      tabs[i].style.display = 'none';
+    }
+  }
+}
+
+/*
+  Collapse or show a navigation menu. It will not be hidden unless it
+  is currently selected or `force` has been passed.
+*/
+function toggleCollapseNav(event, force) {
+  var heading = event.target.parentNode;
+  var content = heading.nextSibling;
+  var inner = content.children[0];
+
+  if (heading.className.indexOf('heading') === -1) {
+    // Clicked without hitting the right element?
+    return;
+  }
+
+  if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+    // Currently showing, so let's hide it, but only if this nav item
+    // is already selected. This prevents newly selected items from
+    // collapsing in an annoying fashion.
+    if (force || window.location.hash && endsWith(event.target.href, window.location.hash)) {
+      content.style.maxHeight = '0px';
+    }
+  } else {
+    // Currently hidden, so let's show it
+    content.style.maxHeight = inner.offsetHeight + 12 + 'px';
+  }
+}
+
+/*
+  Refresh the page after a live update from the server. This only
+  works in live preview mode (using the `--server` parameter).
+*/
+function refresh(body) {
+  document.querySelector('body').className = 'preload';
+  document.body.innerHTML = body;
+
+  // Re-initialize the page
+  init();
+  autoCollapse();
+
+  document.querySelector('body').className = '';
+}
+
+/*
+  Determine which navigation items should be auto-collapsed to show as many
+  as possible on the screen, based on the current window height. This also
+  collapses them.
+*/
+function autoCollapse() {
+  var windowHeight = getWindowDimensions()[1];
+  var itemsHeight = 64; /* Account for some padding */
+  var itemsArray = Array.prototype.slice.call(
+          document.querySelectorAll('nav .resource-group .heading'));
+
+  // Get the total height of the navigation items
+  itemsArray.forEach(function (item) {
+    itemsHeight += item.parentNode.offsetHeight;
+  });
+
+  // Should we auto-collapse any nav items? Try to find the smallest item
+  // that can be collapsed to show all items on the screen. If not possible,
+  // then collapse the largest item and do it again. First, sort the items
+  // by height from smallest to largest.
+  var sortedItems = itemsArray.sort(function (a, b) {
+    return a.parentNode.offsetHeight - b.parentNode.offsetHeight;
+  });
+
+  while (sortedItems.length && itemsHeight > windowHeight) {
+    for (var i = 0; i < sortedItems.length; i++) {
+      // Will collapsing this item help?
+      var itemHeight = sortedItems[i].nextSibling.offsetHeight;
+      if ((itemsHeight - itemHeight <= windowHeight) || i === sortedItems.length - 1) {
+        // It will, so let's collapse it, remove its content height from
+        // our total and then remove it from our list of candidates
+        // that can be collapsed.
+        itemsHeight -= itemHeight;
+        toggleCollapseNav({target: sortedItems[i].children[0]}, true);
+        sortedItems.splice(i, 1);
+        break;
+      }
+    }
+  }
+}
+
+/*
+  Initialize the interactive functionality of the page.
+*/
+function init() {
+  var i, j;
+
+  // Make collapse buttons clickable
+  var buttons = document.querySelectorAll('.collapse-button');
+  for (i = 0; i < buttons.length; i++) {
+    buttons[i].onclick = toggleCollapseButton;
+
+    // Show by default? Then toggle now.
+    if (buttons[i].className.indexOf('show') !== -1) {
+      toggleCollapseButton({target: buttons[i].children[0]});
+    }
+  }
+
+  var responseCodes = document.querySelectorAll('.example-names');
+  for (i = 0; i < responseCodes.length; i++) {
+    var tabButtons = childrenByClass(responseCodes[i], 'tab-button');
+    for (j = 0; j < tabButtons.length; j++) {
+      tabButtons[j].onclick = toggleTabButton;
+
+      // Show by default?
+      if (j === 0) {
+        toggleTabButton({target: tabButtons[j]});
+      }
+    }
+  }
+
+  // Make nav items clickable to collapse/expand their content.
+  var navItems = document.querySelectorAll('nav .resource-group .heading');
+  for (i = 0; i < navItems.length; i++) {
+    navItems[i].onclick = toggleCollapseNav;
+
+    // Show all by default
+    toggleCollapseNav({target: navItems[i].children[0]});
+  }
+}
+
+// Initial call to set up buttons
+init();
+
+window.onload = function () {
+  autoCollapse();
+  // Remove the `preload` class to enable animations
+  document.querySelector('body').className = '';
+};
+</script></body></html>

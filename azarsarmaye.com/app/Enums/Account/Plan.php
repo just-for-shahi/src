@@ -1,0 +1,48 @@
+<?php
+
+
+namespace App\Enums\Account;
+
+
+class Plan
+{
+
+    const PROFIT_STATIC = 0.045;
+    const PROFIT_MIN = 0.005;
+    const PROFIT_MAX = 0.01;
+
+    // Periods
+    const ONE_MONTH = 1;
+    const THREE_MONTHS = 2;
+    const SIX_MONTHS = 3;
+    const ONE_YEAR = 4;
+    const THREE_YEARS = 5;
+    const FIVE_YEARS = 6;
+
+    // Profits
+    const ONE_MONTH_STATIC_PROFIT = 0.035;
+    const ONE_MONTH_DYNAMIC_MIN_PROFIT = 0.005;
+    const ONE_MONTH_DYNAMIC_MAX_PROFIT = 0.01;
+
+    const THREE_MONTHS_STATIC_PROFIT = 0.035;
+    const THREE_MONTHS_DYNAMIC_MIN_PROFIT = 0.005;
+    const THREE_MONTHS_DYNAMIC_MAX_PROFIT = 0.01;
+
+    const SIX_MONTHS_STATIC_PROFIT = 0.035;
+    const SIX_MONTHS_DYNAMIC_MIN_PROFIT = 0.005;
+    const SIX_MONTHS_DYNAMIC_MAX_PROFIT = 0.01;
+
+    const ONE_YEAR_STATIC_PROFIT = 0.035;
+    const ONE_YEAR_DYNAMIC_MIN_PROFIT = 0.005;
+    const ONE_YEAR_DYNAMIC_MAX_PROFIT = 0.01;
+
+    const THREE_YEARS_STATIC_PROFIT = 0.035;
+    const THREE_YEARS_DYNAMIC_MIN_PROFIT = 0.005;
+    const THREE_YEARS_DYNAMIC_MAX_PROFIT = 0.01;
+
+    const FIVE_YEARS_STATIC_PROFIT = 0.035;
+    const FIVE_YEARS_DYNAMIC_MIN_PROFIT = 0.005;
+    const FIVE_YEARS_DYNAMIC_MAX_PROFIT = 0.01;
+
+
+}

@@ -1,0 +1,16 @@
+// this file contains the necessaru scss for the custm scrollbar
+@mixin custom_scroll($selector){
+  #{$selector}::-webkit-scrollbar-track {
+    background-color: rgba($dark, .05);
+  }
+  #{$selector}::-webkit-scrollbar {
+    width: 6px;
+    background-color: transparent
+  }
+
+  #{$selector}::-webkit-scrollbar-thumb {
+    background-color: $border-color;
+    -webkit-border-radius: 5px;
+    border-radius: 5px
+  }
+}

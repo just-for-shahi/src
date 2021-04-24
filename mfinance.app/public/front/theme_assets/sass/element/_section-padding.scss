@@ -1,0 +1,14 @@
+// this file contains the necessary scss for the section title element
+.section_title{
+  h1{
+    font-weight: 600;
+    margin-bottom: remy(52px);
+  }
+  .section_title_underline{
+    width: 70px;
+    @extend .bg-primary;
+    display: inline-block;
+    height: 5px;
+    border-radius: 10px;
+  }
+}

@@ -1,0 +1,43 @@
+/* range slider css */
+.price-filter{
+  margin-top: 10px;
+}
+.range-slider{
+  .slider-range{
+    background: $gray-100;
+    border-radius: remy(25px);
+    height: remy(6px);
+    max-width: remy(200px);
+    .ui-slider-range{
+      @extend .bg-primary;
+    }
+    .ui-slider-handle{
+      width: remy(18px);
+      height: remy(18px);
+      border: remy(4px) solid $primary;
+      @extend .bg-light;
+      border-radius: 50%;
+      top: remy(-6px);
+      cursor: pointer;
+      &:focus{
+        outline: 0;
+      }
+    }
+  }
+  p{
+    margin: remy(25px) 0 0 0;
+  }
+  .amounts{
+    border: 0 none;
+    margin-left: remy(20px);
+    color: $body-color;
+    font-size: remy(16px);
+    width: remy(90px);
+    background: none;
+  }
+}
+.range-slider-dark{
+  .slider-range{
+    background: rgba($primary, 0.2);
+  }
+}

@@ -1,0 +1,30 @@
+//checkbox solid bg
+@each $key, $color in ($theme-colors){
+  .checkbox-#{$key}{
+    .custom-control-label::before{
+      background: #{$color};
+    }
+    .custom-control-input:checked ~ .custom-control-label::before{
+      background: #{$color};
+      border: 1px solid #{$color};
+    }
+    .custom-control-input:checked ~ .custom-control-label::after{
+      color: $light;
+    }
+  }
+}
+
+//checkbox outline generator
+@each $key, $color in ($theme-colors){
+  .checkbox-outline-#{$key}{
+    .custom-control-label:before{
+      border: 1px solid #{$color};
+    }
+    .custom-control-input:checked ~ .custom-control-label::before{
+      border: 1px solid #{$color};
+    }
+    .custom-control-input:checked ~ .custom-control-label::after{
+      color: #{$color};
+    }
+  }
+}

@@ -1,0 +1,52 @@
+/*
+Dark theme
+*/
+.dark{
+  .white,
+  .box{
+    background-color: lighten( $dark, $color-dk-percent );
+  }
+  &.app{
+    background-color: $dark;
+  }
+}
+.black{
+  .white,
+  .box{
+    background-color: lighten( $black, $color-dk-percent );
+  }
+  &.app{
+    background-color: $black;
+  }
+}
+.grey{
+  .white,
+  .box{
+    background-color: lighten( $grey, $color-dk-percent );;
+  }
+  &.app{
+    background-color: $grey;
+  }
+}
+
+.dark,
+.black,
+.grey{
+  .form-control{
+    background: transparent;
+    background-color: transparent;
+    color: inherit;
+    &:focus{
+      border-color: $border-color;
+    }
+  }
+  .input-group-btn{
+    .btn{
+      background-color: $border-color-lt !important;
+      color: inherit !important;
+    }
+  }
+  .list-group{
+    background-color: transparent;
+  }
+}

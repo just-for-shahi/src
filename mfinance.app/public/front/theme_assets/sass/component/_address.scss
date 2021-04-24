@@ -1,0 +1,33 @@
+/* address carouesl styles */
+.addresses_carousel{
+  .adress img{
+    max-width: 100%;
+    width: auto;
+    display: inline-block;
+  }
+  .owl-dots{
+    margin-top: 0;
+  }
+}
+.adress {
+  padding: 0 remy(30px);
+  margin-bottom: remy(50px);
+  .nam{
+    margin-top: remy(25px);
+    font-size: remy(18px);
+    @extend .color-dark;
+    margin-bottom: remy(10px);
+    font-weight: 600;
+  }
+  img {
+    max-width: 100%;
+    width: auto;
+    display: inline-block;
+  }
+  p{
+    margin:0;
+  }
+}
+.adress{
+  text-align: center;
+}

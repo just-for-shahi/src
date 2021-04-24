@@ -1,0 +1,42 @@
+/* alerts css */
+.alert-group{
+  .alert{
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+}
+.alert{
+  border: 0 none;
+  strong{
+    font-weight: 500;
+    font-size: 1.06rem;
+  }
+  a{
+    color: inherit;
+    font-weight: 500;
+    font-size: 1.06rem;
+  }
+  p{
+    margin: 0;
+  }
+  i.la{
+    padding-right: 0.66rem;
+    font-size: 1.2rem;
+    position: relative;
+    top: 2px;
+  }
+  &.alert-outline{
+    background: none;
+    border: 1px solid;
+  }
+  &.alert-dismissible .close {
+    top: 50%;
+    transform: translateY(-50%);
+    right: 2rem;
+    padding: 0;
+    &:focus{
+      outline: none;
+    }
+  }
+}

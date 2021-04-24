@@ -1,0 +1,7 @@
+{
+  "platform": "laravel",
+  "app": "hirbod",
+  "laravel": {
+    "buildAssets": false
+  }
+}

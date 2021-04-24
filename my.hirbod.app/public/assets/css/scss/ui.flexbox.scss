@@ -1,0 +1,61 @@
+/*
+Flexbox
+*/
+[layout],
+[data-layout] {
+  box-sizing: border-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex; 
+}
+
+[layout=column],
+[data-layout=column] {
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column; 
+}
+
+[layout=row],
+[data-layout=row] {
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row; 
+}
+
+[layout-wrap],
+[data-layout-wrap] {
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; 
+}
+
+[layout-fill],
+[data-layout-fill] {
+  margin: 0;
+  min-height: 100%;
+  width: 100%; 
+}
+
+@-moz-document url-prefix() {
+  [layout-fill],
+  [data-layout-fill] {
+    margin: 0;
+    width: 100%;
+    min-height: auto;
+    height: inherit; } 
+}
+
+[flex],
+[data-flex] {
+  box-sizing: border-box;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1; 
+}
+
+[flex-no-shrink],
+[data-flex-no-shrink]{
+  flex-shrink: 0;
+}

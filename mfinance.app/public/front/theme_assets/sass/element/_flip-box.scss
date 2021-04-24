@@ -1,0 +1,107 @@
+//flip-card css
+.flip-card{
+  margin-bottom: remy(30px);
+  .flip-wrapper{
+    perspective: 1000px;
+    transform: perspective(1000px);
+    transform-style: preserve-3d;
+    position: relative;
+    width:100%;
+    min-height: remy(330px);
+  }
+  .flip-front, .flip-back{
+    width: 100%;
+    height: 100%;
+    border-radius: remy(5px);
+    box-shadow: $box-shadow-sm;
+  }
+  .flip-front{
+    transition: transform 0.60s cubic-bezier(.5,.3,.3,1);
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    backface-visibility: hidden;
+    -webkit-filter: blur(.0px);
+    transform: rotateY(0deg);
+    transform-style: preserve-3d;
+    z-index: 1;
+  }
+  .flip-back{
+    transition: transform 0.60s cubic-bezier(.5,.3,.3,1);
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    backface-visibility: hidden;
+    -webkit-filter: blur(.0px);
+    transform: rotateY(180deg);
+    transform-style: preserve-3d;
+    z-index: 1;
+  }
+
+  .flip-wrapper{
+    &:hover{
+      .flip-front{
+        transform: rotateY(-180deg);
+        transform-style: preserve-3d;
+      }
+      .flip-back{
+        transform: rotateY(0);
+        transform-style: preserve-3d;
+      }
+      .front-contents{
+        transform: translateY(-50%) translateX(-650px)  scale(1);
+        transform-style: preserve-3d;
+      }
+      .back-contents{
+        transform: translateY(-50%) translateX(0px) translateZ(0px) scale(1);
+        transform-style: preserve-3d;
+      }
+    }
+  }
+
+  //card content
+  .front-contents,
+  .back-contents{
+    text-align: center;
+    padding: 0 3rem;
+    position: relative;
+    top: 50%;
+    transition: transform 0.60s cubic-bezier(.5,.3,.3,1);
+    transform-style: preserve-3d;
+    z-index: 2;
+    h6{
+      line-height: 2rem;
+      margin-bottom: remy(15px);
+    }
+  }
+  .front-contents{
+    transform: translateY(-50%) translateX(0px)  scale(1);
+    span{
+      font-size: remy(60px);
+    }
+  }
+  .back-contents{
+    transform: translateY(-50%) translateX(650px) translateZ(60px) scale(.88);
+    p{
+      color: rgba($light, 0.6);
+    }
+    .btn{
+      margin-top: 1.66rem;
+    }
+  }
+
+  .flip-overlay, .flip-overlay2{
+    display:block;
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+  }
+  .flip-overlay{
+    @extend .bg-light;
+  }
+  .flip-overlay2{
+    @extend .bg-primary;
+  }
+
+}

@@ -1,0 +1,112 @@
+## Sign [/auth/sign]
+Sign user that update or create user account.
+
+### Sign [POST]
+Send mobile number of user to sign.
+
++ Request Sign(application/json)
+    + Body
+
+            {
+               "mobile": "9121234567",
+               "country": "+98"
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+               "meta":{
+                       "code":200,
+                       "message":"User Signed."
+                   },
+                   "data": null
+            }
+
+## Verify [/auth/verify]
+Verify user sign request to get credentials and access token.
+
+### Verify [POST]
+Send mobile and verify code to verify account and generate access token.
+
++ Request Verify(application/json)
+
+    + Body
+
+            {
+               "mobile": "9121234567",
+               "country": "+98",
+               "code": "1234"
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                 "meta":{
+                       "code": 200,
+                       "message":"User Verification Successful."
+                   },
+                   "data":{
+                       "token":[access_token],
+                       "mobile": "9121234567",
+                       "name": "John Doe",
+                       "photo": "https://s.hirbod.ac/89h54giunge.png",
+                       "team": 1,
+                       "username": "john"
+                   }
+            }
+
+## Otp [/auth/otp]
+Otp send code for account.
+
+### Otp [POST]
+Send code for user.
+
++ Request Otp(application/json)
+
+    + Body
+
+            {
+               "mobile": "9121234567",
+               "country": "+98",
+               "type": "sms"
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+               "meta":{
+                       "code":200,
+                       "message":"OTP Submitted."
+                   },
+                   "data": null
+            }
+
+## Revoke [/auth/revoke]
+This method revoke all of granted access tokens in API for user account.
+
+### Revoke [GET]
+To revoke all of your access token generated in API system.
++ Request
+
+    + Headers
+
+            Authorization: Bearer [access_token]
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "meta":{
+                    "code": 200,
+                    "message":"All access tokens revoked."
+                },
+                "data":null
+            }
+

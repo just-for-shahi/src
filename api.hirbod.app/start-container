@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+if [ ! -z "$WWWUSER" ]; then
+    usermod -u $WWWUSER sail
+fi
+
+if [ ! -d /.composer ]; then
+    mkdir /.composer
+fi
+
+chmod -R ugo+rw /.composer
+
+php artisan key:generate
+# php artisan migrate --seed # TODO: find way for running once
+php artisan migrate
+# php artisan passport:install # TODO: find way for running once
+
+if [ $# -gt 0 ];then
+    exec gosu $WWWUSER "$@"
+else
+    /usr/bin/supervisord
+fi

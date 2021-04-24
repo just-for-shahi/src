@@ -1,0 +1,19 @@
+// generates theming classes based on theme color from $theme-colors map in bootstrap
+@each  $key, $color in ($theme-colors) {
+  .color-#{$key}{
+    color: #{$color};
+  }
+  .bg-#{$key} {
+    background: #{$color};
+  }
+}
+
+// generating classes based on other colors used in the theme
+@each  $key, $color in ($other-colors) {
+  .color-#{$key}{
+    color: #{$color};
+  }
+  .bg-#{$key} {
+    background: #{$color};
+  }
+}

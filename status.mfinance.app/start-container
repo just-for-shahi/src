@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+if [ ! -z "$WWWUSER" ]; then
+    usermod -u $WWWUSER sail
+fi
+
+if [ ! -d /.composer ]; then
+    mkdir /.composer
+fi
+
+chmod -R ugo+rw /.composer
+
+echo ">>>>>>>>>>> BEGIN SCRIPTS <<<<<<<<<<<<<"
+
+php artisan key:generate
+php artisan app:install
+
+echo ">>>>>>>>>>> END SCRIPTS <<<<<<<<<<<<<"
+
+if [ $# -gt 0 ];then
+    exec gosu $WWWUSER "$@"
+else
+    /usr/bin/supervisord
+fi

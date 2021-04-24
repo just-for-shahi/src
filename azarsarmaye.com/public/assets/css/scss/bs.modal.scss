@@ -1,0 +1,178 @@
+/*
+Modal 
+*/
+.modal{
+  .modal-left {
+    @include translate3d(-100%, 0, 0);
+    @include transition-transform(0.4s cubic-bezier(0.25, 0.8, 0.25, 1));
+  }
+  .modal-right {
+    @include translate3d(100%, 0, 0);
+    @include transition-transform(0.4s cubic-bezier(0.25, 0.8, 0.25, 1));
+  }
+  .modal-top {
+    @include translate3d(0, -100%, 0);
+    @include transition-transform(0.4s cubic-bezier(0.25, 0.8, 0.25, 1));
+  }
+  .modal-bottom {
+    @include translate3d(0, 100%, 0);
+    @include transition-transform(0.4s cubic-bezier(0.25, 0.8, 0.25, 1));
+  }
+  &.in{
+    .modal-left,
+    .modal-right,
+    .modal-top,
+    .modal-bottom { 
+      @include translate3d(0, 0, 0);
+    }
+  }
+  &.inactive{
+    bottom: auto;
+    overflow: visible;
+  }
+}
+
+.modal-open-aside{
+  overflow: visible;
+}
+
+.modal > .modal-left{
+  position: fixed;
+  z-index: 1055;
+  top: 0;
+  left: 0;
+  right: auto;
+  bottom:0;
+}
+
+.modal > .modal-right{
+  position: fixed;
+  z-index: 1055;
+  top: 0;
+  left: auto;
+  right: 0;
+  bottom:0;
+}
+
+.modal > .modal-top{
+  position: fixed;
+  z-index: 1055;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: auto;
+}
+
+.modal > .modal-bottom{
+  position: fixed;
+  z-index: 1055;
+  top: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.modal-header,
+.modal-content,
+.modal-footer{
+  border-color: $border-color;
+}
+
+.modal-content{
+  color: $dark-black;
+}
+
+.modal-close-btn{
+  position: absolute;
+  top:0;
+  right:0;
+}
+
+@include media-breakpoint-down(lg) {
+  .row-col > div.aside-lg{
+    display: none;
+  }
+  .aside-lg{
+    display: none;
+    position: fixed !important;
+    > *{
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      max-width: 304px;
+      @include translate3d(-100%, 0, 0);
+    }
+    ~ *{
+      width: 100%;
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .row-col > div.aside-md{
+    display: none;
+    width: 100%;
+  }
+  .aside-md{
+    display: none;
+    position: fixed !important;
+    background: transparent !important;
+    > *{
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      max-width: 304px;
+      @include translate3d(-100%, 0, 0);
+    }
+    ~ *{
+      width: 100%;
+    }
+  }
+  .aside-md-right{
+    > *{
+      @include translate3d(100%, 0, 0);
+      right: 0;
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .row-col > div.aside-sm{
+    display: none;
+    width: 100%;
+  }
+  .aside-sm{
+    display: none;
+    background: transparent !important;
+    position: fixed !important;
+    > *{
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      max-width: 304px;
+      @include translate3d(-100%, 0, 0);
+    }
+    ~ *{
+      width: 100%;
+    }
+  }
+  .aside-sm-right{
+    > *{
+      @include translate3d(100%, 0, 0);
+      right: 0;
+    }
+  }
+}
+
+.aside{
+  opacity: 1;
+  &.in{
+    width: 100%;
+    > *{
+      @include translate3d(0, 0, 0);
+    }
+  }
+  > *{
+      @include transition-transform(0.4s cubic-bezier(0.25, 0.8, 0.25, 1));
+  }
+}

@@ -1,0 +1,198 @@
+//typography css
+.heading-styles{
+  .card-body{
+    padding: 3rem 3rem 1.8rem;
+    h1, h2, h3, h4, h5, h6{
+      color: #202428;
+    }
+  }
+}
+.sub_heading-group{
+  margin-bottom: 2.66rem;
+  &:last-child{
+    margin-bottom: 0;
+  }
+  h1, h2, h3, h4, h5, h6{
+    margin-bottom: 1.5rem;
+  }
+  .subHeading-top{
+    font-size:1.33rem;
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+  }
+  .subHeading-bottom{
+    font-size: 1.2rem;
+    margin-bottom: 0;
+  }
+}
+.lead{
+  line-height: 2.4rem;
+}
+.lead--medium{
+  font-size: $lead-medium-font-size;
+  font-weight: $lead-medium-font-weight;
+  line-height: 2.93rem;
+}
+p{
+  line-height: 2rem;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-weight: $font-weight-semiBold;
+}
+
+.blockquote{
+  border:1px solid $border-color;
+  padding: 2.5rem remy(50px);
+  border-radius: $border-radius-lg;
+  margin: 0;
+  p{
+    margin: 0;
+    font-size: 1.33rem;
+    @extend .color-dark;
+    line-height: 2.4rem;
+    font-weight: 500;
+  }
+  .quote-author{
+    margin-top: 1.66rem;
+    p{
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 2rem;
+      color: $light-gray;
+      position: relative;
+      display: inline-block;
+      padding-left: remy(55px);
+      &:before{
+        position: absolute;
+        content: "";
+        width: remy(40px);
+        height: 2px;
+        @extend .bg-secondary;
+        left: 0;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
+      span{
+        font-weight: 500;
+        @extend .color-dark;
+      }
+    }
+  }
+  &.blockquote1{
+    .quote-author{
+      text-align: left;
+    }
+  }
+  &.blockquote-sm{
+    p{
+      font-size: remy(16px);
+      line-height: remy(28px);
+    }
+    .quote-author{
+      p{
+        padding: 0;
+        &:before{
+          content: none;
+        }
+        span{
+          font-size: remy(15px);
+        }
+      }
+    }
+  }
+  &.blockquote3, &.blockquote4{
+    border: 0 none;
+    border-radius: 0;
+    background: linear-gradient(to right, $primary, $secondary);
+    p{
+      font-weight: 400;
+      @extend .color-light;
+    }
+    .quote-author{
+        p{
+          color: rgba($light, 0.7);
+        }
+        span{
+          @extend .color-light;
+        }
+      }
+  }
+  &.blockquote3{
+    .quote-author{
+      text-align: left;
+    }
+  }
+  &.blockquote1, &.blockquote3{
+    position: relative;
+    &:before{
+      position: absolute;
+      content: "\f2ce";
+      font-family: "Line Awesome Free";
+      color: rgba(#fff, 0.1);
+      font-size: remy(120px);
+      left: remy(35px);
+      bottom: remy(10px);
+      font-weight: 900;
+    }
+  }
+}
+.quotes-with-image{
+  background: linear-gradient(to right, $primary, $secondary);
+}
+.blockquote5{
+  margin-bottom: 0;
+  .strong{
+    font-size: remy(22px);
+    font-weight: 500;
+    @extend .color-light;
+    margin-bottom: remy(35px);
+    line-height: remy(36px);
+    position: relative;
+    margin-top: remy(40px);
+    &:before{
+      position: absolute;
+      content: "\f2cd";
+      font-family: "Line Awesome Free";
+      font-size: 10rem;
+      color: rgba($light, 0.1);
+      left: 0;
+      top: remy(-15px);
+      font-weight: 900;
+    }
+  }
+  p{
+    color: rgba($light, 0.8);
+  }
+  .author-sign{
+    font-size: remy(35px);
+    font-family: 'Allura', cursive;
+    @extend .color-light;
+    display: block;
+    margin-top: remy(30px);
+  }
+}
+
+
+
+//hr
+.hr{
+  margin: remy(80px) 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,103 @@
+version: "3.3"
+services:
+  laravel.test:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        WWWGROUP: "1000"
+    image: sail-8.0/app
+    ports:
+      - "${APP_PORT:-8000}:80"
+    tty: true
+    environment:
+      WWWUSER: "1000"
+      LARAVEL_SAIL: 1
+    # volumes:
+    #   - ./:/var/www/html
+    networks:
+      sail:
+        ipv4_address: 172.28.1.3
+    depends_on:
+      - mysql
+      - redis
+
+  mysql:
+    image: "mysql:8.0"
+    ports:
+      - "${FORWARD_DB_PORT:-33066}:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "iodeewUBIUGodscl"
+      MYSQL_DATABASE: "mehrino"
+      MYSQL_USER: "root"
+      MYSQL_PASSWORD: "iodeewUBIUGodscl"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    volumes:
+      - "sailmysql:/var/lib/mysql"
+    networks:
+      sail:
+        ipv4_address: 172.28.1.1
+
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "${FORWARD_REDIS_PORT:-6379}:6379"
+    volumes:
+      - "sailredis:/data"
+    environment:
+      - REDIS_PASSWORD=PoefYuyecTUYBJscweuv
+    networks:
+      sail:
+        ipv4_address: 172.28.1.2
+
+  mailhog:
+    image: "mailhog/mailhog:latest"
+    ports:
+      - 1025:1025
+      - 8025:8025
+    networks:
+      sail:
+        ipv4_address: 172.28.1.4
+
+  phpmyadmin:
+    container_name: phpmyadmin
+    depends_on:
+      - mysql
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - '60:80'
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: "iodeewUBIUGodscl"
+    networks:
+      sail:
+        ipv4_address: 172.28.1.5
+
+  # webserver:
+  #     image: nginx:alpine
+  #     container_name: webserver
+  #     restart: unless-stopped
+  #     tty: true
+  #     ports:
+  #     - "80:80"
+  #     - "443:443"
+  #     volumes:
+  #     - ./:/var/www
+  #     - ./nginx/conf.d/:/etc/nginx/conf.d/
+  #     networks:
+  #         sail:
+  #             ipv4_address: 172.28.1.5
+
+networks:
+  sail:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.28.0.0/16
+
+volumes:
+  sailmysql:
+    driver: local
+  sailredis:
+    driver: local

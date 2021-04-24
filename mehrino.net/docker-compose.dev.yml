@@ -1,0 +1,103 @@
+version: "3.3"
+services:
+  laravel.dev:
+    build:
+      context: ./
+      dockerfile: Dockerfile.dev
+      args:
+        WWWGROUP: "1000"
+    image: saildev-8.0/app
+    ports:
+      - "${APP_PORT:-5000}:80"
+    tty: true
+    environment:
+      WWWUSER: "1000"
+      LARAVEL_saildev: 1
+    # volumes:
+    #   - ./:/var/www/html
+    networks:
+      saildev:
+        ipv4_address: 172.27.1.3
+    depends_on:
+      - mysql.dev
+      - redis.dev
+
+  mysql.dev:
+    image: "mysql:8.0"
+    ports:
+      - "${FORWARD_DB_PORT:-33166}:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "iodeewUBIUGodscl"
+      MYSQL_DATABASE: "mehrino"
+      MYSQL_USER: "root"
+      MYSQL_PASSWORD: "iodeewUBIUGodscl"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    volumes:
+      - "saildevmysql:/var/lib/mysql"
+    networks:
+      saildev:
+        ipv4_address: 172.27.1.1
+
+  redis.dev:
+    image: "redis:alpine"
+    ports:
+      - "${FORWARD_REDIS_PORT:-6378}:6379"
+    volumes:
+      - "saildevredis:/data"
+    environment:
+      - REDIS_PASSWORD=PoefYuyecTUYBJscweuv
+    networks:
+      saildev:
+        ipv4_address: 172.27.1.2
+
+  mailhog.dev:
+    image: "mailhog/mailhog:latest"
+    ports:
+      - 1125:1025
+      - 8125:8025
+    networks:
+      saildev:
+        ipv4_address: 172.27.1.4
+
+  phpmyadmin.dev:
+    container_name: phpmyadmin_dev
+    depends_on:
+      - mysql.dev
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - '600:80'
+    environment:
+      PMA_HOST: mysql.dev
+      MYSQL_ROOT_PASSWORD: "iodeewUBIUGodscl"
+    networks:
+      saildev:
+        ipv4_address: 172.27.1.5
+
+  # webserver:
+  #     image: nginx:alpine
+  #     container_name: webserver
+  #     restart: unless-stopped
+  #     tty: true
+  #     ports:
+  #     - "80:80"
+  #     - "443:443"
+  #     volumes:
+  #     - ./:/var/www
+  #     - ./nginx/conf.d/:/etc/nginx/conf.d/
+  #     networks:
+  #         saildev:
+  #             ipv4_address: 172.27.1.5
+
+networks:
+  saildev:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.27.0.0/16
+
+volumes:
+  saildevmysql:
+    driver: local
+  saildevredis:
+    driver: local

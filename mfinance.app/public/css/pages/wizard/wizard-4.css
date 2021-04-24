@@ -1,0 +1,86 @@
+.wizard.wizard-4 {
+  flex-direction: column;
+}
+.wizard.wizard-4 .wizard-nav .wizard-steps {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.wizard.wizard-4 .wizard-nav .wizard-steps .wizard-step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex: 0 0 calc(25% - 0.25rem);
+  width: calc(25% - 0.25rem);
+  background-color: #F3F6F9;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+.wizard.wizard-4 .wizard-nav .wizard-steps .wizard-step .wizard-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  color: #3F4254;
+  padding: 2rem 2.5rem;
+}
+.wizard.wizard-4 .wizard-nav .wizard-steps .wizard-step .wizard-wrapper .wizard-number {
+  font-size: 1.3rem;
+  font-weight: 600;
+  flex: 0 0 2.75rem;
+  height: 2.75rem;
+  width: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(54, 153, 255, 0.08);
+  color: #3699FF;
+  margin-right: 1rem;
+  border-radius: 0.5rem;
+}
+.wizard.wizard-4 .wizard-nav .wizard-steps .wizard-step .wizard-wrapper .wizard-label {
+  display: flex;
+  flex-direction: column;
+}
+.wizard.wizard-4 .wizard-nav .wizard-steps .wizard-step .wizard-wrapper .wizard-label .wizard-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.wizard.wizard-4 .wizard-nav .wizard-steps .wizard-step[data-wizard-state=current] {
+  background-color: #ffffff;
+}
+.wizard.wizard-4 .wizard-nav .wizard-steps .wizard-step[data-wizard-state=current] .wizard-wrapper .wizard-number {
+  color: #ffffff;
+  background-color: #3699FF;
+}
+.wizard.wizard-4 .wizard-nav .wizard-steps .wizard-step[data-wizard-state=current] .wizard-wrapper .wizard-label .wizard-title {
+  color: #3699FF;
+}
+
+@media (max-width: 1399.98px) {
+  .wizard.wizard-4 .wizard-nav .wizard-steps .wizard-step {
+    flex: 0 0 calc(50% - 0.25rem);
+    width: calc(50% - 0.25rem);
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+@media (max-width: 767.98px) {
+  .wizard.wizard-4 .wizard-nav .wizard-steps {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .wizard.wizard-4 .wizard-nav .wizard-steps .wizard-step {
+    flex: 0 0 100%;
+    position: relative;
+    width: 100%;
+  }
+  .wizard.wizard-4 .wizard-nav .wizard-steps .wizard-step .wizard-wrapper {
+    justify-content: flex-start;
+    flex: 0 0 100%;
+    padding: 0.5rem 2rem;
+  }
+}

@@ -1,0 +1,41 @@
+.text-theme,
+.text-theme-hover a:hover,
+.text-theme-hover .active > a {
+  color: #2196f3 !important; }
+
+.nav-active-theme .nav-link.active,
+.nav-active-theme .nav > li.active > a,
+.btn.theme,
+.btn.b-theme:hover,
+.btn.b-theme:focus,
+.pace .pace-progress,
+.theme {
+  color: rgba(255, 255, 255, 0.87) !important;
+  background-color: #2196f3 !important; }
+  .nav-active-theme .nav-link.active .lt,
+  .nav-active-theme .nav > li.active > a .lt,
+  .btn.theme .lt,
+  .btn.b-theme:hover .lt,
+  .btn.b-theme:focus .lt,
+  .pace .pace-progress .lt,
+  .theme .lt {
+    background-color: #329ef4; }
+  .nav-active-theme .nav-link.active .dk,
+  .nav-active-theme .nav > li.active > a .dk,
+  .btn.theme .dk,
+  .btn.b-theme:hover .dk,
+  .btn.b-theme:focus .dk,
+  .pace .pace-progress .dk,
+  .theme .dk {
+    background-color: #108ef2; }
+  .nav-active-theme .nav-link.active .lt,
+  .nav-active-theme .nav > li.active > a .lt,
+  .btn.theme .lt,
+  .btn.b-theme:hover .lt,
+  .btn.b-theme:focus .lt,
+  .pace .pace-progress .lt,
+  .theme .lt {
+    background-color: #329ef4; }
+
+.b-theme {
+  border-color: #2196f3; }

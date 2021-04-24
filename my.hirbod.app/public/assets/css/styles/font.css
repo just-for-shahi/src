@@ -1,0 +1,11 @@
+/*custom*/
+@import url(../fonts/gudea/font.css);
+@font-face{font-family:'IranSans';src:url('../fonts/irsans-l.ttf');src:url('../fonts/irsans-l.eot?') format('embedded-opentype'),
+url('../fonts/irsans-l.woff') format('woff'),
+url('../fonts/irsans-l.ttf') format('truetype');}
+@font-face{font-family:'irsans-b';src:url('../fonts/irsans-b.eot?') format('eot'),
+url('../fonts/irsans-b.woff') format('woff'),
+url('../fonts/irsans-b.ttf') format('truetype');}
+body{
+	font-family:'iransans';
+}

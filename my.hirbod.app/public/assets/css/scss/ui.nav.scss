@@ -1,0 +1,179 @@
+/*
+Nav
+*/
+.navside {
+	border: inherit;
+	ul{
+		padding-left: 0;
+		padding-right: 0;
+  		list-style: none;
+	}
+	[flex],
+	[data-flex]{
+		overflow: auto;
+	}
+	.nav {
+		border: inherit;
+		li {
+			border: inherit;
+			position: relative;
+			li {
+				a {
+					line-height: $aside-nav-sub-height;
+					padding-left: 1rem + $aside-nav-height + $aside-nav-icon-margin;
+					.nav-text{
+						padding: ($aside-nav-sub-height - 1.125)/2 0;
+					}
+				}
+				li a{
+					padding-left: 2rem + $aside-nav-height + $aside-nav-icon-margin;
+				}
+				li li a{
+					padding-left: 3rem + $aside-nav-height + $aside-nav-icon-margin;
+				}
+			}
+			a{
+				@include clearfix();
+				display: block;
+				padding: 0 1rem;
+				line-height: $aside-nav-height;
+				position: relative;
+				&:hover,
+				&:focus{
+					background-color: $min-white;
+				}
+			}
+			&.active{
+				> a {
+					background-color: transparent;
+					.nav-caret i{
+						@include rotate(180deg);
+					}
+				}
+			}
+		}
+	}
+	.nav-header{
+		padding: 0 1rem;
+		line-height: $aside-nav-height;
+		span{
+			opacity: 0.4;
+		}
+		&:hover,
+		&:focus{
+			background-color: transparent !important;
+		}
+		&:after{
+			display: none;
+		}
+	}
+	.navbar-brand{
+		float: none;
+		margin-right: 0;
+	}
+}
+
+.nav-fold{
+	padding: 0.75rem 1rem;
+}
+
+.nav-text{
+	display: block;
+	line-height: 1.125rem;
+	padding: ($aside-nav-height - 1.125)/2 0;
+	span,
+	small{
+		display: block;
+	}
+
+	.navside &{
+		opacity: 0.65;
+	}
+	.navside a:hover > &,
+	.navside a:focus > &,
+	.navside .active > a > &{
+		opacity: 1;
+	}
+	.navbar & {
+		line-height: 1;
+		vertical-align: middle;
+		display: inline-block;
+		padding: 0;
+		span.text-xs{
+			margin-top: 0.25rem;
+		}
+	}
+}
+
+.nav-icon {
+	float: left;
+	margin-right: $aside-nav-icon-margin;
+	top: 0;
+	width: $aside-nav-height;
+	text-align: center;
+	border-radius: 100%;
+	display: inline-block;
+	i{
+		position: relative;
+		line-height: 1;
+		svg,
+		img{
+			display: none;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+	.navside &{
+		opacity: 0.35;
+	}
+	&.no-fade{
+		opacity: 1 !important;
+	}
+	.navside a:hover > &,
+	.navside a:focus > &,
+	.navside .active > a > &{
+		opacity: 1;
+	}
+	.navbar & {
+		margin-right: 0.5rem;
+	}
+}
+
+.nav-label{
+	float: right;
+	margin-left: 1rem;
+	font-style: normal;
+	z-index: 1;
+	
+	.navbar & {
+		margin-left: 0.5rem;
+	}
+	.label{
+		vertical-align: 1px;
+	}
+}
+
+.nav-caret{
+	float: right;
+	margin-left: 1rem;
+	opacity: 0.45;
+	i{
+		@include transition(transform 0.3s ease-in-out);
+	}
+
+	.navbar & {
+		margin-left: 0.5rem;
+	}
+}
+
+.nav-sub{
+  max-height: 0;
+  overflow: hidden;
+  @include transition(max-height 0.4s ease 0s);
+  .active > &{
+    max-height: 50rem;
+  }
+}

@@ -1,0 +1,28 @@
+//contact split
+.contact-split{
+  position: relative;
+  height: 720px;
+  .g-maps{
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 50%;
+    #map2{
+      height: 100%;
+    }
+    .map-top{
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      @extend .bg-light;
+      padding: 55px 40px;
+      border-radius: 8px 0 0 8px;
+      box-shadow: $box-shadow-bg-white;
+      ul{
+        margin: 0;
+      }
+    }
+  }
+}

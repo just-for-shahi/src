@@ -1,0 +1,418 @@
+// this files contains tabs scss
+
+// bootstrap nav-tab retouch
+.nav-tabs {
+  justify-content: center;
+  border: 0 none;
+  .nav-item .nav-link {
+    @extend .bg-primary;
+    transition: $transition-base;
+    @extend .color-light;
+    font-size: remy(16px);
+    font-weight: 500;
+    line-height: remy(48px);
+    padding: 0 remy(28px);
+    &.active {
+      @extend .bg-light;
+      @extend .color-secondary;
+    }  
+  }
+  .nav-item{
+    position:relative;
+    top: 1px;
+    z-index: 1;
+    margin: 0;
+    &:first-child{
+      .nav-link{
+        border-radius: 4px 0 0 0;
+      }
+    }
+    &:last-child{
+      .nav-link{
+        border-radius: 0 4px 0 0;
+      }
+    }
+  }
+}
+
+.nav-pills {
+  .nav-item {
+     margin-right: 10px;
+     &:last-child{
+       margin-right:0;
+     }
+    .nav-link {
+      background: rgba($primary, 0.1);
+      font-weight: 400;
+      font-size: remy(14px);
+      line-height: remy(46px);
+      padding: 0 30px;
+      &.active {
+        @extend .bg-primary;
+      }
+      &:hover{
+        color: #fff;
+        @extend .bg-primary;
+      }
+    }
+  }
+}
+
+.tab {
+  &.tab--1 {
+    .tab_nav {
+      padding: 1.66rem 2.66rem;
+      border-radius: remy(4px);
+      .nav {
+        ul {
+          margin-bottom: 0;
+          li {
+            line-height: 2rem;
+          }
+        }
+        .nav-link {
+          font-weight: 500;
+          text-transform: capitalize;
+          padding: 15px 0;
+          @extend .color-dark;
+          border-bottom: 1px solid $border-color;
+          &:last-child {
+            border-bottom: 0;
+          }
+          &.active {
+            background: none;
+            @extend .color-secondary;
+          }
+        }
+      }
+    }
+
+    .tab-content {
+      padding-left: 30px;
+      .tab-pane {
+        background: #fff;
+        border-radius: remy(4px);
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(105, 106, 119, 0.05);
+        figure {
+          margin: 0;
+          figcaption {
+            padding: remy(32px) remy(35px) remy(35px);
+            h5 {
+              line-height: 30px;
+              font-weight: 600;
+              margin-bottom: remy(15px);
+            }
+            a.btn {
+              margin-top: 8px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.tab--2 {
+    .tab_nav2 {
+      .nav {
+        border-bottom: 1px solid $border-color;
+        .nav-item .nav-link {
+          font-size: remy(18px);
+          font-weight: 500;
+          line-height: remy(60px);
+          position: relative;
+          color: rgba($dark, 0.5);
+          padding-left: remy(30px);
+          padding-right: remy(30px);
+          &:before {
+            content: "";
+            position: absolute;
+            height: 8px;
+            width: 8px;
+            background: #9d9ebc;
+            border-radius: 200px;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, 50%);
+          }
+          &.active, &:hover {
+            @extend .color-secondary;
+          }
+          &.active:before, &:hover:before {
+            @extend .bg-secondary;
+          }
+          &.active{
+            &:after{
+              position: absolute;
+              content: '';
+              width: remy(20px);
+              height: remy(20px);
+              background: rgba($secondary, 0.1);
+              border-radius: 200px;
+              bottom: 0;
+              left: 50%;
+              transform: translate(-50%, 50%);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.tab--3 {
+    .tab_nav3 {
+      border-bottom: 1px solid $border-color;
+      .nav li {
+        flex-basis: 0;
+        flex-grow: 1;
+        text-align: center;
+        a {
+          font-size: remy(16px);
+          color: rgba($body-color,1);
+          font-weight: 500;
+          transition: 0.3s;
+          padding: remy(21px) 0;
+          &.active {
+            @extend .color-secondary;
+          }
+        }
+      }
+    }
+    .tab-content {
+
+    }
+  }
+  &.tab--4 {
+    .tab--content4 {
+      padding: 50px 50px 50px 0;
+      border: 1px solid $border-color;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .tab--content9{
+      padding: remy(40px);
+    }
+    .tab-content .tab-pane {
+      .graph_area {
+        margin-right: 35px;
+      }
+      .text_content {
+        p {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  &.tab--6 {
+    @extend .tab--2;
+    .tab_nav2 .nav .nav-item .nav-link {
+      font-size: remy(18px);
+    }
+  }
+  &.tab--7 {
+    .tab_nav7 {
+      border-bottom: 1px solid $border-color;
+      .nav .nav-item .nav-link {
+        font-size: remy(15px);
+        line-height: remy(50px);
+        padding: remy(0px) remy(30px);
+        position: relative;
+        color: $light-gray;
+        span {
+          margin-right: 10px;
+          font-size: remy(18px);
+        }
+        &.active{
+          @extend .color-secondary;
+          &:before {
+            content: "";
+            width: 100%;
+            height: 2px;
+            @extend .bg-secondary;
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+          }
+        }
+      }
+    }
+    .tab--content7 {
+      margin-top: 35px;
+      h5{
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  &.tab--8 {
+    @extend .tab--7;
+    .tab_nav7 {
+      border-bottom: 0;
+      border-left: 1px solid $border-color;
+      .nav{
+        flex-direction: column;
+        .nav-item .nav-link {
+          padding: remy(0px) remy(25px);
+          &.active {
+            @extend .color-primary;
+            &:before {
+              height: 100%;
+              width: 1px;
+              left: -1px;
+            }
+          }
+        }
+      }
+    }
+    .tab-content{
+      h5{
+        margin-bottom: remy(20px);
+      }
+    }
+  }
+}
+
+.tab-content {
+  &.tab--content2 {
+    margin-top: remy(50px);
+    .tab-pane {
+      .tab_text_module {
+        .tab_text_module__subtitle {
+          @extend .color-primary;
+          font-size: remy(16px);
+          font-weight: 400;
+          margin-bottom: 5px;
+          @extend .color-secondary;
+        }
+        h2 {
+          font-weight: 600;
+          font-size: remy(36px);
+          line-height: remy(42px);
+          margin-bottom: remy(30px);
+        }
+        .btn {
+          margin-top: remy(19px);
+        }
+        ul {
+          li {
+            @extend .color-dark;
+            font-weight: 500;
+            line-height: remy(32px);
+            margin: 0;
+          }
+        }
+      }
+      .tab_image_module--left, .tab_image_module--right {
+        margin-bottom: 0;
+        img {
+          border-radius: 4px;
+        }
+      }
+    }
+  }
+}
+
+.tab_nav4 {
+  .nav-tabs {
+    li a {
+      background: darkblue;
+    }
+  }
+}
+
+.tab_nav5{
+  margin-bottom: remy(30px);
+}
+
+.tab_event {
+  > p {
+    @extend .color-primary;
+    font-weight: 500;
+    line-height: remy(38px);
+    margin-top: 16px;
+    margin-bottom: 15px;
+  }
+  .tab_event__module {
+    padding: 32px 40px remy(37px);
+    border-radius: $border-radius;
+    .event_meta {
+      margin-bottom: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      p {
+        margin-right: remy(22px);
+        font-size: remy(15px);
+        display: flex;
+        align-items: center;
+        margin-bottom: 0;
+        span.la {
+          font-size: remy(18px);
+          vertical-align: middle;
+          margin-right: 8px;
+          @extend .color-secondary;
+        }
+      }
+    }
+    h5{
+      @extend .color-dark;
+      line-height: remy(38px);
+      margin-bottom: remy(10px);
+    }
+    .speakers {
+      display: flex;
+      margin-bottom: 0;
+      padding-top: 11px;
+      li {
+        display: flex;
+        align-items: center;
+        > div {
+          margin-left: 20px;
+        }
+        & + li {
+          margin-left: 30px;
+        }
+        img {
+          border-radius: 200px;
+          height: 50px;
+          width: 50px;
+        }
+        h6, p {
+          margin: 0;
+          line-height: remy(28px);
+        }
+        p {
+          font-size: 14px;
+
+        }
+        h5 {
+          font-size: remy(18px);
+        }
+      }
+    }
+  }
+}
+
+.service--tabs{
+  .tab_nav2{
+    .nav{
+      padding: 0;
+      .nav-link{
+        padding: remy(13px) remy(20px);
+        @extend .color-dark;
+        background: rgba($primary,0.05);
+        margin-bottom: 5px;
+        transition: $transition-base;
+        font-size: remy(16px);
+        font-weight: 500;
+        &:last-child{
+          margin-bottom: 0;
+        }
+        &.active{
+          @extend .bg-secondary;
+          @extend .color-light;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  laravel.test:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        WWWGROUP: "1000"
+    image: sail-8.0/app
+    ports:
+      - "${APP_PORT:-9000}:80"
+    tty: true
+    environment:
+      WWWUSER: "1000"
+      LARAVEL_SAIL: 1
+    networks:
+      my_project:
+
+
+networks:
+  my_project:
+    ipam:
+      driver: default

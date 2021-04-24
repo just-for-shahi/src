@@ -1,0 +1,116 @@
+$full-black:  		rgba(0, 0, 0, 1);
+$dark-black:  		rgba(0, 0, 0, 0.87);
+$light-black: 		rgba(0, 0, 0, 0.54);
+$min-black:   		rgba(0, 0, 0, 0.065);
+
+$full-white:  		rgba(255, 255, 255, 1);
+$dark-white:  		rgba(255, 255, 255, 0.87);
+$black-white:  		rgba(225, 235, 245, 0.87);
+$light-white: 		rgba(255, 255, 255, 0.54);
+$min-white:   		rgba(255, 255, 255, 0.065);
+
+$primary:           #4BC0C0;
+$accent:            #00d2ff;
+$warn:              #b07cdd;
+
+$info:              #2196f3;
+$success:           #22b66e;
+$warning:           #f3c111;
+$danger:            #ef193c;
+
+$light:             #F6FAFB;
+$grey:              #354255;
+$dark:              #263449;
+$black:				#16202f;
+$white:				#ffffff;
+
+$primary-color:     $dark-white;
+$accent-color:		$dark-white;
+$warn-color:		$dark-white;
+$success-color:		$dark-white;
+$info-color:		$dark-white;
+$warning-color:		$dark-black;
+$danger-color:     	$dark-white;
+$light-color:		$dark-black;
+$grey-color:		$black-white;
+$dark-color:		$black-white;
+$black-color:		$black-white;
+$active-color:      rgba(22, 32, 42, 0.15);
+
+$body-bg:       	#F6FAFB;
+$text-color:        $dark-black;
+$text-muted:        $light-black;
+
+$enable-shadows:	true;
+$enable-hover-media-query: true;
+
+$border-color:	 	rgba(120, 130, 140, 0.13);
+$border-color-lt:	rgba(120, 130, 140, 0.065);
+$border-color-lter:	rgba(120, 130, 140, 0.045);
+
+$font-family-serif:         Georgia, "Times New Roman", Times, serif;
+
+$font-size:          	  	0.875rem;
+$line-height:			  	1.5;
+
+$font-size-lg:            	1.5rem;
+$font-size-md:              1.125rem;
+$font-size-sm:            	0.80rem;
+$font-size-xs:            	0.70rem;
+
+$spacer:				  	1rem;
+$spacer-x:				  	1rem;
+$spacer-y:					1rem;
+
+$link-color:              	inherit;
+$hover-color: 			  	inherit;
+$color-percent:           	3.5%;
+$color-lt-percent:        	6%;
+$color-dk-percent:        	6%;
+
+$border-radius-base:      	3px;
+
+$navbar-height:                  3.5rem;
+$navbar-brand-height:            2rem;
+$navbar-brand-size: 			 1.125rem;
+
+$aside-width:                    12.5rem;
+$aside-lg-width:                 13.75rem;
+$aside-sm-width:                 11.25rem;
+$aside-folded-width:             4.5rem;
+$aside-folded-md-width:          5.5rem;
+$aside-nav-height:               2rem;
+$aside-nav-folded-height:        2.5rem;
+$aside-nav-sub-height:           1.75rem;
+$aside-nav-stacked-height:		 1.75rem;
+$aside-nav-stacked-margin:       0.15rem;
+$aside-nav-icon-margin:          1rem;
+
+$footer-height:					 3.125rem;
+
+$label-bg:                       rgba(120, 130, 140, 0.6);
+
+$table-border-color:             $border-color-lter;
+$table-striped-color:            rgba(0, 0, 0, 0.025);
+$list-group-border:				 $border-color-lt;
+
+$input-border:                   rgba(120, 130, 140, 0.2);
+$input-border-focus:             rgba(120, 130, 140, 0.3);
+$input-border-radius:            0.25rem;
+
+$arrow-width:         			 8px;
+$arrow-outer-color:              $border-color;
+
+$switch-width:                   32px;
+$switch-height:                  18px;
+$switch-md-width:                40px;
+$switch-md-height:               24px;
+$switch-lg-width:                50px;
+$switch-lg-height:               30px;
+
+$ui-check-size:                  16px;
+$ui-check-md-size:               18px;
+$ui-check-lg-size:               30px;
+$ui-check-sign-size:             6px;
+$ui-check-sign-color:            $primary;
+$ui-check-checked-border:        $input-border;

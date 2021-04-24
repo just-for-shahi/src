@@ -1,0 +1,214 @@
+/*
+Plugins
+*/
+// settings
+.switcher{
+  z-index: 1000;
+  position: fixed;
+  top: 120px;
+  right: -240px;
+  width: 240px;
+  @include transition(right 0.2s ease);
+  border: 1px solid rgba(120,120,120,0.1);
+  background-clip: padding-box;
+  &.active{
+    right: -2px;
+    z-index: 1060;
+  }
+}
+.switcher .sw-btn{
+  position: absolute;
+  left: -43px;
+  top: -1px;
+  padding: 10px 15px;
+  z-index:1045;
+  border: 1px solid rgba(120,120,120,0.1);
+  border-right-width: 0;
+  background-clip: padding-box;
+  border-radius: 24px 0 0 24px;
+}
+#sw-demo{
+  top: 118px;
+  &.active{
+    top: 78px;
+  }
+}
+
+// icon list
+.list-icon i{
+  margin-right: 16px
+}
+.list-icon div{
+  line-height: 40px; 
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis;
+}
+
+// browser
+.browser{
+  position: relative;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.12), -0.5px -0.5px 3px rgba(0, 0, 0, 0.06);
+  background-color: #fff;
+  padding-top: 22px;
+  border-radius: 4px;
+  overflow: hidden;
+  .browser-body:before,
+  &:before,
+  &:after{
+    content: '';
+    background-color: #e2e4e8;
+    position: absolute;
+    left: 10px;
+    top: 7px;
+    height: 8px;
+    width: 8px;
+    border-radius: 100%;
+  }
+  &:after{
+    left: 23px;
+  }
+  .browser-body{
+    box-shadow: 0 -1px 0px rgba(0, 0, 0, 0.04);
+    &:before{
+      left: 36px;
+    }
+  }
+}
+
+/*Charts*/
+.jqstooltip{
+  background-color: rgba(0,0,0,0.8) !important;
+  border: solid 1px #000 !important;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  padding: 5px 10px !important;
+  @include box-sizing(content-box);
+}
+
+// easypie
+.easyPieChart {
+  position: relative;
+  text-align: center;
+  > div{
+    position: absolute;
+    width: 100%;
+    line-height: 1;
+    top: 40%;
+    img{
+      margin-top: -4px;
+    }
+  }
+  canvas{
+    vertical-align: middle;
+  }
+}
+
+// flot tip
+#flotTip,
+.flotTip {
+  padding: 4px 10px;
+  background-color: rgba(0,0,0,0.8) !important;
+  border: solid 1px #000 !important;
+  z-index: 100;
+  font-size: 12px;
+  color: #fff;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+// flot lengend
+.legendColorBox{
+  > div{
+    border: none !important;
+    margin: 5px;
+    > div{
+      border-radius: 10px;
+    }
+  }
+}
+
+// sortable
+.st-sort-ascent:before {
+  content: '\25B2';
+}
+.st-sort-descent:before {
+  content: '\25BC';
+}
+.st-selected td{
+  background: $min-black;
+}
+
+// select
+.dark .btn-default.form-control,
+.black .btn-default.form-control,
+.grey .btn-default.form-control {
+  background: transparent !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: inherit !important;
+}
+.ui-select-bootstrap > .ui-select-choices{
+  overflow-y: scroll;
+}
+
+// datatable
+.box .dataTables_wrapper {
+  padding-top: 10px
+}
+.box .dataTables_wrapper > .row > div {
+  padding: 0 15px !important;
+}
+.box .dataTables_wrapper > .row > div.col-md-12 {
+  padding: 0 !important;
+}
+
+// footable
+.footable-odd{
+  background-color: $table-striped-color !important;
+}
+
+// summernote
+.note-editor{
+  border-width: 0 !important;
+  overflow: visible !important;
+  background-color: inherit;
+}
+.note-toolbar .note-color .dropdown-toggle{
+  padding-left: 2px !important;
+}
+.note-editor .note-editing-area .note-editable,
+.note-editor .note-statusbar{
+  background-color: transparent !important;
+  color: inherit !important;
+}
+.note-toolbar{
+  background-color: rgba(120,130,140,0.1);
+}
+.note-toolbar .btn{
+  padding: .25rem .5rem;
+}
+
+.ie .ie-show{
+  display:block
+}
+
+.nav a.waves-effect{
+  -webkit-mask-image: -webkit-radial-gradient(circle, #ffffff 100%, #000000 100%);
+}
+
+// sortable
+.sortable-placeholder{
+  list-style: none;
+  border: 1px dashed #fff;
+  min-height: 40px;
+}
+
+// scroll
+.jscroll-loading{
+  padding: 5px 10px;
+}
+.jscroll-loading-center .jscroll-loading{
+  text-align: center;
+}

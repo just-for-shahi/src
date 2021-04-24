@@ -1,0 +1,4 @@
+@import "../mixins.theme.scss";
+@import "../variables.scss";
+
+@include theme($danger, $danger-color)

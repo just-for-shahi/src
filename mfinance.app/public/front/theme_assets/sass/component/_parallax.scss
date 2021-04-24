@@ -1,0 +1,13 @@
+/* parallax cta css */
+.cta--one{
+  .sub-heading{
+    font-size: remy(24px);
+    font-weight: 500;
+  }
+  h2{
+    @extend .color-light;
+    margin: remy(20px) 0 remy(50px);
+    line-height: remy(48px);
+    font-weight: 500;
+  }
+}

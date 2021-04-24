@@ -1,0 +1,122 @@
+/* clients logo grid & carousel styles */
+
+//logo grid 1
+.logo-grid-one{
+  box-shadow: $box-shadow-bg-white;
+  overflow: hidden;
+  ul{
+    margin-right: -1px;
+    margin-bottom: -1px;
+  }
+  li{
+    width: 25%;
+    border-right: 1px solid $gray-300;
+    border-bottom: 1px solid $gray-300;
+    @extend .bg-light;
+    min-height: remy(200px);
+    figure{
+      margin: 0;
+    }
+  }
+}
+
+// logo carousel dark
+.logo-carousel-dark{
+  .single-slide{
+    img{
+      width: auto;
+    }
+  }
+}
+
+//logo grid two
+.logo-grid-two{
+  .grid-single{
+    @extend .bg-light;
+    margin-bottom: remy(30px);
+    min-height: remy(150px);
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+      height: remy(150px);
+    }
+  }
+}
+
+//logo grid three
+.logo-grid-three{
+  ul{
+    margin: 0;
+  }
+  li{
+    width: 25%;
+    border: 1px solid $gray-300;
+    @extend .bg-light;
+    min-height: remy(200px);
+    margin-right: -1px;
+    margin-bottom: -1px;
+    figure{
+      margin: 0;
+    }
+  }
+}
+
+//logo details grid
+.logo-details-wrapper{
+  padding: remy(90px) 0 0;
+}
+.logo-details{
+  box-shadow: $box-shadow-sm;
+  @extend .bg-light;
+  padding: remy(105px) remy(45px) remy(30px);
+  margin-bottom: remy(110px);
+  margin-top: remy(10px);
+  position: relative;
+  border-radius: remy(4px);
+  .logo{
+    box-shadow: $box-shadow-lg2;
+    height: remy(160px);
+    width: remy(280px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -50%);
+    @extend .bg-light;
+    border-radius: remy(4px);
+  }
+  h5{
+    @extend .color-dark;
+    margin-bottom: remy(5px);
+  }
+  .sub-title{
+    display: block;
+    margin-bottom: remy(12px);
+  }
+  p{
+    margin: 0;
+  }
+}
+
+/* logo carousel four */
+.logo-carousel-four{
+  .owl-stage{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .carousel-single{
+    text-align: center;
+    img{
+      display: inline-block;
+      width: auto;
+    }
+  }
+}
+
+
+
+
+
+
+

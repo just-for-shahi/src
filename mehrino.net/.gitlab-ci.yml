@@ -1,0 +1,56 @@
+image: alpine:latest
+
+variables:
+  POSTGRES_ENABLED: "false"
+  DATABASE_URL: ""
+
+  DOCKER_DRIVER: overlay2
+  ROLLOUT_RESOURCE_TYPE: deployment
+  DOCKER_TLS_CERTDIR: "" # https://gitlab.com/gitlab-org/gitlab-runner/issues/4501
+
+  # NEXT_ADDITIONAL_HOSTS: "next.mehrino.net"
+  PRODUCTION_ADDITIONAL_HOSTS: "mehrino.net"
+
+stages:
+  - build
+  - test
+  - deploy # dummy stage to follow the template guidelines
+  - review
+  - dast
+  - staging
+  - canary
+  - production
+  - incremental rollout 10%
+  - incremental rollout 25%
+  - incremental rollout 50%
+  - incremental rollout 100%
+  - performance
+  - cleanup
+
+# deploy_next:
+#   stage: production
+#   script:
+#     - echo "Deploy next version"
+#   environment:
+#     name: next
+#     url: https://next.mehrino.net
+#     kubernetes:
+#         namespace: mehrino-next
+#   only:
+#     - master
+
+# deploy_prod:
+#   stage: production
+#   script:
+#     - echo "Deploy production version"
+#   environment:
+#     name: production
+#     url: https://mehrino.net
+#     kubernetes:
+#         namespace: mehrino-prod
+#   only:
+#     - master
+
+include:
+  - template: Jobs/Build.gitlab-ci.yml # https://gitlab.com/gitlab-org/gitlab-foss/blob/master/lib/gitlab/ci/templates/Jobs/Build.gitlab-ci.yml
+  - template: Jobs/Deploy.gitlab-ci.yml

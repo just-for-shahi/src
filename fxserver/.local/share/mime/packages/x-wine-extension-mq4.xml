@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-wine-extension-mq4">
+    <glob pattern="*.mq4"/>
+    <comment>MQL4 Source File</comment>
+  </mime-type>
+</mime-info>

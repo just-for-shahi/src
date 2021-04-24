@@ -1,0 +1,33 @@
+// this files contains the scss for the testimonial module
+.testimonial2 .carousel-single .author-spec .author-desc h5{
+  @extend .color-dark;
+}
+.testimonial6 {
+  padding: remy(80px) 0;
+}
+.single_testimonial{
+  .big--quote{
+    font-size: remy(110px);
+    color: rgba(#fff, 0.1);
+    position: relative;
+    left: -13px;
+  }
+  p{
+    color: rgba($light, 0.7);
+    font-size: remy(20px);
+    line-height: remy(36px);
+    margin:0;
+  }
+  .single_testimonial_meta{
+    padding-top: 35px;
+    @extend .color-light;
+    font-weight: 500;
+    margin-bottom: 0;
+    span{
+      font-size: remy(18px);
+      font-weight: 400;
+      color: rgba($light, .50);
+      margin-left: remy(10px);
+    }
+  }
+}

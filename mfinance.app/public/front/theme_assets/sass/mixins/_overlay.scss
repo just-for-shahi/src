@@ -1,0 +1,5 @@
+@mixin overlay($color, $opacity){
+  &:before{
+    background-color: rgba($color, $opacity);
+  }
+}

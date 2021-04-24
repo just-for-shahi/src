@@ -1,0 +1,7 @@
+{
+    "platform": "laravel",
+    "app": "mno",
+    "laravel": {
+        "buildAssets": false
+    }
+}

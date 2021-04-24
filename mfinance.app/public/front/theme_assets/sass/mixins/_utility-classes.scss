@@ -1,0 +1,51 @@
+@import "../../../vendor_assets/css/bootstrap/config.bs";
+
+// @margin_generator  generates a series of margin css classes based on three parameter
+// $from defines the start point
+// $to defines the end point
+// $side defines a particular side, like left, right, top, bottom
+// $jump defines the difference between each class
+@mixin margin_generator($from, $to, $jump ,$side){
+  @for $i from $from through $to{
+    @if $i%$jump == 0{
+      .m-#{$side}-#{$i}{
+        margin-#{$side}: #{$i}px;
+      }
+    }
+  }
+}
+@include margin_generator(0, 150, 5 ,top);
+@include margin_generator(0, 150, 5 ,right);
+@include margin_generator(0, 150, 5 ,bottom);
+@include margin_generator(0, 150, 5 ,left);
+
+// @padding_generator  generates a series of padding css classes based on three parameter
+// $from defines the start point
+// $to defines the end point
+// $side defines a particular side, like left, right, top, bottom
+// $jump defines the difference between each class
+@mixin padding_generator($from, $to, $jump ,$side){
+  @for $i from $from through $to{
+    @if $i%$jump == 0{
+      .p-#{$side}-#{$i}{
+        padding-#{$side}: #{$i}px;
+      }
+    }
+  }
+}
+@include padding_generator(0, 150, 5 , left);
+@include padding_generator(0, 150, 5 , right);
+@include padding_generator(0, 150, 5 , top);
+@include padding_generator(0, 150, 5 , bottom);
+
+
+@mixin height_generator($from, $to, $jump){
+  @for $i from $from through $to{
+    @if $i%$jump == 0{
+      .h-#{$i}{
+        height: #{$i}px;
+      }
+    }
+  }
+}
+@include height_generator(5, 150, 5);
