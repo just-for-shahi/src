@@ -1,5 +1,10 @@
 # Faraz Kish Projects
-These projects are free for public use. Be a lesson for those who violate the rights of others!! ✌️
+These projects are free for public use. Be a lesson for those who violate the rights of others!! ✌️  
+
+# Brands
+- Farazkish  
+- Uinvest  
+- MFinance  
 
 # Contact
 
